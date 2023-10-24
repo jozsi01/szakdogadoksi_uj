@@ -1,0 +1,388 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9) (preloaded format=pdflatex 2023.10.2)  24 OCT 2023 20:45
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./document.tex
+(document.tex
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-08-29>
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cl
+s
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\listin
+gs.sty
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval
+.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+\lst@mode=\count193
+\lst@gtempboxa=\box51
+\lst@token=\toks18
+\lst@length=\count194
+\lst@currlwidth=\dimen141
+\lst@column=\count195
+\lst@pos=\count196
+\lst@lostspace=\dimen142
+\lst@width=\dimen143
+\lst@newlines=\count197
+\lst@lineno=\count198
+\lst@maxwidth=\dimen144
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmis
+c.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count199
+\lst@skipnumbers=\count266
+\lst@framebox=\box52
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\listin
+gs.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.s
+ty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\co
+lor.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pd
+ftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathco
+lor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/changepage\chan
+gepage.sty
+Package: changepage 2009/10/20 v1.0c check page and change page layout
+\c@cp@cntr=\count267
+\cp@tempcnt=\count268
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
+cx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
+cs.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.s
+ty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\gr
+aphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen145
+\Gin@req@width=\dimen146
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3bac
+kend-pdftex.def
+File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count269
+\l__pdf_internal_box=\box53
+) (document.aux)
+\openout1 = `document.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+\c@lstlisting=\count270
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\sup
+p-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count271
+\scratchdimen=\dimen147
+\scratchbox=\box54
+\nofMPsegments=\count272
+\nofMParguments=\count273
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count274
+\MPscratchDim=\dimen148
+\MPnumerator=\count275
+\makeMPintoPDFobject=\count276
+\everyMPtoPDFconversion=\toks20
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\ep
+stopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstop
+df-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 46.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 46.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 46.
+ [1
+
+{C:/Users/Bozsik Jozsef/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (doc
+ument.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 5.
+)
+\tf@toc=\write3
+\openout3 = `document.toc'.
+
+ [2] [3]
+Overfull \hbox (27.38847pt too wide) in paragraph at lines 64--66
+\OT1/cmr/m/n/10 A sza-k-dol-go-zat t^^Sem^^Sajak^^Sent egy t^^Sarsasj^^Sat^^Sek
+ k^^Sesz^^S^^Pt^^Ses^^Set v^^Salasztottam webes k^^?ornyezetben
+ []
+
+
+Overfull \hbox (2.00056pt too wide) in paragraph at lines 64--66
+\OT1/cmr/m/n/10 mivel szem^^Sely sz-erint mindig is ^^Serdekelt a tel-jes web-f
+ejleszt^^Sesi folya-mat, valamint
+ []
+
+
+Overfull \hbox (1.52858pt too wide) in paragraph at lines 72--78
+[]\OT1/cmr/m/n/10 Ebben a doku-men-tum-ban ^^?osszefoglalom, hogy hogyan im-ple
+-ment^^Saltam, mind
+ []
+
+
+Overfull \hbox (13.88957pt too wide) in paragraph at lines 72--78
+\OT1/cmr/m/n/10 rengeteg ^^Sujfajta tech-nol^^Sogi^^Sat ^^Ses kere-trend-sz-ert
+ haszn^^Saltam, amik j^^Sol bev^^Salt eszk^^?oz^^?ok
+ []
+
+[4] [5]
+Overfull \hbox (13.05644pt too wide) in paragraph at lines 89--117
+\OT1/cmr/m/n/10 p^^Seld^^Saul k^^?oz^^?oss^^Segi m^^Sedia plat-formokat, on-lin
+e v^^Sas^^Sarl^^Sasi oldalakat vagy h^^S^^Prport^^Salokat,
+ []
+
+
+Overfull \hbox (3.7783pt too wide) in paragraph at lines 89--117
+\OT1/cmr/m/n/10 gramoz^^Sasi nyelveket ^^Ses kere-trend-sz-ereket, p^^Seld^^Sau
+l az ^^Sen es-etem-ben Java Spring[[]]-
+ []
+
+
+Overfull \hbox (0.61174pt too wide) in paragraph at lines 89--117
+\OT1/cmr/m/n/10 lehet}ov^^Se teszik a k^^?ul^^?onb^^?oz}o rend-sz-erek k^^?oz^^
+?otti kom-mu-nik^^Saci^^Sot ^^Ses in-form^^Saci^^Socsere
+ []
+
+[6]
+Overfull \hbox (27.6014pt too wide) in paragraph at lines 123--126
+\OT1/cmr/m/n/10 Munkhelyi k^^?ornyezetben a Vue.js[[]] kere-trend-sz-ert haszn^
+^Saltuk. A Vue.js egyszer}us^^Seget,
+ []
+
+
+Overfull \hbox (15.13962pt too wide) in paragraph at lines 123--126
+[] \OT1/cmr/m/n/10 sz^^Sam^^Sara az in-ter-akt^^S^^Pv ^^Ses di-namikus we-bal-k
+a-lmaz^^Sasok k^^?onny}u l^^Setrehoz^^Sas^^Sat. 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 123--126
+
+ []
+
+
+Overfull \hbox (16.99284pt too wide) in paragraph at lines 134--138
+[]\OT1/cmr/bx/n/10 Komponens alap^^Su ar-chitekt^^Sura: \OT1/cmr/m/n/10 A Vue.j
+s t^^Samogatja az ^^Sujrafelhaszn^^Salhat^^So
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--157
+
+ []
+
+
+Overfull \hbox (9.4719pt too wide) in paragraph at lines 158--163
+[]\OT1/cmr/m/n/10 A Pinia seg^^S^^Pts^^Seg^^Sevel defini^^Salhatunk t^^Sarol^^S
+okat, ame-lyek t^^Sarolj^^Sak az al-ka-lmaz^^Sasod
+ []
+
+
+Overfull \hbox (10.05632pt too wide) in paragraph at lines 158--163
+\OT1/cmr/m/n/10 Min-den t^^Sarol^^So k^^?ul^^?on p^^Seld^^Sanyk^^Sent j^^?on l^
+^Setre, lehet}ov^^Se t^^Seve az al-ka-lmaz^^Sas ^^Sallapot^^Sanak
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--163
+
+ []
+
+[7]
+Overfull \hbox (1.48917pt too wide) in paragraph at lines 164--168
+[]\OT1/cmr/m/n/10 A Pinia egyik f}o el}onye a reak-tivit^^Sasi rend-szere. A Vu
+e reak-tivit^^Sas^^Sat haszn^^Salja
+ []
+
+
+Overfull \hbox (1.7265pt too wide) in paragraph at lines 169--175
+\OT1/cmr/m/n/10 A Webpack[[]] egy n^^Sepszer}u mod-ul-bundler JavaScript al-ka-
+lmaz^^Sasokhoz. Gyakran
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--175
+
+ []
+
+
+Overfull \hbox (1.61171pt too wide) in paragraph at lines 181--185
+\OT1/cmr/m/n/10 Az Ax-ios k^^?onny}u haszn^^Salat^^Su, egyszer}u sz-in-taxissal
+ ren-delkezik, ^^Ses sz^^Samos el}ony^^?os
+ []
+
+
+Overfull \hbox (20.53195pt too wide) in paragraph at lines 188--191
+\OT1/cmr/m/n/10 p^^Seld^^Saul GET, POST, PUT, DELETE stb. haszn^^Salhatunk a k^
+^Ser^^Sesek elk^^?uld^^Ses^^Sere. 
+ []
+
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
+g1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8]
+Overfull \hbox (3.75067pt too wide) in paragraph at lines 215--218
+\OT1/cmr/m/n/10 gy-ors ^^Ses hat^^Sekony we-bal-ka-lmaz^^Sasok ^^Sep^^S^^Pt^^Se
+s^^Set, mik^^?ozben egy ru-gal-mas ^^Ses modul^^Saris
+ []
+
+
+Overfull \hbox (4.6396pt too wide) in paragraph at lines 223--228
+\OT1/cmr/m/n/10 sz^^?uks^^Seges ob-jek-tumokat egy k^^?uls}o forr^^Sasb^^Sol sz
+^^Surhatjuk be a kom-po-nensekbe
+ []
+
+
+Overfull \hbox (18.834pt too wide) in paragraph at lines 228--235
+\OT1/cmr/m/n/10 (Model-View-Controller) mod-ell seg^^S^^Pts^^Seg^^Sevel k^^?onn
+yed^^Sen k^^Sesz^^S^^Pthet^^?unk hat^^Sekony
+ []
+
+
+Overfull \hbox (11.49036pt too wide) in paragraph at lines 228--235
+\OT1/cmr/m/n/10 ^^Ses ru-gal-mas webes al-ka-lmaz^^Sasokat. A Spring Boot pedig
+ egy tov^^Sabbfejlesztett
+ []
+
+
+Overfull \hbox (1.90714pt too wide) in paragraph at lines 238--243
+\OT1/cmr/m/n/10 k^^Sod^^S^^Pr^^Sas min-i-maliz^^Sal^^Sas^^Saban, vagy ak^^Sar a
+ doku-ment^^Saci^^So ^^S^^Pr^^Sas^^Saban. A Java nyelvben
+ []
+
+[9] [10] [11]
+Overfull \hbox (7.9637pt too wide) in paragraph at lines 277--279
+\OT1/cmr/m/n/10 ^^S^^Pgy t}unt logikus-nak. Az oszt^^Salyokat r^^Setegekbe ren-
+deztem funkci^^Sojuk ^^Ses f^^?ugg}os^^Segeik
+ []
+
+
+Overfull \hbox (0.19516pt too wide) in paragraph at lines 313--323
+\OT1/cmr/m/n/10 tudtam tesztelni }oket, hiszen egy mockol^^Sas (a Mock-ito [7] 
+k^^?onyvt^^Sarat haszn^^Saltam
+ []
+
+
+Overfull \hbox (4.27838pt too wide) in paragraph at lines 313--323
+\OT1/cmr/m/n/10 deti rend-szer vagy kom-po-nens egy r^^Sesz^^Set helyettes^^S^^
+Ptik, ^^Ses el}ore defini^^Salt v^^Salaszokat
+ []
+
+[12] [13] [14] (document.aux)
+ ***********
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-08-29>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 3714 strings out of 475247
+ 54177 string characters out of 5753980
+ 2013801 words of memory out of 5000000
+ 25245 multiletter control sequences out of 15000+600000
+ 563867 words of font info for 55 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,8n,65p,482b,1461s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
+600\tcrm1000.pk><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Bozsik Jozsef/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Boz
+sik Jozsef/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.p
+fb><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr17.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Bozsik Jozsef/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Bozsi
+k Jozsef/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+<C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmti10.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmti12.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on document.pdf (14 pages, 199317 bytes).
+PDF statistics:
+ 113 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

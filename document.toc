@@ -1,14 +1,17 @@
-\contentsline {section}{\numberline {1}Összefoglaló}{4}{}%
-\contentsline {section}{\numberline {2}Abstract}{5}{}%
-\contentsline {section}{\numberline {3}Bevezetés}{6}{}%
-\contentsline {section}{\numberline {4}Használt technológiák}{7}{}%
-\contentsline {subsection}{\numberline {4.1}Vue.js}{7}{}%
-\contentsline {subsection}{\numberline {4.2}Pinia Store}{7}{}%
-\contentsline {subsection}{\numberline {4.3}Webpack}{8}{}%
-\contentsline {subsection}{\numberline {4.4}Axios}{8}{}%
-\contentsline {subsection}{\numberline {4.5}JavaSpring}{9}{}%
-\contentsline {subsection}{\numberline {4.6}Lombok}{10}{}%
-\contentsline {section}{\numberline {5}Feladatkiírás pontosítása és részletes elemzése}{11}{}%
-\contentsline {section}{\numberline {6}Önálló munka bemutatása}{12}{}%
-\contentsline {subsection}{\numberline {6.1}Backend}{12}{}%
-\contentsline {subsection}{\numberline {6.2}Frontend}{13}{}%
+\select@language {hungarian} \contentsline {section}{\numberline {1}Összefoglaló}{4}{}%
+\select@language {hungarian} \contentsline {section}{\numberline {2}Abstract}{5}{}%
+\select@language {hungarian} \contentsline {section}{\numberline {3}Bevezetés}{6}{}%
+\select@language {hungarian} \contentsline {section}{\numberline {4}Használt technológiák}{7}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {4.1}Vue.js}{7}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {4.2}Pinia Store}{7}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {4.3}Webpack}{8}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {4.4}Axios}{8}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {4.5}JavaSpring}{9}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {4.6}Lombok}{10}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {4.7}Keycloak}{10}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {4.8}Konva}{10}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {4.9}Postman}{11}{}%
+\select@language {hungarian} \contentsline {section}{\numberline {5}Feladatkiírás pontosítása és részletes elemzése}{12}{}%
+\select@language {hungarian} \contentsline {section}{\numberline {6}Önálló munka bemutatása}{13}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {6.1}Backend}{13}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {6.2}Frontend}{14}{}%

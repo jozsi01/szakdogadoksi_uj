@@ -3,7 +3,7 @@
 \usepackage{xcolor}
 \usepackage{changepage}
 \usepackage{graphicx}
-
+\usepackage[hungarian]{babel}
 \title{Szakdolgozat}
 
 \definecolor{mygreen}{RGB}{0,128,0}
@@ -240,6 +240,38 @@ segít csökkenteni a boilerplate kódot és növeli a fejlesztési produktivit�
 ismétlődő és rutinszerű feladatokra szolgál. A Lombok annotációkat használva lehetővé teszi, hogy a fejlesztők egyszerűbben és gyorsabban hozzanak létre Java osztályokat. Annotációkat a programozásban gyakran használnak, mivel segítik a kód megértését, segíthetik a fejlesztőt a kódírás minimalizálásában, vagy akár a
 dokumentáció írásában. A Java nyelvben többféle annotációk léteznek. Ilyenek például a beépített annotációk, amik segítik a kód
 megértését. A @Deprecated annotációval ellátott elemeket jelölik, hogy elavultak vagy nem ajánlottak használatra. Ez figyelmezteti a fejlesztőket, hogy más megoldást vagy alternatívát kell használni.
+
+\subsection{Keycloak}
+Az autentikációhoz a Keycloak\cite{keycloak} nyílt forráskódú keretrendszert választottam. A Keycloak egy sor olyan funkciót kínál, amelyek segítenek az alkalmazások és szolgáltatások biztonságosításában, ideértve a Single Sign-On (SSO), felhasználói hitelesítést, felhasználói engedélyezéseket és az azonosítás közvetítését. A Single Sign-On (SSO) egy olyan hitelesítési és azonosítási technológia, amely lehetővé teszi a felhasználók számára, hogy egyszeri bejelentkezéssel hozzáférjenek több különböző alkalmazáshoz vagy rendszerhez anélkül, hogy minden egyes alkalmazásban külön-külön be kellene jelentkezniük. Ennek előnyei közé tartozik a a felhasználói kényelem, szigorú ellenőrzés, könnyebb felhasználói ellenőrzés. A Keycloak olyan megoldást nyújt, amely egyszerűsíti a biztonság hozzáadásának folyamatát az alkalmazásokhoz, és lehetővé teszi a felhasználói azonosításokat, szerepeket és jogosultságokat központilag történő kezelését. A keretrendszer képes integrálódni különböző alkalmazásokkal és platformokkal, így értékes eszköz azoknak a szervezeteknek, akik webalkalmazásaikat és API-ikat szeretnék biztonságossá tenni.Támogat különböző hitelesítési módszereket, beleértve a közösségi bejelentkezéseket, több tényezős hitelesítést és még sok mást. Emellett a Keycloak rendkívül rugalmas és bővíthető architektúrával rendelkezik, így alkalmas különféle felhasználási esetekre, a kis alkalmazásoktól a nagyvállalati rendszerekig. Gazdag API-kat kínál, és egy felhasználóbarát adminisztrációs konzolt, amely segít a felhasználók, valóságok és ügyfelek kezelésében.
+
+
+\subsection{Konva}
+A játék megjelenítéséhez a Konva\cite{konva} könyvtárat haszáltam. Konva egy HTML5 Canvas alapú grafikus könyvtár, amelyet használhatunk a webes alkalmazásokban és weboldalakon történő rajzoláshoz és grafikai elemek kezeléséhez. Ez a könyvtár lehetővé teszi a fejlesztők számára, hogy könnyedén rajzolhassanak formákat, vonalakat, szövegeket és egyéb grafikai elemeket a webes felületeken, és interaktív alkalmazásokat hozzanak létre, ahol a felhasználók rajzolhatnak, mozgathatnak és manipulálhatnak grafikai elemeket.Az alábbiakban néhány kulcsfontosságú tulajdonság és funkció, amelyeket a Konva nyújt:
+
+\begin{itemize}
+	\item \textbf{HTML5 Canvas alapú:} Konva a HTML5 Canvas API-t használja, ami lehetővé teszi a közvetlen grafikus rajzolást a webes felületeken. Ez rendkívül hatékony és lehetővé teszi a komplex grafikai elemek létrehozását.
+	\item \textbf{Interaktivitás:} Konva lehetővé teszi az interaktív grafikus elemek létrehozását, például húzható és áthelyezhető elemeket, melyekre kattintva változtathatjuk az állapotukat.
+	\item \textbf{Rétegek és Csoportok:} A könyvtár támogatja a rajzok elrendezéséhez használt rétegek és csoportok létrehozását, ami rendszerezheti és kezelheti a grafikai elemeket.
+	\item \textbf{Szöveg és betűtípusok:} Konva lehetővé teszi a szöveges elemek létrehozását, és támogatja a különböző betűtípusok és formázási lehetőségek használatát.
+	\item \textbf{Animáció:} A könyvtár animációt támogat, így a grafikai elemek mozgathatók és animálhatók.
+	\item \textbf{Eseménykezelés:} Konva lehetővé teszi az események kezelését, például kattintásokat és húzásokat, ami lehetővé teszi az interaktív műveletek megvalósítását.
+	\item \textbf{Több platform támogatása:} A Konva nem csak böngészőkben használható, hanem akár Node.js környezetben is, ami különféle alkalmazások fejlesztését teszi lehetővé.
+\end{itemize}
+
+
+\subsection{Postman}
+A backend API teszteléséhez, frontend nélkül, kiváló megoldást kínál a Postman\cite{postman}, így ezt használtam a fejlesztés során.Az alábbiakban néhány kulcsfontosságú jellemzőt és funkciót ismertetek, amit a Postman kínál:
+
+\begin{itemize}
+	\item \textbf{API Tesztelés:} Postman segítségével könnyedén készíthetsz és futtathatsz API-teszteket. Különböző HTTP kéréseket küldhetsz az API-hoz, és az eredményeket vizsgálhatod.
+	\item \textbf{Környezetek és Változók:} Lehetőséged van környezeteket és változókat definiálni a kérésekben, ami lehetővé teszi különböző környezetek (pl. fejlesztési, tesztelési, élő) közötti könnyű váltást és paraméterezést.
+	\item \textbf{Automatizálás:} Postman segítségével automatizálhatod az API-teszteket és kéréseket. Például létrehozhatsz kollekciókat, amelyeket később futtatni tudsz automatizált módon.
+	\item \textbf{Hitelesítés és Biztonság:} A Postman lehetővé teszi különböző hitelesítési mechanizmusok, például API kulcsok vagy OAuth használatát. Emellett támogatja a biztonsági teszteket is.
+\end{itemize}
+
+
+
+
 \newpage
 
 \section{Feladatkiírás pontosítása és részletes elemzése}
@@ -362,6 +394,11 @@ elteltével eltűnik.
 	 
 	 \bibitem{lombok}
 	 Lombok library
+	 \bibitem{keycloak}
+	 Keycloak library
+	 \bibitem{konva}
+	 Konva library
+	 \bibitem{postman}
 \end{thebibliography}
 
 \end{document}

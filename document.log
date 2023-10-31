@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9) (preloaded format=pdflatex 2023.10.2)  24 OCT 2023 21:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9) (preloaded format=pdflatex 2023.10.2)  31 OCT 2023 17:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -112,10 +112,43 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 \Gin@req@height=\dimen145
 \Gin@req@width=\dimen146
 )
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.s
+ty
+Package: babel 2023/08/29 v3.93 The Babel package
+\babel@savecnt=\count269
+\U@D=\dimen147
+\l@unhyphenated=\language79
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabe
+l.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count270
+
+*************************************
+* Local config file bblopts.cfg used
+*
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.c
+fg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/babel-hungarian
+\magyar.ldf
+Language: hungarian 2019/01/14 v1.5c Magyar (Hungarian) support for babel
+Package babel Info: Making ` an active character on input line 2819.
+\c@footnote@add=\count271
+\c@footnote@ch=\count272
+))
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/
+hu\babel-hungarian.tex
+Package babel Info: Importing font and identification data for hungarian
+(babel)             from babel-hu.ini. Reported on input line 11.
+)
 (C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3bac
 kend-pdftex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count269
+\l__color_backend_stack_int=\count273
 \l__pdf_internal_box=\box53
 ) (document.aux)
 \openout1 = `document.aux'.
@@ -134,33 +167,86 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
 LaTeX Font Info:    ... okay on input line 45.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
 LaTeX Font Info:    ... okay on input line 45.
-\c@lstlisting=\count270
+\c@lstlisting=\count274
 
 (C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\sup
 p-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count271
-\scratchdimen=\dimen147
+\scratchcounter=\count275
+\scratchdimen=\dimen148
 \scratchbox=\box54
-\nofMPsegments=\count272
-\nofMParguments=\count273
+\nofMPsegments=\count276
+\nofMParguments=\count277
 \everyMPshowfont=\toks19
-\MPscratchCnt=\count274
-\MPscratchDim=\dimen148
-\MPnumerator=\count275
-\makeMPintoPDFobject=\count276
+\MPscratchCnt=\count278
+\MPscratchDim=\dimen149
+\MPnumerator=\count279
+\makeMPintoPDFobject=\count280
 \everyMPtoPDFconversion=\toks20
 )
 (C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\ep
 stopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\inf
+warerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.s
+ty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\
+kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvopt
+ions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcm
+ds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvset
+keys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pd
+ftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.s
+ty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
 
 (C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstop
 df-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
+
+LaTeX Warning: Please use \usepackage{t1enc} with
+               \usepackage[hungarian]{babel}, to get accented chars hyphenated.
+
+
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cl
+s
+LaTeX Info: Redefining \cal on input line 497.
+LaTeX Info: Redefining \mit on input line 498.
+)
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 46.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -168,6 +254,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 46.
  [1
+
 
 {C:/Users/Bozsik Jozsef/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (doc
 ument.toc
@@ -180,68 +267,38 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `document.toc'.
 
  [2] [3]
-Overfull \hbox (27.38847pt too wide) in paragraph at lines 64--66
-\OT1/cmr/m/n/10 A sza-k-dol-go-zat t^^Sem^^Sajak^^Sent egy t^^Sarsasj^^Sat^^Sek
- k^^Sesz^^S^^Pt^^Ses^^Set v^^Salasztottam webes k^^?ornyezetben
+Overfull \hbox (2.11064pt too wide) in paragraph at lines 64--66
+\OT1/cmr/m/n/10 A szak-dol-go-zat t^^Sem^^Sajak^^Sent egy t^^Sarsasj^^Sat^^Sek 
+k^^Sesz^^S^^Pt^^Ses^^Set v^^Salasztottam we-bes k^^?ornye-
  []
 
 
-Overfull \hbox (2.00056pt too wide) in paragraph at lines 64--66
-\OT1/cmr/m/n/10 mivel szem^^Sely sz-erint mindig is ^^Serdekelt a tel-jes web-f
-ejleszt^^Sesi folya-mat, valamint
+Overfull \hbox (5.63023pt too wide) in paragraph at lines 64--66
+\OT1/cmr/m/n/10 t^^Sarsasj^^Sat^^Sekoz^^Sas. V^^Seg^^?ul egy ''ki ne-vet a v^^S
+eg^^Sen'' t^^Sarsas fej-leszt^^Sese mel-lett d^^?ont^^?ottem,
  []
 
 
 Overfull \hbox (1.52858pt too wide) in paragraph at lines 72--78
-[]\OT1/cmr/m/n/10 Ebben a doku-men-tum-ban ^^?osszefoglalom, hogy hogyan im-ple
--ment^^Saltam, mind
- []
-
-
-Overfull \hbox (13.88957pt too wide) in paragraph at lines 72--78
-\OT1/cmr/m/n/10 rengeteg ^^Sujfajta tech-nol^^Sogi^^Sat ^^Ses kere-trend-sz-ert
- haszn^^Saltam, amik j^^Sol bev^^Salt eszk^^?oz^^?ok
+[]\OT1/cmr/m/n/10 Ebben a do-ku-men-tum-ban ^^?ossze-fog-la-lom, hogy ho-gyan i
+mp-le-ment^^Saltam, mind
  []
 
 [4] [5]
 Overfull \hbox (13.05644pt too wide) in paragraph at lines 89--117
-\OT1/cmr/m/n/10 p^^Seld^^Saul k^^?oz^^?oss^^Segi m^^Sedia plat-formokat, on-lin
-e v^^Sas^^Sarl^^Sasi oldalakat vagy h^^S^^Prport^^Salokat,
- []
-
-
-Overfull \hbox (3.7783pt too wide) in paragraph at lines 89--117
-\OT1/cmr/m/n/10 gramoz^^Sasi nyelveket ^^Ses kere-trend-sz-ereket, p^^Seld^^Sau
-l az ^^Sen es-etem-ben Java Spring[[]]-
- []
-
-
-Overfull \hbox (0.61174pt too wide) in paragraph at lines 89--117
-\OT1/cmr/m/n/10 lehet}ov^^Se teszik a k^^?ul^^?onb^^?oz}o rend-sz-erek k^^?oz^^
-?otti kom-mu-nik^^Saci^^Sot ^^Ses in-form^^Saci^^Socsere
+\OT1/cmr/m/n/10 p^^Seld^^Saul k^^?oz^^?oss^^Segi m^^Sedia plat-for-mo-kat, on-l
+ine v^^Sas^^Sarl^^Sasi ol-da-la-kat vagy h^^S^^Prport^^Salokat,
  []
 
 [6]
-Overfull \hbox (27.6014pt too wide) in paragraph at lines 123--126
-\OT1/cmr/m/n/10 Munkhelyi k^^?ornyezetben a Vue.js[[]] kere-trend-sz-ert haszn^
-^Saltuk. A Vue.js egyszer}us^^Seget,
- []
-
-
-Overfull \hbox (15.13962pt too wide) in paragraph at lines 123--126
-[] \OT1/cmr/m/n/10 sz^^Sam^^Sara az in-ter-akt^^S^^Pv ^^Ses di-namikus we-bal-k
-a-lmaz^^Sasok k^^?onny}u l^^Setrehoz^^Sas^^Sat. 
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 123--126
 
  []
 
 
 Overfull \hbox (16.99284pt too wide) in paragraph at lines 134--138
-[]\OT1/cmr/bx/n/10 Komponens alap^^Su ar-chitekt^^Sura: \OT1/cmr/m/n/10 A Vue.j
-s t^^Samogatja az ^^Sujrafelhaszn^^Salhat^^So
+[]\OT1/cmr/bx/n/10 Komponens alap^^Su ar-chi-tekt^^Sura: \OT1/cmr/m/n/10 A Vue.
+js t^^Samogatja az ^^Sujrafelhaszn^^Salhat^^So
  []
 
 
@@ -250,15 +307,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 153--157
  []
 
 
-Overfull \hbox (9.4719pt too wide) in paragraph at lines 158--163
-[]\OT1/cmr/m/n/10 A Pinia seg^^S^^Pts^^Seg^^Sevel defini^^Salhatunk t^^Sarol^^S
-okat, ame-lyek t^^Sarolj^^Sak az al-ka-lmaz^^Sasod
+Overfull \hbox (22.22305pt too wide) in paragraph at lines 158--163
+\OT1/cmr/m/n/10 maz^^Sasod ^^Sallapot^^Sat, ^^Ses k^^?ul^^?onb^^?oz}o met^^Sodu
+sokat hat^^Sarozhat meg az ^^Sallapot m^^Sodos^^S^^Pt^^Sas^^Sar.
  []
 
 
 Overfull \hbox (10.05632pt too wide) in paragraph at lines 158--163
 \OT1/cmr/m/n/10 Min-den t^^Sarol^^So k^^?ul^^?on p^^Seld^^Sanyk^^Sent j^^?on l^
-^Setre, lehet}ov^^Se t^^Seve az al-ka-lmaz^^Sas ^^Sallapot^^Sanak
+^Setre, le-het}ov^^Se t^^Seve az al-kal-maz^^Sas ^^Sallapot^^Sanak
  []
 
 
@@ -268,14 +325,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 158--163
 
 [7]
 Overfull \hbox (1.48917pt too wide) in paragraph at lines 164--168
-[]\OT1/cmr/m/n/10 A Pinia egyik f}o el}onye a reak-tivit^^Sasi rend-szere. A Vu
-e reak-tivit^^Sas^^Sat haszn^^Salja
- []
-
-
-Overfull \hbox (1.7265pt too wide) in paragraph at lines 169--175
-\OT1/cmr/m/n/10 A Webpack[[]] egy n^^Sepszer}u mod-ul-bundler JavaScript al-ka-
-lmaz^^Sasokhoz. Gyakran
+[]\OT1/cmr/m/n/10 A Pi-nia egyik f}o el}onye a re-ak-ti-vit^^Sasi rend-sze-re. 
+A Vue re-ak-ti-vit^^Sas^^Sat haszn^^Salja
  []
 
 
@@ -285,14 +336,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 169--175
 
 
 Overfull \hbox (1.61171pt too wide) in paragraph at lines 181--185
-\OT1/cmr/m/n/10 Az Ax-ios k^^?onny}u haszn^^Salat^^Su, egyszer}u sz-in-taxissal
- ren-delkezik, ^^Ses sz^^Samos el}ony^^?os
+\OT1/cmr/m/n/10 Az Axi-os k^^?onny}u haszn^^Salat^^Su, egy-szer}u szin-ta-xis-s
+al ren-del-ke-zik, ^^Ses sz^^Samos el}ony^^?os
  []
 
 
 Overfull \hbox (20.53195pt too wide) in paragraph at lines 188--191
-\OT1/cmr/m/n/10 p^^Seld^^Saul GET, POST, PUT, DELETE stb. haszn^^Salhatunk a k^
-^Ser^^Sesek elk^^?uld^^Ses^^Sere. 
+\OT1/cmr/m/n/10 p^^Seld^^Saul GET, POST, PUT, DE-LE-TE stb. haszn^^Salhatunk a 
+k^^Ser^^Sesek elk^^?uld^^Ses^^Sere. 
  []
 
 
@@ -303,67 +354,121 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
-Overfull \hbox (3.75067pt too wide) in paragraph at lines 215--218
-\OT1/cmr/m/n/10 gy-ors ^^Ses hat^^Sekony we-bal-ka-lmaz^^Sasok ^^Sep^^S^^Pt^^Se
-s^^Set, mik^^?ozben egy ru-gal-mas ^^Ses modul^^Saris
- []
-
-
-Overfull \hbox (4.6396pt too wide) in paragraph at lines 223--228
-\OT1/cmr/m/n/10 sz^^?uks^^Seges ob-jek-tumokat egy k^^?uls}o forr^^Sasb^^Sol sz
-^^Surhatjuk be a kom-po-nensekbe
- []
-
-
 Overfull \hbox (18.834pt too wide) in paragraph at lines 228--235
-\OT1/cmr/m/n/10 (Model-View-Controller) mod-ell seg^^S^^Pts^^Seg^^Sevel k^^?onn
+\OT1/cmr/m/n/10 (Model-View-Controller) mo-dell seg^^S^^Pts^^Seg^^Sevel k^^?onn
 yed^^Sen k^^Sesz^^S^^Pthet^^?unk hat^^Sekony
  []
 
 
 Overfull \hbox (11.49036pt too wide) in paragraph at lines 228--235
-\OT1/cmr/m/n/10 ^^Ses ru-gal-mas webes al-ka-lmaz^^Sasokat. A Spring Boot pedig
- egy tov^^Sabbfejlesztett
+\OT1/cmr/m/n/10 ^^Ses ru-gal-mas we-bes al-kal-maz^^Sasokat. A Spring Boot pe-d
+ig egy tov^^Sabbfejlesztett
+ []
+
+[9]
+Overfull \hbox (5.91724pt too wide) in paragraph at lines 245--246
+\OT1/cmr/m/n/10 le-het}ov^^Se te-szi a fel-haszn^^Sal^^Sok sz^^Sam^^Sara, hogy 
+egy-sze-ri be-je-lent-kez^^Sessel hozz^^Saf^^Serjenek
  []
 
 
-Overfull \hbox (1.90714pt too wide) in paragraph at lines 238--243
-\OT1/cmr/m/n/10 k^^Sod^^S^^Pr^^Sas min-i-maliz^^Sal^^Sas^^Saban, vagy ak^^Sar a
- doku-ment^^Saci^^So ^^S^^Pr^^Sas^^Saban. A Java nyelvben
- []
-
-[9] [10] [11]
-Overfull \hbox (7.9637pt too wide) in paragraph at lines 277--279
-\OT1/cmr/m/n/10 ^^S^^Pgy t}unt logikus-nak. Az oszt^^Salyokat r^^Setegekbe ren-
-deztem funkci^^Sojuk ^^Ses f^^?ugg}os^^Segeik
+Overfull \hbox (5.0008pt too wide) in paragraph at lines 249--250
+\OT1/cmr/m/n/10 Can-vas alap^^Su gra-fi-kus k^^?onyvt^^Sar, ame-lyet haszn^^Sal
+hatunk a we-bes al-kal-maz^^Sasokban
  []
 
 
-Overfull \hbox (0.19516pt too wide) in paragraph at lines 313--323
-\OT1/cmr/m/n/10 tudtam tesztelni }oket, hiszen egy mockol^^Sas (a Mock-ito [7] 
-k^^?onyvt^^Sarat haszn^^Saltam
+Overfull \hbox (3.15799pt too wide) in paragraph at lines 249--250
+\OT1/cmr/m/n/10 ^^Ses web-ol-da-la-kon t^^?ort^^Sen}o raj-zol^^Sashoz ^^Ses gra
+-fi-kai ele-mek ke-zel^^Ses^^Sehez. Ez a k^^?onyvt^^Sar
  []
 
 
-Overfull \hbox (4.27838pt too wide) in paragraph at lines 313--323
-\OT1/cmr/m/n/10 deti rend-szer vagy kom-po-nens egy r^^Sesz^^Set helyettes^^S^^
-Ptik, ^^Ses el}ore defini^^Salt v^^Salaszokat
+Overfull \hbox (2.47285pt too wide) in paragraph at lines 252--253
+\OT1/cmr/m/n/10 rendk^^S^^Pv^^?ul hat^^Sekony ^^Ses le-het}ov^^Se te-szi a komp
+-lex gra-fi-kai ele-mek l^^Setrehoz^^Sas^^Sat. 
  []
 
-[12] [13] [14] (document.aux)
+[10]
+Overfull \hbox (24.87648pt too wide) in paragraph at lines 253--254
+[]\OT1/cmr/bx/n/10 Interaktivit^^Sas: \OT1/cmr/m/n/10 Kon-va le-het}ov^^Se te-s
+zi az in-ter-akt^^S^^Pv gra-fi-kus ele-mek l^^Setrehoz^^Sas^^Sat,
+ []
+
+
+Overfull \hbox (11.13962pt too wide) in paragraph at lines 253--254
+\OT1/cmr/m/n/10 p^^Seld^^Saul h^^Suzhat^^So ^^Ses ^^Sathelyezhet}o ele-me-ket, 
+me-lyek-re kat-tint-va v^^Saltoztathatjuk
+ []
+
+
+Overfull \hbox (18.13448pt too wide) in paragraph at lines 255--256
+[]\OT1/cmr/bx/n/10 Sz^^?oveg ^^Ses bet}ut^^S^^Ppusok: \OT1/cmr/m/n/10 Kon-va le
+-het}ov^^Se te-szi a sz^^?ove-ges ele-mek l^^Setrehoz^^Sas^^Sat,
+ []
+
+
+Overfull \hbox (2.8618pt too wide) in paragraph at lines 255--256
+\OT1/cmr/m/n/10 ^^Ses t^^Samogatja a k^^?ul^^?onb^^?oz}o bet}ut^^S^^Ppusok ^^Se
+s form^^Saz^^Sasi le-het}os^^Segek haszn^^Salat^^Sat. 
+ []
+
+
+Overfull \hbox (16.81934pt too wide) in paragraph at lines 258--259
+[]\OT1/cmr/bx/n/10 T^^?obb plat-form t^^Samogat^^Sasa: \OT1/cmr/m/n/10 A Kon-va
+ nem csak b^^?ong^^Sesz}okben haszn^^Salhat^^So,
+ []
+
+
+Overfull \hbox (4.7229pt too wide) in paragraph at lines 258--259
+\OT1/cmr/m/n/10 ha-nem ak^^Sar No-de.js k^^?ornye-zet-ben is, ami k^^?ul^^?onf^
+^Sele al-kal-maz^^Sasok fej-leszt^^Ses^^Set
+ []
+
+
+Overfull \hbox (10.13737pt too wide) in paragraph at lines 263--264
+\OT1/cmr/m/n/10 A bac-kend API tesz-tel^^Ses^^Sehez, front-end n^^Selk^^?ul, ki
+v^^Sal^^So meg-old^^Sast k^^S^^Pn^^Sal a Postman[[]],
+ []
+
+
+Overfull \hbox (2.52914pt too wide) in paragraph at lines 268--269
+[]\OT1/cmr/bx/n/10 Automatiz^^Sal^^Sas: \OT1/cmr/m/n/10 Post-man seg^^S^^Pts^^S
+eg^^Sevel au-to-ma-tiz^^Salhatod az API-teszteket
+ []
+
+[11] [12]
+Overfull \hbox (7.9637pt too wide) in paragraph at lines 309--311
+\OT1/cmr/m/n/10 ^^S^^Pgy t}unt lo-gi-kus-nak. Az oszt^^Salyokat r^^Setegekbe re
+n-dez-tem funk-ci^^Sojuk ^^Ses f^^?ugg}os^^Segeik
+ []
+
+
+Overfull \hbox (0.19516pt too wide) in paragraph at lines 345--355
+\OT1/cmr/m/n/10 tud-tam tesz-tel-ni }oket, hi-szen egy moc-kol^^Sas (a Mo-cki-t
+o [7] k^^?onyvt^^Sarat haszn^^Saltam
+ []
+
+
+Overfull \hbox (4.27838pt too wide) in paragraph at lines 345--355
+\OT1/cmr/m/n/10 de-ti rend-szer vagy kom-po-nens egy r^^Sesz^^Set he-lyet-tes^^
+S^^Ptik, ^^Ses el}ore de-fi-ni^^Salt v^^Salaszokat
+ []
+
+[13] [14] [15] (document.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3714 strings out of 475247
- 54177 string characters out of 5753980
- 2013801 words of memory out of 5000000
- 25245 multiletter control sequences out of 15000+600000
+ 6261 strings out of 475247
+ 103376 string characters out of 5753980
+ 2014801 words of memory out of 5000000
+ 27738 multiletter control sequences out of 15000+600000
  563867 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,8n,65p,482b,1461s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 61i,8n,69p,1788b,1468s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
 600\tcrm1000.pk><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Programs
@@ -380,9 +485,9 @@ k Jozsef/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
 ts/cm/cmti10.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/public/amsfonts/cm/cmti12.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on document.pdf (14 pages, 199317 bytes).
+Output written on document.pdf (15 pages, 205503 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
+ 116 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

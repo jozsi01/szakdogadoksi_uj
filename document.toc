@@ -14,4 +14,7 @@
 \select@language {hungarian} \contentsline {section}{\numberline {5}Feladatkiírás pontosítása és részletes elemzése}{12}{}%
 \select@language {hungarian} \contentsline {section}{\numberline {6}Önálló munka bemutatása}{13}{}%
 \select@language {hungarian} \contentsline {subsection}{\numberline {6.1}Backend}{13}{}%
-\select@language {hungarian} \contentsline {subsection}{\numberline {6.2}Frontend}{14}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {6.2}Authentikáció}{14}{}%
+\select@language {hungarian} \contentsline {subsubsection}{\numberline {6.2.1}Backend}{14}{}%
+\select@language {hungarian} \contentsline {subsubsection}{\numberline {6.2.2}Frontend}{18}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {6.3}Frontend}{20}{}%

@@ -4,6 +4,9 @@
 \usepackage{changepage}
 \usepackage{graphicx}
 \usepackage[hungarian]{babel}
+\usepackage{amsmath} 
+\usepackage{t1enc}
+\usepackage{titlesec}
 \title{Szakdolgozat}
 
 \definecolor{mygreen}{RGB}{0,128,0}
@@ -12,6 +15,7 @@
 \definecolor{myblue}{RGB}{0,0,204}
 \definecolor{mypurple}{RGB}{204,0,204}
 
+\graphicspath{{./images}}
 \author{Bozsik József}
 
 \lstdefinestyle{javascriptStyle}{
@@ -352,6 +356,164 @@ eredeti rendszer vagy komponens egy részét helyettesítik, és előre definiá
 függvényhívásokra vagy metódusokra. A mock objektumok segítségével szimulálhatók a
 valós környezetben előforduló esetek, például adatbázishoz való kapcsolódás vagy hálózati
 kommunikáció, anélkül, hogy a valódi rendszerre vagy szolgáltatásra támaszkodnánk. 
+\subsection{Authentikáció}
+\subsubsection{Backend}
+Az authentikációt a Keycloak nyílt forráskódú keretrendszerrel valósítottam meg. Ehhez, hogy konfigurálni tudjam a 
+szükséges beállításokat, és futtatni tudjam otthoni környezetben, legegyszerűbb megoldásnak tartottam, hogy egy Docker konténerben 
+futattam. Ehhez először telepíteni kellett a Dockert, majd a terminálban kiadni a következő parancsot: 
+\textbf{docker run -p 10000:8080 -e KEYCLOAK\_ADMIN=admin -e KEYCLOAK\_ADMIN\_PASSWORD=admin quay.io/keycloak/keycloak:22.0.5 start-dev}
+Itt lehetett beállítani hogy a keycloak melyik porton fusson. Mivel a backendem spring boot alkalmazás aminek az alapértelmezett portja 8080 így 
+ettől eltérőet kellett választani, ami a 10000 lett. A parancs segítségével letöltöttem a megfelelő Docker Imaget amit már könnyedén el lehetett indítani,
+és elérhetővé vált számomra a \textbf{localhost:10000} -en keretrendszer. Az admin konzolba való belépés után lehetett beállítani a kívánt funkciókat. 
+Először is egy új realm-et hoztam létre aminek a neve: WhoLaughsLast. A realmeken belül lehet létrehozni a külöböző client-eket amik esetünkben az alkalmazásokat jelentik. Így létre is hoztam egyet: \text{who\_laughs\_last\_client} néven majd ehhez a client-hez rendeltem hozzá a felhasználókat. 
+
+\begin{figure}[h]
+	\caption{Keycloakban a clients lista}
+	\centering
+	\includegraphics[scale=0.5]{keycloak-cients}
+\end{figure}
+Pár beállítást még kellett végezni a client-en. Először is megadtam a Valid redirect URL. Ez azt az elérési utat adja meg, ahova bejelentkezés után navigálni akarunk. Én 
+a \textbf{http://localhost:3000/*} adtam meg, hiszen ezen a porton futott nekem a frontend alkalmazás, így a felhasználó bejelentkezés után bent volt az alkalmazásban. A keycloak
+széles API-t kínál így ezt megismerve az backendemről authentikáció során ide küldtem a kéréseket. Azt is be lehet állítani hogy a mennyi idő után jár le az access token érvényessége, tehát utána majd újat kell kérni a szervertől. 
+
+A végpontok biztonságossá tételéhez a \textbf{Spring Security}-t és az \textbf{OAuth2ResourceServer} dependency-ket használtam fel. A függőségeket leíró xml-eket beillesztettem a pom.xml fájlba, majd a Maven letöltötte őket, hogy majd használni tudjam. 
+
+\begin{lstlisting}[language=XML, caption={A pom.xml fileban a függőségek},captionpos=b]
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+		<version>3.1.5</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-security</artifactId>
+		<version>3.1.5</version>
+	</dependency>
+\end{lstlisting}
+
+Miután a Spring Security bekerül az alkalmazásban, alapértelmezetten csinál egy SecurityFilterChain-t ami megköveteli hogy az összes API végpontnál
+a hívónak authetntikálnia kell magát. Ezt a függvényt kell felülírni és úgy implementálni ahogyan azt mi szeretnénk. \textbf{@Bean} annotációval van ellátva,
+így ezt a Spring kezeli és tudja hogy mikor kell használni. A kérések beérkeznek az alkalmazásunkba, akkor végighaladnak ezeken a filtereken amiket beállítunk. Miután talál 
+egy olyan filtert ami a kéréshez illik: Például a "/board" végződésű végpontra jött kérés, akkor azt tudja hogy authentikálni kell, és a többi filtert már nem nézi meg, akár illik rá akár nem. 
+
+\begin{figure}[h]
+	\caption{SecurityFilterChain működése }
+	\centering
+	\includegraphics[scale=0.5]{filterchain}
+\end{figure}
+
+Úgy konfiguráltam fel a függvényt, hogy 3 végponton kívül mindent authetnikáljon: \textbf{/auth/createToken}, \textbf{/auth/refreshToken} ,\textbf{/subscribe}. Első kettőt végpontot azért nem kell authentikálni, mivel ide érkeznek azok a kérések amikor a felhasználó be akar jelentkezni, és kapja meg a szükséges token-eket amikre majd később szüksége lesz az authentikációnál.Ezek után a OAuth2 resource szervert kellett felkonfigurálni. Az application.yml file-ban írtam bele a különböző elérési utakat amikre a szervernek szüksége van hogy authentikálni tudja a jwt tokeneket. A keycloak-nál a \textbf{http://localhost:10000/realms/WhoLaughsLast/protocol/openid-connect/certs} elérési úton 
+elérhető az adott client-hez tartozó authetnikációs adatok. A jwt tokeneket sütikben tárolva szállítottam a backend és frontend között. Ennek az egyik nagy előnye, hogy front-end részen a tokenek eltárolásával nem kell foglalkozni, így ha esetleg újratöltenénk az oldalt, az authentikációs tokeneink nem vesznek el. Ahhoz viszont hogy sütiket tudjunk küldeni, a CORS beállításnál engedélyezni kell, hogy engedélyezze a sütik küldését. 
+
+\begin{lstlisting}[language=java,caption={SecurityConfig implementálása},captionpos=b]
+@Configuration
+@EnableWebSecurity
+@EnableMethodSecurity
+@RequiredArgsConstructor
+public class SecurityConfig {
+	
+private final AuthService authService;
+
+@Bean
+public SecurityFilterChain securityFilterChain (HttpSecurity http)
+													 throws Exception{
+	System.out.println("Hallo");
+	http
+	.cors().and()
+	.csrf()
+	.disable()
+	.authorizeHttpRequests(authorize -> authorize.
+	requestMatchers("/auth/createToken","/auth/refreshToken")
+	.permitAll()
+	.anyRequest().authenticated()).oauth2ResourceServer()
+	.jwt().and().
+	bearerTokenResolver(authService::getAccesTokenFromCookie);
+	
+	http
+	.sessionManagement()
+	.sessionCreationPolicy(STATELESS);
+	
+	return http.build();
+}
+@Bean
+CorsConfigurationSource corsConfigurationSource() {
+	CorsConfiguration configuration = new CorsConfiguration();
+	configuration.
+	setAllowedOrigins(Arrays.asList("http://localhost:3000")); // Allow your frontend origin
+	configuration.
+	setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
+	configuration.
+	setAllowCredentials(true); // Allow credentials (cookies)
+	configuration.addAllowedHeader("*");
+		
+	UrlBasedCorsConfigurationSource source = 
+	new UrlBasedCorsConfigurationSource();
+	source.registerCorsConfiguration("/**", configuration);
+	return source;
+	}
+	
+}
+\end{lstlisting}
+
+Ezek után implementáltam az authentikációs végpontot. Létrehoztam egy új Controllert aminek AuthController lett a neve,
+hogy szeparáltan legyen a többi végponttól ami a játékhoz kell, az átláthatóság és a rendezettség érdekében.Az egyik végpont 
+funkciója az hogy egy paraméterben kapott authorization code-ot elküldi a keycloak végpontjára amiért cserébe egy refresh tokent és egy access tokent kap.
+Ezeket egy sütiben visszaadva juttatja el a frontendre. A másik végpont funkciója pedig az hogy egy paraméterben kapott refresh tokent beváltva új access tokent kapjon a frontend az authentikációhoz.  
+\begin{lstlisting}[language=java,caption={Authentikációs végpont},captionpos=b]
+@PostMapping("/createToken")
+public void createToken(@RequestBody AuthTokenDTO authCode,
+			HttpServletResponse httpServletResponse) throws Exception{
+	TokenDTO tokenDTO =  authService.getTokens(authCode.getAuthCode());
+	Cookie accesCookie =
+	 new Cookie("access_token",tokenDTO.getAccess_token());
+	Cookie refreshcookie =
+	 new Cookie("refresh_token",tokenDTO.getRefresh_token());
+	httpServletResponse.addCookie(accesCookie);
+	httpServletResponse.addCookie(refreshcookie);
+}
+
+@PostMapping("/refreshToken")
+public TokenDTO refreshAccesToken(@RequestBody RefreshTokenDTO refreshTokenDTO)
+				 throws Exception{
+	return authService.refreshAccesTokenWithRefreshToken(refreshTokenDTO
+						.getRefresh_token());
+}
+\end{lstlisting}
+
+\begin{figure}[h]
+	\caption{Postman authentikációs token kérés}
+	\centering
+	\includegraphics[scale=0.5]{getTokens}
+\end{figure}
+\newpage
+
+\subsubsection{Frontend}
+A frontenden az authentikáció egyik feladata az authorization code eljutattása a backend-re volt. Mivel használni akartam a keycloak által 
+készített login paget, így az URL-ből kellett kivennem a code-nak az értékét. Mivel a megfelelő bejelentkezés után a keycloak átnavigál a frontend 
+URL-jére, hiszen ezt beállítottuk az admin oldalon, így ezt az eseményt fel tudtam használni. Vue Routert használok a navigációra az alkalmazáson belül. A Vue Router 
+sok hasznos funckióval rendelkezik, de ennél a problémánál a navigációs őröket (Navigation Guards) tudtam felhasználni. Itt meg tudok adni egy függvényt ami
+mindig meghívódik azelőtt hogy navigáció történne az alkalmazáson belül. Tehát amikor megtörténik a navigáció a keycloak-os felületről az alkalmazásra, a függvény amit 
+definiálok le fog futni. Paraméterként megkapom azt az elérési utat ahonnan navigáltak valamint azt is ahonnan navigáltak. Mivel ahhonnan navigálunk el ott jelenik meg az
+authorization code, így ki tudom nyerni onnan. Egy újabb Pinia Store-t is definiáltam az authentikációhoz köthető függvények miatt a jó struktúráltság érdekében. Itt implementáltam egy api hivást, ami http kérés body-jában tárolja az authorization code-ot és küldi el a backend számára. Ha ez megtörténik a sütik tartalmazni fogják az access és refresh tokeneket, így elérem a többi végpontot ami a játék működéséhez kell a backenden. 
+\begin{adjustwidth}{0cm}{0cm}
+	\begin{minipage}{\textwidth}
+		\begin{lstlisting}[style=javascriptStyle,caption={Authorization code kinyerése az elnavigált URL-ből}]
+			router.beforeEach(async (to,from,next) => {
+				const authStore = useAuthenticationStore();
+				if(to.query.code) {
+					console.log(to.query.code);
+					await authStore.getAuthTokens({code: to.query.code});
+					next(from.path);
+				}
+				else {
+					next();
+				}
+			})
+		\end{lstlisting}
+	\end{minipage}
+\end{adjustwidth}
+
+\newpage
 
 \subsection{Frontend}
 A frontend készítésnél már volt egy kiinduló gitlab projektem, amit a külső konzulensem

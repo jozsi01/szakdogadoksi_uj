@@ -37,7 +37,7 @@
 	captionpos=b,
 	frame=none,
 	breaklines=true,
-	morekeywords=[1]{let, const, async, var, function, return, else, for, while},
+	morekeywords=[1]{let, const, async, var, function, return, else, for, while, section},
 	keywordstyle=[1]\color{myblue}, % Use keywordstyle1 for the first set of keywords
 	morekeywords=[2]{if,await,},
 	keywordstyle=[2]\color{mypurple}, % Use keywordstyle2 for the second set of keywords  % Add 'await' to the morekeywords list
@@ -51,7 +51,7 @@
 \newpage
 \tableofcontents
 \newpage
-{\centering
+{
 \section*{Hallgatói nyilatkozat}}
 Alulírott \textit{Bozsik József}, szigorló hallgató kijelentem, hogy ezt a szakdolgozatot meg
 nem engedett segítség nélkül, saját magam készítettem, csak a megadott forrásokat (szakirodalom, eszközök stb.) használtam fel. Minden olyan részt, melyet szó szerint, vagy
@@ -119,164 +119,6 @@ A következő fejezetekben ismertetem, hogy az alábbi technológiákat miként 
 meg, és milyen keretrendszereket használtam, amik a fejlesztést, és a felhasználói élményt is
 egyaránt segítik.
 \newpage
-\section{Használt technológiák}
-A modern webfejlesztésben szinte elengedhetetlen különböző keretrendszerek használata,
-mivel a hatékonyságban, és a szoftverminőségben is jelentősen tud segíteni a fejlesztő
-számára.
-\subsection{Vue.js}
-Munkhelyi környezetben a Vue.js\cite{vuejs} keretrendszert használtuk. A Vue.js egyszerűséget,
-reaktivitást és komponens alapú architektúrát hangsúlyozva lehetővé teszi a \mbox{fejlesztők}
-számára az interaktív és dinamikus webalkalmazások könnyű létrehozását.\\
-
-\textit{\Large{Fő jellemzői: }}
-\begin{itemize}
-	\item \textbf{Deklaratív megjelenítés: }A Vue.js a Vue sablonok nevű deklaratív szintaxist
-	használja, amely lehetővé teszi a fejlesztők számára, hogy HTML-szerű kóddal
-	határozzák meg a felhasználói felület szerkezetét és megjelenését. A keretrendszer
-	automatikusan frissíti a megjelenített eredményt, amikor az adatok megváltoznak,
-	biztosítva a reaktív felhasználói felületet
-	\item \textbf{Komponens alapú architektúra: }A Vue.js támogatja az újrafelhasználható és
-	moduláris komponensek használatát. A komponensek tartalmazzák mind az UI\footnote{User Interface}-t, mind az azzal kapcsolatos viselkedést, ami átláthatóbbá és skálázhatóbbá
-	teszi a kódbázist. A komponensek egymásba ágyazhatók, összeilleszthetők és
-	újrahasználhatók az alkalmazás teljes területén.
-	\item \textbf{Vue direktívák: }A Vue.js számos direktívát biztosít, amelyek lehetővé teszik a
-	fejlesztők számára a dinamikus viselkedés hozzáadását a DOM-hoz (Document Object
-	Model). A direktívák, például a v-if, v-for és v-bind, lehetővé teszik a fejlesztők
-	számára az elemek feltételes megjelenítését, a lista iterálását és az adatkötést HTML
-	attribútumokhoz vagy stílusokhoz.
-	\item \textbf{Reaktív adatkötés: }A Vue.js reaktív adatrendszert használ. Amikor az adatok
-	megváltoznak, a keretrendszer automatikusan frissíti a megfelelő UI komponenseket,
-	biztosítva az adatmodell és a nézet szinkronizációját. Ez könnyűvé teszi a reaktív és
-	interaktív felületek létrehozását
-	\item \textbf{VueRouter: }A Vue.js rendelkezik egy hivatalos útválasztó könyvtárral, amit Vue
-	Routernek hívnak, és amely lehetővé teszi a navigációt. Lehetővé teszi, hogy
-	dinamikusan töltsünk be komponenseket, amik gyakran URL változásokkal járnak
-\end{itemize}
-
-\subsection{Pinia Store}
-Továbbá elterjedt megoldás állapotkezelő mintát alkalmazunk a frontend megvalósítása
-során. Erre a Pinia Store\cite{pinia}-t könyvtárat használtam, ami reaktív és hatékony módon
-biztosít egy centralizált tárolót az alkalmazás állapotának kezelésére.
-\\
-
-A Pinia segítségével definiálhatunk tárolókat, amelyek tárolják az alkalmazásod állapotát,
-és különböző metódusokat határozhat meg az állapot módosításár. Minden tároló külön
-példányként jön létre, lehetővé téve az alkalmazás állapotának területenkénti vagy funkció
-szerinti elválasztását és \mbox{szervezését}.
-\\
-
-A Pinia egyik fő előnye a reaktivitási rendszere. A Vue reaktivitását használja fel, hogy
-automatikusan frissítse a komponenseket, amikor az állapot a tárolóban megváltozik. Ez
-biztosítja, hogy az alkalmazásod mindig szinkronban legyen, és lehetővé teszi a
-felhasználói felület hatékonyabb megjelenítését.
-\subsection{Webpack}
-A Webpack\cite{webpack} egy népszerű modulbundler JavaScript alkalmazásokhoz. Gyakran
-használják webfejlesztésben ahhoz, hogy egy alkalmazás különböző moduljait,
-erőforrásait és függőségeit egyetlen fájlba vagy fájlcsoportba csomagolja. A Webpack fő
-célja a teljesítmény optimalizálása és a modern webalkalmazások bonyolultságának
-kezelése.
-\\
-
-A Webpack moduláris megközelítést alkalmaz, amely lehetővé teszi a fejlesztők számára,
-hogy a kódbázist külön modulokra bontsák. Elemzi ezeknek a moduloknak a függőségeit
-és létrehoz egy függőségi gráfot. Ezen gráf alapján a Webpack összecsomagolja a
-modulokat, feloldja a függőségeket és generálja a végső kimeneti fájlokat.
-\subsection{Axios}
-Az Axios\cite{axios} egy JavaScript könyvtár, amelyet a böngészőkben és a Node.js környezetben
-is használnak aszinkron HTTP kérések küldésére és fogadására. Az Axios könnyű
-használatú, egyszerű szintaxissal rendelkezik, és számos előnyös funkciót nyújt a hálózati
-kommunikációhoz.
-
-\textit{\large{Fő előnyök: }}
-\begin{itemize}
-	\item \textbf{Kényelmes API kezelés: }Az Axios egyszerű és jól strukturált API-t biztosít a
-	HTTP kérések kezeléséhez. Különböző HTTP metódusokat, például GET, POST,
-	PUT, DELETE stb. használhatunk a kérések elküldésére.
-	\item \textbf{Aszinkron működés: } Az Axios aszinkron kérések kezelésére épül, amely
-	lehetővé teszi az alkalmazás folyamatosságát és reaktivitását. Nem blokkolja a fő
-	szálat, így más műveletek végrehajtására is lehetőséget ad.
-\end{itemize}
-\begin{adjustwidth}{0cm}{0cm}
-	\begin{minipage}{\textwidth}
-		\begin{lstlisting}[style=javascriptStyle,caption={HTTP kérés Axios könyvtárral}]
-		async function robotStep() {
-			
-			const boardStore = useBoardStore();
-			const gamePlayStore = useGamePlayStore();
-			await new Promise(resolve => setTimeout(resolve, 600));
-			if (gamePlayStore.playingBoard.status !== 'FINISHED' && gamePlayStore.robotEnabled && boardStore.joinedPlayer.some(p => p.id === gamePlayStore.currentPlayer.id)) {
-				await gamePlayStore.rollDice(boardStore.startedBoard.id, { playerId: gamePlayStore.currentPlayer.id });
-				await gamePlayStore.movePlayer(boardStore.startedBoard.id, { pieceId: gamePlayStore.selectedPiece?.id, playerId: gamePlayStore.currentPlayer.id, token: gamePlayStore.rollResponse.token });
-			}
-		}
-		\end{lstlisting}
-	\end{minipage}
-\end{adjustwidth}
-
- 
-
-\subsection{JavaSpring}
-A backend részt JavaSpringben\cite{javaspring} valósítottam meg. A Spring lehetővé teszi a gyors és hatékony
-webalkalmazások építését, miközben egy rugalmas és moduláris környezetet biztosít a
-fejlesztőknek.
-\begin{itemize}
-	\item  \textbf{Inversion of Control - IoC:} A Spring keretrendszer alapvetően az IoC elvet követi,
-	amelyben a keretrendszer vállalja a felelősséget az objektumok létrehozásáért,
-	konfigurálásáért és összekapcsolásáért. Ez lehetővé teszi a komponensek laza
-	összekapcsolását és könnyen cserélhetővé teszi az implementációkat.
-	\item \textbf{Dependency Injection - DI:} A Spring keretrendszer segítségével a dependency
-	injection könnyen megvalósítható. Ez azt jelenti, hogy a szükséges objektumokat egy
-	külső forrásból szúrhatjuk be a komponensekbe anélkül, hogy a komponenseknek
-	maguknak kellene létrehozniuk vagy tudniuk kellene róluk. Ez elősegíti a lazán
-	összekapcsolt és könnyen karbantartható kód írását.
-	\item \textbf{Webalkalmazás támogatás:} A Spring keretrendszer számos modult és komponenst
-	kínál a webalkalmazások fejlesztéséhez. A Spring MVC (Model-View-Controller)
-	modell segítségével könnyedén készíthetünk hatékony és rugalmas webes
-	alkalmazásokat. A Spring Boot pedig egy továbbfejlesztett modul, amely lehetővé
-	teszi a gyors és egyszerű konfigurációt és a gyors indítást.Több előnye is van a Spring
-	keretrendszernek, viszont mivel az alkalmazásom bonyolultsága nem követelte meg a
-	használatukat, így ezeket nem részletezném.
-\end{itemize}
-
-\subsection{Lombok}
-A Lombok\cite{lombok}  egy Java nyelvű könyvtár, amely
-segít csökkenteni a boilerplate kódot és növeli a fejlesztési produktivitást. A boilerplate kód olyan alapvető vagy sablonkód, amely gyakran
-ismétlődő és rutinszerű feladatokra szolgál. A Lombok annotációkat használva lehetővé teszi, hogy a fejlesztők egyszerűbben és gyorsabban hozzanak létre Java osztályokat. Annotációkat a programozásban gyakran használnak, mivel segítik a kód megértését, segíthetik a fejlesztőt a kódírás minimalizálásában, vagy akár a
-dokumentáció írásában. A Java nyelvben többféle annotációk léteznek. Ilyenek például a beépített annotációk, amik segítik a kód
-megértését. A @Deprecated annotációval ellátott elemeket jelölik, hogy elavultak vagy nem ajánlottak használatra. Ez figyelmezteti a fejlesztőket, hogy más megoldást vagy alternatívát kell használni.
-
-\subsection{Keycloak}
-Az autentikációhoz a Keycloak\cite{keycloak} nyílt forráskódú keretrendszert választottam. A Keycloak egy sor olyan funkciót kínál, amelyek segítenek az alkalmazások és szolgáltatások biztonságosításában, ideértve a Single Sign-On (SSO), felhasználói hitelesítést, felhasználói engedélyezéseket és az azonosítás közvetítését. A Single Sign-On (SSO) egy olyan hitelesítési és azonosítási technológia, amely lehetővé teszi a felhasználók számára, hogy egyszeri bejelentkezéssel hozzáférjenek több különböző alkalmazáshoz vagy rendszerhez anélkül, hogy minden egyes alkalmazásban külön-külön be kellene jelentkezniük. Ennek előnyei közé tartozik a a felhasználói kényelem, szigorú ellenőrzés, könnyebb felhasználói ellenőrzés. A Keycloak olyan megoldást nyújt, amely egyszerűsíti a biztonság hozzáadásának folyamatát az alkalmazásokhoz, és lehetővé teszi a felhasználói azonosításokat, szerepeket és jogosultságokat központilag történő kezelését. A keretrendszer képes integrálódni különböző alkalmazásokkal és platformokkal, így értékes eszköz azoknak a szervezeteknek, akik webalkalmazásaikat és API-ikat szeretnék biztonságossá tenni.Támogat különböző hitelesítési módszereket, beleértve a közösségi bejelentkezéseket, több tényezős hitelesítést és még sok mást. Emellett a Keycloak rendkívül rugalmas és bővíthető architektúrával rendelkezik, így alkalmas különféle felhasználási esetekre, a kis alkalmazásoktól a nagyvállalati rendszerekig. Gazdag API-kat kínál, és egy felhasználóbarát adminisztrációs konzolt, amely segít a felhasználók, valóságok és ügyfelek kezelésében.
-
-
-\subsection{Konva}
-A játék megjelenítéséhez a Konva\cite{konva} könyvtárat haszáltam. Konva egy HTML5 Canvas alapú grafikus könyvtár, amelyet használhatunk a webes alkalmazásokban és weboldalakon történő rajzoláshoz és grafikai elemek kezeléséhez. Ez a könyvtár lehetővé teszi a fejlesztők számára, hogy könnyedén rajzolhassanak formákat, vonalakat, szövegeket és egyéb grafikai elemeket a webes felületeken, és interaktív alkalmazásokat hozzanak létre, ahol a felhasználók rajzolhatnak, mozgathatnak és manipulálhatnak grafikai elemeket.Az alábbiakban néhány kulcsfontosságú tulajdonság és funkció, amelyeket a Konva nyújt:
-
-\begin{itemize}
-	\item \textbf{HTML5 Canvas alapú:} Konva a HTML5 Canvas API-t használja, ami lehetővé teszi a közvetlen grafikus rajzolást a webes felületeken. Ez rendkívül hatékony és lehetővé teszi a komplex grafikai elemek létrehozását.
-	\item \textbf{Interaktivitás:} Konva lehetővé teszi az interaktív grafikus elemek létrehozását, például húzható és áthelyezhető elemeket, melyekre kattintva változtathatjuk az állapotukat.
-	\item \textbf{Rétegek és Csoportok:} A könyvtár támogatja a rajzok elrendezéséhez használt rétegek és csoportok létrehozását, ami rendszerezheti és kezelheti a grafikai elemeket.
-	\item \textbf{Szöveg és betűtípusok:} Konva lehetővé teszi a szöveges elemek létrehozását, és támogatja a különböző betűtípusok és formázási lehetőségek használatát.
-	\item \textbf{Animáció:} A könyvtár animációt támogat, így a grafikai elemek mozgathatók és animálhatók.
-	\item \textbf{Eseménykezelés:} Konva lehetővé teszi az események kezelését, például kattintásokat és húzásokat, ami lehetővé teszi az interaktív műveletek megvalósítását.
-	\item \textbf{Több platform támogatása:} A Konva nem csak böngészőkben használható, hanem akár Node.js környezetben is, ami különféle alkalmazások fejlesztését teszi lehetővé.
-\end{itemize}
-
-
-\subsection{Postman}
-A backend API teszteléséhez, frontend nélkül, kiváló megoldást kínál a Postman\cite{postman}, így ezt használtam a fejlesztés során.Az alábbiakban néhány kulcsfontosságú jellemzőt és funkciót ismertetek, amit a Postman kínál:
-
-\begin{itemize}
-	\item \textbf{API Tesztelés:} Postman segítségével könnyedén készíthetsz és futtathatsz API-teszteket. Különböző HTTP kéréseket küldhetsz az API-hoz, és az eredményeket vizsgálhatod.
-	\item \textbf{Környezetek és Változók:} Lehetőséged van környezeteket és változókat definiálni a kérésekben, ami lehetővé teszi különböző környezetek (pl. fejlesztési, tesztelési, élő) közötti könnyű váltást és paraméterezést.
-	\item \textbf{Automatizálás:} Postman segítségével automatizálhatod az API-teszteket és kéréseket. Például létrehozhatsz kollekciókat, amelyeket később futtatni tudsz automatizált módon.
-	\item \textbf{Hitelesítés és Biztonság:} A Postman lehetővé teszi különböző hitelesítési mechanizmusok, például API kulcsok vagy OAuth használatát. Emellett támogatja a biztonsági teszteket is.
-\end{itemize}
-
-
-
-
-\newpage
 
 \section{Feladatkiírás pontosítása és részletes elemzése}
 Magát a feladatot a külső konzulensem adta meg és specifikálta, hogy mire kell, hogy képes
@@ -308,6 +150,297 @@ szeretne, és az a megfelelő mennyiséggel előre lép a táblán. Ha éppen el
 leüti a tábláról. Ha az összes bábu beér akkor kiírja, hogy nyert az adott játékos és maga a
 tábla átvált FINISHED státuszra. 
 \newpage
+\section{Alkalmazás fejlesztéséhez használt technológiák}
+A modern webfejlesztésben szinte elengedhetetlen különböző keretrendszerek használata,
+mivel a hatékonyságban, és a szoftverminőségben is jelentősen tud segíteni a fejlesztő
+számára. 
+\subsection{Frontend}
+
+\subsubsection{Javascript keretrendszer}
+Mivel az alkalmazásom felépítése több nézetből is állt, érdemes volt egy olyan keretrendszert választanom, ami támogatja a komponens 
+alapú megközelítést. Ezt a  Vue.js\cite{vuejs} teljesíti is, így ezt a technológiát választottam. 
+
+ A \textbf{komponens alapú architektúra} lényege hogy már az egyszer megírt kódunkat többször, teljesen máshol is fel tudjuk használni. Például tipikus példa 
+ha listázni akarunk valamiféle adatot, bizonyos formázások után. Erre létrehozhatunk egy komponenst amit többször megjelenítünk az oldalon, vagy esetleg teljesen máshol az alkalmazásunkban (\ref{komponens}).ábra. A komponensen belül írjuk meg hogy a komponens hogyan viselkedjen, függvényeket definiálhatunk bennük, eseménykezelőket hozhatunk létre, például egy gomb megnyomására mi történjen. A komponensek egymásba ágyazhatóak így jöhet létre a szülő-gyermek viszony közöttük. Az ilyen komponensek között adatokat adhatunk át, valamint informálhatják különböző események bekövetkeztéről. 
+
+Mivel egy társasjáték egy interaktív szórakozás, a felület sokszor fog változni, felhasználói input hatására. A letisztultság érdekében érdemes több kis komponenssel dolgozni, hiszen így az összetartózó felelősségek egy helyen vannak ezáltal könnyebb őket változtatni, valamint bővíteni a kódbázist. Viszont a komponenseknek le kell tudniuk kezelni ha valamilyen input hatására, az általuk megjelenített adatok megváltoznak. Mindezt lekezelni nagyon nehéz lenne, viszont a Vue.js segít ebben. Számon tartja azokat az adatokat amiktől függnek az egyes komponensek és automatikus frissíti őket, hogyha megváltoznak. Így tehát ha megfelelően osztjuk a komponensek felelősségeit, a felület csak azon része fog frissülni aminek muszáj, ezáltal az alkalmazásunk jól fog tudni skálázódni, ha nagyobb használatban van. 
+
+A Vue.js számos olyan direktívát rejt, ami nagyban segíti az interaktív felület fejlesztését. Nagyon sok esetben kell több, hasonló adatot megjeleníteni a UI\footnote{User Interface}-on, erre tökéletesen használható a \textit{v-for} direktíva. Ha esetleg feltételhez kötnénk egyes elemek megjelenítését, akkor a \textit{v-if} használható (\ref{v-if}).ábra. Mindkét esetben változókat is megadhatunk, amik hogyha változnak, a keretrendszer számunkra lekezeli, és frissíti a megjelenítést.  
+
+Komponensen belül is használhatunk \textbf{reaktív adatkötést}. Itt már fejlesztőként figyelni kell, mert itt nekünk kell megadni, hogy melyik változókat akarjuk hogy frissüljenek. A \textit{ref(variable)} kulcsszóval érhetjük hogy kövesse le a változásokat. Olyan esetek is vannak, hogy egy bizonyos feltétel mellett akarunk megjeleníteni egy komponenst vagy elemet, viszont maga a feltétel elég komplex. Erre használhatjuk a \textit{computed} tulajdonságot, ami visszaad egy értéket, és leköveti, hogyha bármilyen adat megváltozik, ami a végeredmény kiszámításához kell. Figyelhetünk is változásokat a \textit{watch} függvénnyel, ami lefut hogyha az adott változó megváltozott. 
+
+Az alkalmazáson belül a navigáció egy fontos elem volt. A felhasználó több nézeten keresztül is navigálhat, ahol a táblák vannak listázva, vagy esetleg ahol maga a játék nézet van megjelenítve. Erre tökéletes megoldást adott a \textbf{VueRouter} (\ref{vuerouter}).ábra. Ez a funkció lehetőséget ad arra hogy egyszerűen tudjunk navigálni komponensek valamint nézetek között, amik nagy gyakorisággal URL változássokkal járnak. A VueRouter sok konfigurációs lehetőséget rejt magában, például meg lehet adni hogy minden navigáció előtt miket végezzen el. 
+\begin{figure}
+	\caption{Board komponens listázása}
+	\begin{adjustwidth}{0cm}{10cm}
+		\begin{minipage}{\textwidth}
+			\begin{lstlisting}[style=javascriptStyle]
+				<section>
+				<Board data-test="board" v-for="board in boardStore.boards" :key="board.id" :board="board" />
+				</section>
+			\end{lstlisting}
+		\end{minipage}
+	\end{adjustwidth}
+	\label{komponens}
+\end{figure}
+
+\begin{figure}
+	\caption{v-if direktíva használata}
+	\begin{adjustwidth}{0cm}{10cm}
+		\begin{minipage}{\textwidth}
+			\begin{lstlisting}[style=javascriptStyle]
+				<button data-test="rollButton" v-if="isItYourPlayer"/>
+			\end{lstlisting}
+		\end{minipage}
+	\end{adjustwidth}
+	\label{v-if}
+\end{figure}
+
+\begin{figure}
+	\caption{VueRouter létrehozása}
+	\begin{adjustwidth}{0cm}{10cm}
+		\begin{minipage}{\textwidth}
+			\begin{lstlisting}[style=javascriptStyle]
+				const routes: RouteRecordRaw[] = [
+				{
+					name: 'home',
+					path: '/',
+					component: App,
+				},
+				{
+					name: 'boardManagement',
+					path: '/boardManagement',
+					meta: {
+						hideQueryParams: true
+					},
+					component: BoardManagement,
+				},
+				{
+					name: 'board',
+					path: '/boardManagement/board',
+					component: Board,
+				},
+			\end{lstlisting}
+		\end{minipage}
+	\end{adjustwidth}
+	\label{vuerouter}
+\end{figure}
+
+
+\subsubsection{Állapottároló}
+Mivel az alkalmazásom több komponensből állt így, egy olyan felépítést kellett alkalmaznom, hogy legyen olyan része 
+az alkalmazásnak ahonnan minden szükséges adatot elérek. Erre a Pinia Store \cite{pinia}-t választottam, mivel viszonylag új technológia és könnyű használni. 
+A Pinia segítségével definiálhatunk tárolókat, amelyek tárolják az alkalmazásom állapotát,
+és különböző metódusokat határozhat meg az állapot módosítására. Minden tároló külön
+példányként jön létre, lehetővé téve az alkalmazás állapotának területenkénti vagy funkció
+szerinti elválasztását és \mbox{szervezését}. Ezt én két kategóriába soroltam: Azok az állapotok amik a táblák kezelésével foglalkoznak, például új táblák
+létrehozása, vagy játékos csatlakozása a pályához, vagy a játékmenettel kapcsolatos tevékenységek mint a dobás vagy lépés a pályán (\ref{pinia}.ábra). 
+A Pinia egyik fő előnye a reaktivitási rendszere. A Vue reaktivitását használja fel, hogy
+automatikusan frissítse a komponenseket, amikor az állapot a tárolóban megváltozik. Ez
+biztosítja, hogy az alkalmazásom mindig szinkronban legyen, és lehetővé teszi a
+felhasználói felület hatékonyabb megjelenítését. Így tehát ha egy Pinia Store-beli állapotra hivatkozom a komponensemben, az ugyanúgy reaktív fog maradni a változás után is. 
+
+\begin{figure}
+	\caption{GamePlay store definiálása állapotokkal és függvényekkel}
+	\begin{adjustwidth}{0cm}{10cm}
+		\begin{minipage}{\textwidth}
+			\begin{lstlisting}[style=javascriptStyle]
+				export const useGamePlayStore = defineStore('gamePlayStore', {
+					
+					state: () => {
+						return {
+							rollResponse: {}, errorOccured: false, errorMessage: "", thrownNumber: 0,
+							currentPlayer: {}, disableRollButton: false, players: [], playingBoard: {},
+							selectedPiece: {}, robotEnabled: false, robotStrategy: null
+						}
+						
+					},
+					
+					actions: {
+						async rollDice(boardId, playerId) {
+							try {
+								this.rollResponse = await gameplayStoreApi.rollDice(boardId, playerId);
+								
+							} catch (error) {
+								console.log(error);
+								this.errorMessage = error.response.data;
+								this.errorOccured = true;
+								
+							}
+						},
+						async movePlayer(boardId, moveRequest) {
+							try {
+								
+								const updatedBoard = await gameplayStoreApi.movePlayer(boardId, moveRequest);
+								this.disableRollButton = false;
+								//this.playingBoard = updatedBoard;
+								if (this.playingBoard.nextPlayerId) {
+									this.currentPlayer = updatedBoard.players.find(p => p.id === updatedBoard.nextPlayerId);
+								}
+							}
+							catch (error) {
+								console.log(error.response);
+							}
+						},
+			\end{lstlisting}
+		\end{minipage}
+	\end{adjustwidth}
+	\label{pinia}
+\end{figure}
+\subsubsection{Modul csomagoló}
+
+A Webpack\cite{webpack} egy népszerű modulbundler JavaScript alkalmazásokhoz. Gyakran
+használják webfejlesztésben ahhoz, hogy egy alkalmazás különböző moduljait,
+erőforrásait és függőségeit egyetlen fájlba vagy fájlcsoportba csomagolja. A Webpack fő
+célja a teljesítmény optimalizálása és a modern webalkalmazások bonyolultságának
+kezelése.
+
+A Webpack moduláris megközelítést alkalmaz, amely lehetővé teszi a fejlesztők számára,
+hogy a kódbázist külön modulokra bontsák. Elemzi ezeknek a moduloknak a függőségeit
+és létrehoz egy függőségi gráfot. Ezen gráf alapján a Webpack összecsomagolja a
+modulokat, feloldja a függőségeket és generálja a végső kimeneti fájlokat.
+
+\subsubsection{HTTP kérések küldése}
+A webalkalmazások felépítésé egyszerűen megfogalmazva a következő: A backend-ről szolgáltatjuk az adatokat ahova a kliens alkalmazás, más szóval a frontend kéréseket küld. Ezeket a kéréseket HTTP kérésekként küldi el az interneten keresztül. Ez az egyik legfontosabb feladat funkcionális téren. Mivel ilyen esszenciális 
+ezt megvalósítani, ezért segédkönyvtárat használtam fel a könnyebb és jobb megvalósítás érdekében. Az Axios\cite{axios} könyvtárat használtam fel, mivel az egyik legnépszerűbb, így remek dokumentáció tartozik hozzá, és egyszerű a szintaxisa. 
+
+Jól strukturált API-t biztosít a HTTP kérések kezeléséhez.Különböző HTTP metódusokat, például GET, POST,
+PUT, DELETE stb. használhatunk a kérések elküldésére (\ref{axios}).ábra. Ezek a kérések szinte folyamatosan zajlanak a játék során, így fontos hogy ne legyenek zavaróak és hogy ne akadjon meg emiatt az alkalmazás, hiszen ez nagyban rontaná a felhasználói élményt. Az \textbf{Axios aszinkron kérések} kezelésére épül, amely
+lehetővé teszi az alkalmazás folyamatosságát és reaktivitását. Nem blokkolja a fő
+szálat, így más műveletek végrehajtására is lehetőséget ad, tehát a felület ugyanúgy működik, nem lesz észrevehető "befagyás".
+További előnye a könyvtárnak, a konfigurálhatósága az Axios példánynak. Meg tudjuk adni, hogy minden egyes kéréssel együtt például egy bizonyos fejlécet csatoljon, vagy esetleg minden válasznál ellenőrizze a státuszt. Ez nagyban megkönnyíti a kódolást, valamint a hibázástól is óv, hiszen csak egyszer kell jól megírni a használni kívánt példányt. 
+\begin{figure}
+	\caption{Post HTTP kérés Axios könyvtárral}
+	\begin{adjustwidth}{0cm}{10cm}
+		\begin{minipage}{\textwidth}
+			\begin{lstlisting}[style=javascriptStyle]
+					this.authTokens = (await axios.post("http://localhost:8080/auth/createToken", {authCode: code})).data
+					\end{lstlisting}
+				\end{minipage}
+	\end{adjustwidth}
+\label{axios}
+\end{figure}
+
+\subsubsection{Grafikus könyvtár}
+Természetesen maga a pályát meg kelett tudnom rajzolni. Mivel egész alkalmazásomnak ez a lényege, így természetesen egy külső könyvtárat használtam, hogy minél egyszerűbben és minél szebben tudjam éltre kelteni a társasjátékot. Ehhez a Konva könyvtárat választottam, mert kiemelkedően jó dokumentáció tartozott hozzá, és mivel előtte még nem foglalkoztam ilyen grafikus könyvtárakkal fontos volt hogy könnyedén meg tudjam tanulni. Valamint egyszerű, de mégis sokféle funkcióval rendelkezik amiket felhasználhattam a fejlesztés során. 
+Ez a könyvtár lehetővé teszi a fejlesztők számára, hogy könnyedén rajzolhassanak formákat, vonalakat, szövegeket és egyéb grafikai elemeket a webes felületeken, és interaktív alkalmazásokat hozzanak létre, ahol a felhasználók rajzolhatnak, mozgathatnak és manipulálhatnak grafikai elemeket.Az alábbiakban néhány kulcsfontosságú tulajdonság és funkció, amelyeket a Konva nyújt:
+\begin{itemize}
+	\item \textbf{HTML5 Canvas alapú:} Konva a HTML5 Canvas API-t használja, ami lehetővé teszi a közvetlen grafikus rajzolást a webes felületeken. Ez rendkívül hatékony és lehetővé teszi a komplex grafikai elemek létrehozását.
+	\item \textbf{Interaktivitás:} Konva lehetővé teszi az interaktív grafikus elemek létrehozását, például húzható és áthelyezhető elemeket, melyekre kattintva változtathatjuk az állapotukat.
+	\item \textbf{Rétegek és Csoportok:} A könyvtár támogatja a rajzok elrendezéséhez használt rétegek és csoportok létrehozását, ami rendszerezheti és kezelheti a grafikai elemeket.
+	\item \textbf{Szöveg és betűtípusok:} Konva lehetővé teszi a szöveges elemek létrehozását, és támogatja a különböző betűtípusok és formázási lehetőségek használatát.
+	\item \textbf{Animáció:} A könyvtár animációt támogat, így a grafikai elemek mozgathatók és animálhatók.
+	\item \textbf{Eseménykezelés:} Konva lehetővé teszi az események kezelését, például kattintásokat és húzásokat, ami lehetővé teszi az interaktív műveletek megvalósítását (\ref{konva}.ábra)
+	\item \textbf{Több platform támogatása:} A Konva nem csak böngészőkben használható, hanem akár Node.js környezetben is, ami különféle alkalmazások fejlesztését teszi lehetővé.
+\end{itemize}
+
+\begin{figure}
+	\caption{Kör létrehozása és eseménykezelő aktiválása Konva-val}
+	\begin{adjustwidth}{0cm}{10cm}
+		\begin{minipage}{\textwidth}
+			\begin{lstlisting}[style=javascriptStyle]
+				var circle = new Konva.Circle({
+					x: currentX,
+					y: currentY,
+					radius: 500 / numberOfFields,
+					fill: 'white',
+					id: id.toString(),
+					stroke: 'black',
+					strokeWidth: 1
+				});
+				(function (caputerCircle) {
+					caputerCircle.on("mousedown", function () {
+						const piece = gamePlayStore.currentPlayer.pieces.find(p => p.positionOnTheBoard == caputerCircle.id());
+						if (piece) gamePlayStore.selectedPiece = piece;
+						
+					});
+				})(circle);
+				
+			\end{lstlisting}
+		\end{minipage}
+	\end{adjustwidth}
+	\label{konva}
+\end{figure} 
+
+\subsection{Backend}
+
+\subsubsection{Java keretrendszer}
+A backend részt JavaSpringben\cite{javaspring} valósítottam meg. A Spring lehetővé teszi a gyors és hatékony
+webalkalmazások építését, miközben egy rugalmas és moduláris környezetet biztosít a
+fejlesztőknek.
+\begin{itemize}
+	\item  \textbf{Inversion of Control - IoC:} A Spring keretrendszer alapvetően az IoC elvet követi,
+	amelyben a keretrendszer vállalja a felelősséget az objektumok létrehozásáért,
+	konfigurálásáért és összekapcsolásáért. Ez lehetővé teszi a komponensek laza
+	összekapcsolását és könnyen cserélhetővé teszi az implementációkat.
+	\item \textbf{Dependency Injection - DI:} A Spring keretrendszer segítségével a dependency
+	injection könnyen megvalósítható. Ez azt jelenti, hogy a szükséges objektumokat egy
+	külső forrásból szúrhatjuk be a komponensekbe anélkül, hogy a komponenseknek
+	maguknak kellene létrehozniuk vagy tudniuk kellene róluk. Ez elősegíti a lazán
+	összekapcsolt és könnyen karbantartható kód írását.
+	\item \textbf{Webalkalmazás támogatás:} A Spring keretrendszer számos modult és komponenst
+	kínál a webalkalmazások fejlesztéséhez. A Spring MVC (Model-View-Controller)
+	modell segítségével könnyedén készíthetünk hatékony és rugalmas webes
+	alkalmazásokat. A Spring Boot pedig egy továbbfejlesztett modul, amely lehetővé
+	teszi a gyors és egyszerű konfigurációt és a gyors indítást.Több előnye is van a Spring
+	keretrendszernek, viszont mivel az alkalmazásom bonyolultsága nem követelte meg a
+	használatukat, így ezeket nem részletezném.
+\end{itemize}
+
+\subsubsection{Lombok}
+Egy Model osztály esetében rengetegszer fordul elő, hogy ugyanazt a kódot kell megírni, nagyon kicsit változtatásokkal minden osztály esetében. Ezt nevezzük boilerplate kódnak, ami olyan alapvető vagy sablonkód, amely gyakran ismétlődő és rutinszerű feladatokra szolgál. Mivel ez renget időt emészt fel, így ezt a problémát egy könyvtár segítségére bíztam. 
+A Lombok \cite{lombok}  egy Java nyelvű könyvtár, amely
+segít csökkenteni a boilerplate kódot és növeli a fejlesztési produktivitást.  A Lombok annotációkat használva (\ref{lombok}.ábra) lehetővé teszi, hogy a fejlesztők egyszerűbben és gyorsabban hozzanak létre Java osztályokat. Annotációkat a programozásban gyakran használnak, mivel segítik a kód megértését, segíthetik a fejlesztőt a kódírás minimalizálásában, vagy akár a dokumentáció írásában. A Java nyelvben többféle annotációk léteznek. Ilyenek például a beépített annotációk, amik segítik a kód
+megértését. A @Deprecated annotációval ellátott elemeket jelölik, hogy elavultak vagy nem ajánlottak használatra. Ez figyelmezteti a fejlesztőket, hogy más megoldást vagy alternatívát kell használni.
+
+\begin{figure}[h]
+	\caption{Lombok annotációk használata}
+	\centering
+	\begin{lstlisting}[language=java]
+		
+	@Data
+	@NoArgsConstructor
+	@AllArgsConstructor
+	public class MoveRequestDTO {
+		
+		private String pieceId;
+		private String playerId;
+		
+		private String token;
+	}
+		
+	\end{lstlisting}
+	\label{lombok}
+\end{figure} 
+
+\subsubsection{Autentikációs keretrendszer}
+Az autentikációhoz egy Third Party Software-t akartam Használni. Ez azt jelenti, hogy hasonlóan mint a könyváraknál, már előre megírt szoftvert fogok használni. Arra volt szükségem, hogy egyszerűen meg tudjam adni a belépési beállításokat, valamint hogy szerepkhez tudjam rendelni a bejelentkezett felhasználókat, hiszen nem biztos, hogy mindenki ugyanazzal a jogosultságokkal rendelkezik. Ezekkel a kritériumokkal a Keycloak\cite{keycloak} keretrendszer tűnt az ideális választásnak. 
+
+A Keycloak egy sor olyan funkciót kínál, amelyek segítenek az alkalmazások és szolgáltatások biztonságosításában, ideértve a Single Sign-On (SSO), felhasználói hitelesítést, felhasználói engedélyezéseket és az azonosítás közvetítését. A Single Sign-On (SSO) egy olyan hitelesítési és azonosítási technológia, amely lehetővé teszi a felhasználók számára, hogy egyszeri bejelentkezéssel hozzáférjenek több különböző alkalmazáshoz vagy rendszerhez anélkül, hogy minden egyes alkalmazásban külön-külön be kellene jelentkezniük. Ennek előnyei közé tartozik a a felhasználói kényelem, szigorú ellenőrzés, könnyebb felhasználói ellenőrzés. A Keycloak olyan megoldást nyújt, amely egyszerűsíti a biztonság hozzáadásának folyamatát az alkalmazásokhoz, és lehetővé teszi a felhasználói azonosításokat, szerepeket és jogosultságokat központilag történő kezelését (\ref{keycloak-login}.ábra). A keretrendszert integrálni lehet különböző alkalmazásokkal és platformokkal, így értékes eszköz azoknak a szervezeteknek, akik webalkalmazásaikat és API-ikat szeretnék biztonságossá tenni. Ezt felhasználva tudtam a backendről http kéréseket végezni a szintén lokálisan futó Keycloaknak, hogy autentikálja a belépett felhasználót. Támogat különböző hitelesítési módszereket, beleértve a közösségi bejelentkezéseket, több tényezős hitelesítést és még sok mást. Emellett a Keycloak rendkívül rugalmas és bővíthető architektúrával rendelkezik, így alkalmas különféle felhasználási esetekre, a kis alkalmazásoktól a nagyvállalati rendszerekig. Gazdag API-kat kínál, és egy felhasználóbarát adminisztrációs konzolt, amely segít a felhasználók, valóságok és ügyfelek kezelésében.
+
+\begin{figure}
+	\caption{Keycloak konfigurációs nézete}
+	\raggedleft 
+	\includegraphics[scale=0.5]{keycloak-login}
+	\label{keycloak-login}
+\end{figure}
+
+\subsubsection{Tesztelés}
+A backend API teszteléséhez, frontend nélkül, kiváló megoldást kínál a Postman\cite{postman}, így ezt használtam a fejlesztés során. Az alábbiakban néhány kulcsfontosságú jellemzőt és funkciót ismertetek, amit a Postman kínál:
+
+\begin{itemize}
+	\item \textbf{API Tesztelés:} Postman segítségével könnyedén készíthetsz és futtathatsz API-teszteket. Különböző HTTP kéréseket küldhetsz az API-hoz, és az eredményeket vizsgálhatod.
+	\item \textbf{Környezetek és Változók:} Lehetőséged van környezeteket és változókat definiálni a kérésekben, ami lehetővé teszi különböző környezetek (pl. fejlesztési, tesztelési, élő) közötti könnyű váltást és paraméterezést.
+	\item \textbf{Automatizálás:} Postman segítségével automatizálhatod az API-teszteket és kéréseket. Például létrehozhatsz kollekciókat, amelyeket később futtatni tudsz automatizált módon.
+	\item \textbf{Hitelesítés és Biztonság:} A Postman lehetővé teszi különböző hitelesítési mechanizmusok, például API kulcsok vagy OAuth használatát. Emellett támogatja a biztonsági teszteket is.
+\end{itemize}
+
+
+
+
+\newpage
+
+
 
 \section{Önálló munka bemutatása}
 Első részben az alkalmazás backendjét írtam meg, valamint mert felépítésben is így tűnt
@@ -332,9 +465,11 @@ végeznénk el az adatok esetleges transzformációját, az üzleti logikánk it
 én esetemben viszont erre nincsen szükség hiszen már a konzisztens adatot (vagy esetleges
 hibaüzenetet) kapom vissza, közvetetten a szervertől, így itt csak egy továbbhívás történik a
 DAL réteg felé.
-A Controller rétegben definiálom azokat az api végpontokat, amiket majd a később megírt
+A Controller rétegben definiálom azokat az API végpontokat, amiket majd a később megírt
 frontendem fog hívni. Ez a réteg indítja el a kérések sorozatát, ami végigfut a backenden,
-majd visszatér a szervertől kapott adattal.Ahogy már korábban említettem, a munkahely által biztosított szerverre kellett http kéréseket
+majd visszatér a szervertől kapott adattal (\ref{backend-pipeline}. ábra).
+
+Ahogy már korábban említettem, a munkahely által biztosított szerverre kellett http kéréseket
 küldeni. Ehhez volt egy dokumentáció, hogy milyen API végpontok vannak a szerveren, és
 azokhoz milyen URL tartozik. Az is le volt írva, hogy milyen DTO-kat kell definiálni a
 kommunikációhoz. Ezért így először létrejött a DTO, avagy Model mappa, ahol deklaráltam a
@@ -346,6 +481,13 @@ konzisztens adatokat kaptunk vissza, tehát például egy táblán nem lehet ké
 játékos. Ha esetleg egy ilyen kérés érkezett akkor egy ErrorMessage osztállyal tért vissza,
 amiben részletezve volt a hiba.
 
+\begin{figure}
+	\caption{Egy kérés kiszolgálásának folyamata}
+	\raggedleft 
+	\includegraphics[scale=0.5]{backend-pipeline}
+	\label{backend-pipeline}
+\end{figure}
+
 A külső konzulensem elvárta, hogy leteszteljük az elkészült modulokat, így Unit teszteket is
 írtam. Mivel rétegeltem, a különböző funkciókat így könnyedén tudtam tesztelni őket, hiszen
 egy mockolás (a Mockito [7] könyvtárat használtam ehhez) után egyszerűen tudtam tesztelni.
@@ -355,41 +497,48 @@ A mock objektumok olyan mesterségesen létrehozott objektumok, amelyek az
 eredeti rendszer vagy komponens egy részét helyettesítik, és előre definiált válaszokat adnak a
 függvényhívásokra vagy metódusokra. A mock objektumok segítségével szimulálhatók a
 valós környezetben előforduló esetek, például adatbázishoz való kapcsolódás vagy hálózati
-kommunikáció, anélkül, hogy a valódi rendszerre vagy szolgáltatásra támaszkodnánk. 
+kommunikáció, anélkül hogy a valódi rendszerre vagy szolgáltatásra támaszkodnánk. 
 \subsection{Authentikáció}
 \subsubsection{Backend}
 Az authentikációt a Keycloak nyílt forráskódú keretrendszerrel valósítottam meg. Ehhez, hogy konfigurálni tudjam a 
 szükséges beállításokat, és futtatni tudjam otthoni környezetben, legegyszerűbb megoldásnak tartottam, hogy egy Docker konténerben 
 futattam. Ehhez először telepíteni kellett a Dockert, majd a terminálban kiadni a következő parancsot: 
 \textbf{docker run -p 10000:8080 -e KEYCLOAK\_ADMIN=admin -e KEYCLOAK\_ADMIN\_PASSWORD=admin quay.io/keycloak/keycloak:22.0.5 start-dev}
-Itt lehetett beállítani hogy a keycloak melyik porton fusson. Mivel a backendem spring boot alkalmazás aminek az alapértelmezett portja 8080 így 
-ettől eltérőet kellett választani, ami a 10000 lett. A parancs segítségével letöltöttem a megfelelő Docker Imaget amit már könnyedén el lehetett indítani,
+Itt lehetett beállítani, hogy a keycloak melyik porton fusson. Mivel a backendem spring boot alkalmazás aminek az alapértelmezett portja 8080 így 
+ettől eltérően kellett választani, ami a 10000 lett. A parancs segítségével letöltöttem a megfelelő Docker Imaget amit már könnyedén el lehetett indítani,
 és elérhetővé vált számomra a \textbf{localhost:10000} -en keretrendszer. Az admin konzolba való belépés után lehetett beállítani a kívánt funkciókat. 
-Először is egy új realm-et hoztam létre aminek a neve: WhoLaughsLast. A realmeken belül lehet létrehozni a külöböző client-eket amik esetünkben az alkalmazásokat jelentik. Így létre is hoztam egyet: \text{who\_laughs\_last\_client} néven majd ehhez a client-hez rendeltem hozzá a felhasználókat. 
-
+Először is egy új realm-et hoztam létre aminek a neve: WhoLaughsLast. A realmeken belül lehet létrehozni a clients listát amik esetünkben az alkalmazásokat jelentik (\ref{keycloak}.ábra). Így létre is hoztam egyet: \text{who\_laughs\_last\_client} néven majd ehhez a client-hez rendeltem hozzá a felhasználókat. 
+Pár beállítást még kellett végezni a client-en. Először is megadtam a egy érvényes átirányítási URL-t. Ez azt az elérési utat adja meg, ahova bejelentkezés után navigálni akarunk. Én 
+a \textbf{http://localhost:3000/*} adtam meg, hiszen ezen a porton futott nekem a frontend alkalmazás, így a felhasználó bejelentkezés után bent volt az alkalmazásban. A keycloak
+széles API-t kínál így ezt megismerve az backendemről authentikáció során ide küldtem a kéréseket. Azt is be lehet állítani hogy a mennyi idő után jár le az access token érvényessége, tehát utána majd újat kell kérni a szervertől. 
 \begin{figure}[h]
 	\caption{Keycloakban a clients lista}
 	\centering
 	\includegraphics[scale=0.5]{keycloak-cients}
+	\label{keycloak}
 \end{figure}
-Pár beállítást még kellett végezni a client-en. Először is megadtam a Valid redirect URL. Ez azt az elérési utat adja meg, ahova bejelentkezés után navigálni akarunk. Én 
-a \textbf{http://localhost:3000/*} adtam meg, hiszen ezen a porton futott nekem a frontend alkalmazás, így a felhasználó bejelentkezés után bent volt az alkalmazásban. A keycloak
-széles API-t kínál így ezt megismerve az backendemről authentikáció során ide küldtem a kéréseket. Azt is be lehet állítani hogy a mennyi idő után jár le az access token érvényessége, tehát utána majd újat kell kérni a szervertől. 
+\newpage
 
-A végpontok biztonságossá tételéhez a \textbf{Spring Security}-t és az \textbf{OAuth2ResourceServer} dependency-ket használtam fel. A függőségeket leíró xml-eket beillesztettem a pom.xml fájlba, majd a Maven letöltötte őket, hogy majd használni tudjam. 
 
-\begin{lstlisting}[language=XML, caption={A pom.xml fileban a függőségek},captionpos=b]
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
-		<version>3.1.5</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-security</artifactId>
-		<version>3.1.5</version>
-	</dependency>
-\end{lstlisting}
+A végpontok biztonságossá tételéhez a \textbf{Spring Security}-t és az \textbf{OAuth2ResourceServer} dependency-ket használtam fel. A függőségeket leíró xml-eket beillesztettem a pom.xml fájlba, majd a Maven letöltötte őket, hogy majd használni tudjam (\ref{pom}.ábra).
+\begin{figure}
+	\caption{A pom.xml fileban a függőségek}
+	\centering
+	\begin{lstlisting}[language=XML]
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+	<version>3.1.5</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-security</artifactId>
+	<version>3.1.5</version>
+</dependency>
+	\end{lstlisting}
+	\label{pom}
+\end{figure}
+
 
 Miután a Spring Security bekerül az alkalmazásban, alapértelmezetten csinál egy SecurityFilterChain-t ami megköveteli hogy az összes API végpontnál
 a hívónak authetntikálnia kell magát. Ezt a függvényt kell felülírni és úgy implementálni ahogyan azt mi szeretnénk. \textbf{@Bean} annotációval van ellátva,
@@ -402,90 +551,71 @@ egy olyan filtert ami a kéréshez illik: Például a "/board" végződésű vé
 	\includegraphics[scale=0.5]{filterchain}
 \end{figure}
 
-Úgy konfiguráltam fel a függvényt, hogy 3 végponton kívül mindent authetnikáljon: \textbf{/auth/createToken}, \textbf{/auth/refreshToken} ,\textbf{/subscribe}. Első kettőt végpontot azért nem kell authentikálni, mivel ide érkeznek azok a kérések amikor a felhasználó be akar jelentkezni, és kapja meg a szükséges token-eket amikre majd később szüksége lesz az authentikációnál.Ezek után a OAuth2 resource szervert kellett felkonfigurálni. Az application.yml file-ban írtam bele a különböző elérési utakat amikre a szervernek szüksége van hogy authentikálni tudja a jwt tokeneket. A keycloak-nál a \textbf{http://localhost:10000/realms/WhoLaughsLast/protocol/openid-connect/certs} elérési úton 
-elérhető az adott client-hez tartozó authetnikációs adatok. A jwt tokeneket sütikben tárolva szállítottam a backend és frontend között. Ennek az egyik nagy előnye, hogy front-end részen a tokenek eltárolásával nem kell foglalkozni, így ha esetleg újratöltenénk az oldalt, az authentikációs tokeneink nem vesznek el. Ahhoz viszont hogy sütiket tudjunk küldeni, a CORS beállításnál engedélyezni kell, hogy engedélyezze a sütik küldését. 
+Úgy konfiguráltam fel a függvényt, hogy 3 végponton kívül mindent authetnikáljon: \textbf{/auth/createToken}, \textbf{/auth/refreshToken} ,\textbf{/subscribe}. Első kettőt végpontot azért nem kell authentikálni, mivel ide érkeznek azok a kérések amikor a felhasználó be akar jelentkezni, és kapja meg a szükséges token-eket amikre majd később szüksége lesz az authentikációnál.Ezek után a OAuth2 resource szervert kellett felkonfigurálni. Az application.yml file-ban írtam bele a különböző elérési utakat amikre a szervernek szüksége van hogy authentikálni tudja a jwt \footnote{Json Web Token} tokeneket. A keycloak-nál a \textbf{http://localhost:10000/realms/WhoLaughsLast/protocol/openid-connect/certs} elérési úton 
+elérhető az adott client-hez tartozó authetnikációs adatok. A jwt tokeneket a http kérések fejlécében küldtem el mint BearerTokenek. Hogy ezekhez hozzá tudjak jutni,
+egy Convertert kellett írni, majd a OAuth szerver ellenőrizze a hitelességüket. 
 
-\begin{lstlisting}[language=java,caption={SecurityConfig implementálása},captionpos=b]
-@Configuration
-@EnableWebSecurity
-@EnableMethodSecurity
-@RequiredArgsConstructor
-public class SecurityConfig {
-	
-private final AuthService authService;
-
+\begin{figure}
+	\caption{SecurityConfig implementálása}
+	\centering
+\begin{lstlisting}[language=java]
 @Bean
-public SecurityFilterChain securityFilterChain (HttpSecurity http)
-													 throws Exception{
-	System.out.println("Hallo");
+public SecurityFilterChain securityFilterChain (HttpSecurity http) throws Exception{
 	http
 	.cors().and()
 	.csrf()
 	.disable()
 	.authorizeHttpRequests(authorize -> authorize.
-	requestMatchers("/auth/createToken","/auth/refreshToken")
+	requestMatchers("/auth/createToken","/subscribe","/auth/refreshToken")
 	.permitAll()
-	.anyRequest().authenticated()).oauth2ResourceServer()
-	.jwt().and().
-	bearerTokenResolver(authService::getAccesTokenFromCookie);
-	
+	.anyRequest().
+	authenticated()).oauth2ResourceServer()
+	.jwt().jwtAuthenticationConverter(jwtAuthConverter);
 	http
 	.sessionManagement()
 	.sessionCreationPolicy(STATELESS);
 	
 	return http.build();
 }
-@Bean
-CorsConfigurationSource corsConfigurationSource() {
-	CorsConfiguration configuration = new CorsConfiguration();
-	configuration.
-	setAllowedOrigins(Arrays.asList("http://localhost:3000")); // Allow your frontend origin
-	configuration.
-	setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
-	configuration.
-	setAllowCredentials(true); // Allow credentials (cookies)
-	configuration.addAllowedHeader("*");
-		
-	UrlBasedCorsConfigurationSource source = 
-	new UrlBasedCorsConfigurationSource();
-	source.registerCorsConfiguration("/**", configuration);
-	return source;
-	}
-	
-}
 \end{lstlisting}
+\label{secConf}
+\end{figure}
+\newpage
 
-Ezek után implementáltam az authentikációs végpontot. Létrehoztam egy új Controllert aminek AuthController lett a neve,
-hogy szeparáltan legyen a többi végponttól ami a játékhoz kell, az átláthatóság és a rendezettség érdekében.Az egyik végpont 
-funkciója az hogy egy paraméterben kapott authorization code-ot elküldi a keycloak végpontjára amiért cserébe egy refresh tokent és egy access tokent kap.
-Ezeket egy sütiben visszaadva juttatja el a frontendre. A másik végpont funkciója pedig az hogy egy paraméterben kapott refresh tokent beváltva új access tokent kapjon a frontend az authentikációhoz.  
-\begin{lstlisting}[language=java,caption={Authentikációs végpont},captionpos=b]
+Ezek után implementáltam az authentikációs végpontot (\ref{authEndpoint}. ábra). Létrehoztam egy új Controllert aminek AuthController lett a neve,
+hogy szeparáltan legyen a többi végponttól ami a játékhoz kell, az átláthatóság és a rendezettség érdekében. Az egyik végpont 
+funkciója az hogy egy paraméterben kapott authorization code-ot elküldi a keycloak végpontjára amiért cserébe egy refresh tokent és egy access tokent kap,
+és ezeket juttatja el a frontendre. A másik végpont funkciója pedig az hogy egy paraméterben kapott refresh tokent beváltva új access tokent kapjon a frontend az authentikációhoz. 
+
+\begin{figure}[h]
+	\caption{Authentikációs végpont}
+	\centering
+	\begin{lstlisting}[language=java]
+		
 @PostMapping("/createToken")
-public void createToken(@RequestBody AuthTokenDTO authCode,
-			HttpServletResponse httpServletResponse) throws Exception{
-	TokenDTO tokenDTO =  authService.getTokens(authCode.getAuthCode());
-	Cookie accesCookie =
-	 new Cookie("access_token",tokenDTO.getAccess_token());
-	Cookie refreshcookie =
-	 new Cookie("refresh_token",tokenDTO.getRefresh_token());
-	httpServletResponse.addCookie(accesCookie);
-	httpServletResponse.addCookie(refreshcookie);
-}
+public TokenDTO createToken(@RequestBody AuthTokenDTO authCode) throws Exception{
+	return authService.getTokens(authCode.getAuthCode());
+}		
 
 @PostMapping("/refreshToken")
 public TokenDTO refreshAccesToken(@RequestBody RefreshTokenDTO refreshTokenDTO)
-				 throws Exception{
+throws Exception{
 	return authService.refreshAccesTokenWithRefreshToken(refreshTokenDTO
-						.getRefresh_token());
+	.getRefresh_token());
 }
-\end{lstlisting}
+		
+	\end{lstlisting}
+	\label{authEndpoint}
+\end{figure} 
+
 
 \begin{figure}[h]
 	\caption{Postman authentikációs token kérés}
+	\label{fig:postman}
 	\centering
 	\includegraphics[scale=0.5]{getTokens}
 \end{figure}
-\newpage
+
 
 \subsubsection{Frontend}
 A frontenden az authentikáció egyik feladata az authorization code eljutattása a backend-re volt. Mivel használni akartam a keycloak által 
@@ -493,32 +623,82 @@ készített login paget, így az URL-ből kellett kivennem a code-nak az érték
 URL-jére, hiszen ezt beállítottuk az admin oldalon, így ezt az eseményt fel tudtam használni. Vue Routert használok a navigációra az alkalmazáson belül. A Vue Router 
 sok hasznos funckióval rendelkezik, de ennél a problémánál a navigációs őröket (Navigation Guards) tudtam felhasználni. Itt meg tudok adni egy függvényt ami
 mindig meghívódik azelőtt hogy navigáció történne az alkalmazáson belül. Tehát amikor megtörténik a navigáció a keycloak-os felületről az alkalmazásra, a függvény amit 
-definiálok le fog futni. Paraméterként megkapom azt az elérési utat ahonnan navigáltak valamint azt is ahonnan navigáltak. Mivel ahhonnan navigálunk el ott jelenik meg az
-authorization code, így ki tudom nyerni onnan. Egy újabb Pinia Store-t is definiáltam az authentikációhoz köthető függvények miatt a jó struktúráltság érdekében. Itt implementáltam egy api hivást, ami http kérés body-jában tárolja az authorization code-ot és küldi el a backend számára. Ha ez megtörténik a sütik tartalmazni fogják az access és refresh tokeneket, így elérem a többi végpontot ami a játék működéséhez kell a backenden. 
-\begin{adjustwidth}{0cm}{0cm}
-	\begin{minipage}{\textwidth}
-		\begin{lstlisting}[style=javascriptStyle,caption={Authorization code kinyerése az elnavigált URL-ből}]
-			router.beforeEach(async (to,from,next) => {
-				const authStore = useAuthenticationStore();
-				if(to.query.code) {
-					console.log(to.query.code);
-					await authStore.getAuthTokens({code: to.query.code});
-					next(from.path);
-				}
-				else {
-					next();
-				}
-			})
-		\end{lstlisting}
-	\end{minipage}
-\end{adjustwidth}
+definiálok le fog futni. Paraméterként megkapom azt az elérési utat ahonnan navigáltak, valamint azt is ahonnan navigáltak. Mivel ahhonnan navigálunk el ott jelenik meg az
+authorization code, így ki tudom nyerni onnan (\ref{authCode}.ábra). Egy újabb Pinia Store-t is definiáltam az authentikációhoz köthető függvények miatt a jó struktúráltság érdekében. Definiáltam egy \textbf{authTokens} változót is ami az éppen aktuális access és refresh tokeneket tartalmazza. Itt implementáltam egy API hivást, ami http kérés body-jában tárolja az authorization code-ot és küldi el a backend számára. A választ eltárolom az authTokens változóban, így ezekkel már el tudom érni a backenden a játékhoz tartozó védett végpontokat is. 
+\begin{figure}
+	\caption{Authorization code kinyerése az elnavigált URL-ből}
+	\begin{adjustwidth}{0cm}{10cm}
+		\begin{minipage}{\textwidth}
+			\begin{lstlisting}[style=javascriptStyle]
+				router.beforeEach(async (to,from,next) => {
+					const authStore = useAuthenticationStore();
+					if(to.query.code) {
+						await authStore.getAuthTokens({code: to.query.code});
+						next(to.path);
+					}
+					else if(to.name === "playing" && !from.name) {
+						next("/boardManagement");
+					}
+					else {
+						next();
+					}
+					
+					
+				})
+			\end{lstlisting}
+		\end{minipage}
+	\end{adjustwidth}
+	\label{authCode}
+\end{figure}
+
+A másik fontos dolog volt implementálni az új access token kérését frontenden. Amint lejárt az addig használt access token érvényessége a szerver 401-es Unauthorized 
+hibakóddal tért vissza. Ilyenkor kellett a refresh tokent használni hogy új access tokent kapjunk. Az axios könyvtárat használtam a http kérések küldésére. Az axios 
+használatakor létrehozunk egy példányt belőle amik tartalmazzák azokat a függvényeket amikkel a http kéréseket el tudjuk küldeni, például a get,post,delete,stb... Amikor létrehozunk egy ilyen példányt, konfigurálhatjuk úgy, hogy minden egyes kérés küldésekor vagy válasz fogadásánál, bizonyos dolgokat végezzen el. Nekem arra volt szükségem hogy minden kérés elküldésekor a http fejlécébe csatolja az éppen aktuális access tokent, hogy majd a backend authentikálni tudja. Valamint minden egyes beérkezett válasznál ellenőriznem kellett, hogy a válasz 401-es hibakóddal tér-e vissza, mert akkor lejárt az access token, és újat kell kérni. Így ebben a részben hívtam meg az implementált API kérést, majd az újonnan kapott tokent altároltam a Store-ban, majd ezek után újra elküldtem a meghiúsult API kérést. Mivel egy 
+pinia store-ban tároltam el az authentikációs tokeneket, így ha a felhasználó frissíti az oldalt, ezek mind elvesznek. Így erre az eshetőségre is fel kellett konfigurálni az API hívásokat, hogyha nincsenek tokenek, akkor navigáljon el a bejelentkező oldalra. Ilyenkor viszont azt az API hívás amit a frissítés után akarunk végre-hajtani, eldobjuk. Viszont ez nem jelenti azt hogy minden egyes frissítéskor be kell jelentkeznünk, hiszen a Keycloak számon tartja, hogy be vagyunk jelentkezve, ezért rögtön vissza is navigál arra az URL-re amit megadtunk neki (\ref{axios}.ábra).
+
+\begin{figure}
+ 	\caption{Axios hivások felkonfigurálása authentikáció kezelésére}
+ 	\begin{adjustwidth}{0cm}{10cm}
+ 		\begin{minipage}{\textwidth}
+ 			\begin{lstlisting}[style=javascriptStyle]
+ 				const AxiosWithToken = axios.create({
+ 					baseURL: 'http://localhost:8080/'
+ 				});
+ 				
+ 				AxiosWithToken.interceptors.request.use(config => {
+ 					const authStore = useAuthenticationStore();
+ 					if(authStore.authTokens){
+ 						config.headers.Authorization = `Bearer ${authStore.authTokens.access_token}`;
+ 						return config;
+ 					}
+ 					
+ 				})
+ 				
+ 				AxiosWithToken.interceptors.response.use(response =>{
+ 					return response;
+ 				},async error=> {
+ 					const authStore = useAuthenticationStore();
+ 					if(error.response.status === 401 && authStore.authTokens.refresh_token) {
+ 						await authStore.getNewAccesTokenWithRefreshToken();
+ 						return AxiosWithToken(error.config);
+ 					}
+ 					else if(!authStore.authTokens.access_token){
+ 						window.location.href="http://localhost:10000/realms/WhoLaughsLast/protocol/openid-connect/auth?response_type=code&client_id=who_laughs_last_client";
+ 						return Promise.reject(error.config);
+ 					}
+ 				})
+ 			\end{lstlisting}
+ 		\end{minipage}
+ 	\end{adjustwidth}
+ 	\label{axios}
+\end{figure}
 
 \newpage
 
 \subsection{Frontend}
 A frontend készítésnél már volt egy kiinduló gitlab projektem, amit a külső konzulensem
 biztosított számomra. Ez a projekt egy üres projekt volt, de a Vue.js keretrendszer, webpack
-konfiguráció már importálva volt valamint, sok hasznos könyvtárat tartalmazott. Ahogy
+konfiguráció már importálva volt, valamint sok hasznos könyvtárat tartalmazott. Ahogy
 korábban említettem, a Vue.js egy komponens orientált fejlesztés tesz lehetővé. Ezt használva
 először azt terveztem meg hogy milyen komponensekből fog állni a megjelenítés.
 Először a táblák megjelenítéséért felelős komponenst írtam meg. Ez listázza az összes
@@ -561,6 +741,7 @@ elteltével eltűnik.
 	 \bibitem{konva}
 	 Konva library
 	 \bibitem{postman}
+	 Postman library
 \end{thebibliography}
 
 \end{document}

@@ -13,10 +13,11 @@
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {5.2.1}Java keretrendszer}{13}{}%
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {5.2.2}Lombok}{14}{}%
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {5.2.3}Autentikációs keretrendszer}{14}{}%
-\select@language {hungarian} \contentsline {subsubsection}{\numberline {5.2.4}Tesztelés}{15}{}%
+\select@language {hungarian} \contentsline {subsubsection}{\numberline {5.2.4}Többjátékos mód megvalósítása}{15}{}%
+\select@language {hungarian} \contentsline {subsubsection}{\numberline {5.2.5}Tesztelés}{16}{}%
 \select@language {hungarian} \contentsline {section}{\numberline {6}Önálló munka bemutatása}{17}{}%
 \select@language {hungarian} \contentsline {subsection}{\numberline {6.1}Backend}{17}{}%
-\select@language {hungarian} \contentsline {subsection}{\numberline {6.2}Authentikáció}{18}{}%
-\select@language {hungarian} \contentsline {subsubsection}{\numberline {6.2.1}Backend}{18}{}%
-\select@language {hungarian} \contentsline {subsubsection}{\numberline {6.2.2}Frontend}{22}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {6.2}Authentikáció}{20}{}%
+\select@language {hungarian} \contentsline {subsubsection}{\numberline {6.2.1}Backend}{20}{}%
+\select@language {hungarian} \contentsline {subsubsection}{\numberline {6.2.2}Frontend}{23}{}%
 \select@language {hungarian} \contentsline {subsection}{\numberline {6.3}Frontend}{25}{}%

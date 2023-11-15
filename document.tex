@@ -425,6 +425,24 @@ A Keycloak egy sor olyan funkciót kínál, amelyek segítenek az alkalmazások 
 	\label{keycloak-login}
 \end{figure}
 
+\subsubsection{Többjátékos mód megvalósítása}
+Mivel a társasjáték csak akkor tud működni ha legalább ketten játszanak vele, így implementálnom kellett olyan funkciókat amik lehetővé teszik, hogy értesüljenek 
+a felhasználók egymás lépéseiről. Mivel a kliens alkalmazás minden felhasználó gépén külön fut, így természetes, hogy a backenden kell ezt a funkciót megvalósítani, hiszen ez az egyetlen közös pont a játékosoknál. Ennek a funciónak a megvalósításához két féle ötlet létezik. A Server-Sent-Events (SSE) vagy a Websocket. Mindkettő olyan technológiák, amelyek lehetővé teszik a kliens és a szerver közötti valós idejű kommunikációt a weben keresztül, de különböznek a működésük és a használatuk szempontjából. Websocket esetében kétirányú kommunikációt tesz lehetővé, ami azt jelenti, hogy mind a kliens, mind a szerver küldhet üzeneteket egymásnak bármikor. A kapcsolat felépítéséhez WebSocket protokollt használja, ami később egy WebSocket kapcsolathoz vezet. Az SSE esetében egyirányú kommunikációt biztosít a szerverről a kliens felé. Csak a szerver küldhet adatokat a kliensnek. Az SSE beépített támogatást nyújt az automatikus újraépítéshez, ami azt jelenti, hogy ha a kapcsolat megszakad, a böngésző automatikusan megpróbálja újraépíteni. Könnyen használható és könnyen implementálható a böngészőben, és a szerveroldalon is könnyen konfigurálható. Mivel az én esetemben csak a klienst kellett értesíteni, hogy a játék állása, státusza megváltozott így a SSE techológiát választottam (\ref{sse}.ábra). 
+\begin{figure}[h]
+	\caption{SSE szerver osztály annotációi}
+	\centering
+	\begin{lstlisting}[language=java]
+		
+	@RestController
+	@CrossOrigin(origins = "http://localhost:3000")
+	@Component
+	public class EventSender {
+		
+		public List<SseEmitter> emmitters = new CopyOnWriteArrayList<SseEmitter>();
+		
+	\end{lstlisting}
+	\label{sse}
+\end{figure} 
 \subsubsection{Tesztelés}
 A backend API teszteléséhez, frontend nélkül, kiváló megoldást kínál a Postman\cite{postman}, így ezt használtam a fejlesztés során. Az alábbiakban néhány kulcsfontosságú jellemzőt és funkciót ismertetek, amit a Postman kínál:
 
@@ -443,9 +461,11 @@ A backend API teszteléséhez, frontend nélkül, kiváló megoldást kínál a 
 
 
 \section{Önálló munka bemutatása}
-Első részben az alkalmazás backendjét írtam meg, valamint mert felépítésben is így tűnt
+Első részben az alkalmazás backendjét írtam meg, mert felépítésben így tűnt
 logikusnak. Az osztályokat rétegekbe rendeztem funkciójuk és függőségeik szerint.
 \subsection{Backend}
+A backend részét a Java Spring projektben valósítottam meg. Ehhez a Spring Initializr-t használtam, mivel meggyorsítja a projekt létrehozásának a feladatát. Itt
+egyszerűen meg lehet adni, hogy milyen függőségeket szeretnénk használni a projektünk során, majd ezután egy zip fájlként le is tölthetjük a gépünkre. Ebben a projektben már be lesznek téve azok az xml tag-ek a pom.xml fájlba, amik leírják a függőségeinket. Ehhez természetesen a fejlesztés során is rakhatunk hozzá. 
 A Model rétegbe tettem azokat az osztályokat, amiket majd, később a hálózaton elküldök egy
 http (HyperText Transfer Protocol) kérésbe ágyazva a szervernek, majd a válaszokat is ezekbe
 az osztályokba konvertálom át. Az egész backenden ezekkel az objektumokkal dolgozok.
@@ -470,13 +490,43 @@ frontendem fog hívni. Ez a réteg indítja el a kérések sorozatát, ami végi
 majd visszatér a szervertől kapott adattal (\ref{backend-pipeline}. ábra).
 
 Ahogy már korábban említettem, a munkahely által biztosított szerverre kellett http kéréseket
-küldeni. Ehhez volt egy dokumentáció, hogy milyen API végpontok vannak a szerveren, és
-azokhoz milyen URL tartozik. Az is le volt írva, hogy milyen DTO-kat kell definiálni a
+küldeni. Ehhez volt egy Swagger\cite{swagger} oldal, hogy milyen API végpontok vannak a szerveren, és
+azokhoz milyen URL tartozik.  Az is le volt írva, hogy milyen DTO-kat kell definiálni a
 kommunikációhoz. Ezért így először létrejött a DTO, avagy Model mappa, ahol deklaráltam a
 megfelelő osztályokat. A dokumentációban részletezve volt, hogy bizonyos híváshoz milyen
 paramétert kell átadni, valamint mit fog visszaadni. Például, ha egy új táblát szeretnék
 felvenni, akkor az adott POST kérésnél milyen DTO-t kell elküldeni, és milyen objektumot
-fog visszaküldeni. Magán a szerveren a játék logikája már implementálva volt, így mindig
+fog visszaküldeni. Ez általában a http kérés body-jában küldték, onnan kellett kikonvertálni. Szerencsére ez Spring keretrendszernek hála, nagyon könnyen meg tudtam csinálni (\ref{post-vegpont}.ábra).
+\begin{figure}[h]
+	\caption{Egy post végpont a backenden}
+	\raggedleft
+\begin{adjustwidth}{0cm}{10cm}
+	\begin{minipage}{\textwidth}
+	\begin{lstlisting}[language=java]
+		
+@PostMapping("/board")
+public ResponseEntity<?> createBoard(@RequestBody CreateBoardDTO board) {
+	BoardDTO createdBoard = null;
+	try {
+		createdBoard= boardService.createBoard(board);
+		
+	}catch (ErrorCodeException e) {
+		return new ResponseEntity<>(e.getErrorCode().
+		getErrorCode(),HttpStatusCode.valueOf(400));
+	}
+	catch(Exception e){
+		System.out.println(e);
+	}
+	return new ResponseEntity<>(createdBoard,HttpStatusCode
+	.valueOf(200));
+}
+	\end{lstlisting}
+\end{minipage}
+\end{adjustwidth}
+	\label{post-vegpont}
+\end{figure} 
+
+Magán a szerveren a játék logikája már implementálva volt, így mindig
 konzisztens adatokat kaptunk vissza, tehát például egy táblán nem lehet két ugyanolyan nevű
 játékos. Ha esetleg egy ilyen kérés érkezett akkor egy ErrorMessage osztállyal tért vissza,
 amiben részletezve volt a hiba.
@@ -488,16 +538,131 @@ amiben részletezve volt a hiba.
 	\label{backend-pipeline}
 \end{figure}
 
-A külső konzulensem elvárta, hogy leteszteljük az elkészült modulokat, így Unit teszteket is
-írtam. Mivel rétegeltem, a különböző funkciókat így könnyedén tudtam tesztelni őket, hiszen
-egy mockolás (a Mockito [7] könyvtárat használtam ehhez) után egyszerűen tudtam tesztelni.
+Az implementáció után a kód tesztelése volt hátra, mivel az iparban elvárt a tesztesetek írása hiszen számos előnnyel jár.
+Egységtesztelést végeztem, ami azt jelenti hogy mindig csak egy alap funkciót teszteltem le, ez általában egy osztály és annak függvényei. Többféle tesztelés is létezik, például integration test, ami az egységek együttműködését teszteli, valamint end-to-end tesztek amik az egész alkalmazást fedik le. Az a jó hogyha lefelé haladva ezen a tesztelési hierarchián, egyre több tesztünk van. Egységtesztelés 
+alatt a fejlesztők sok mindenre rájöhetnek a kódbázissal kapcsolatban. Például hogy a felelősségeik hogyan vannak elosztva. Ha egy osztályt nehéz tesztelni, az valószínűleg azért van, mert nagyban függ más komponensektől. Ez egy jele annak hogy rossz a design a kódban, hiszen hogyha egy osztály nagyban függ más osztályoktól, akkor ha azok megváltoznak, az erre is hatással lesz így a fenntarthatóság jóval nehezebb lesz. A tervezésnél fontos hogy lazán csatoltak legyenek az osztályok, hogy ilyen ne fordulhasson elő. Másik fontos előnye a tesztek írásának, hogy amikor újraírunk egy kódrészletet, esetleg optimálisabbá akarjuk tenni, akkor a tesztek segítségével ellenőrizhetjük, hogy megmaradt-e a kívánt funkcionalitás.  Mivel rétegeltem, a különböző funkciókat így könnyedén tudtam tesztelni őket, hiszen
+egy mockolás (a Mockito [7] könyvtárat használtam ehhez) után egyszerűen tudtam tesztelni (\ref{mocking}.ábra).
 A "mockolás" egy olyan technika, amelyben a tesztelés során a valódi rendszerek vagy
 komponensek helyett szimulált, viselkedést utánzó objektumokat (mock objektumokat) használnak.
 A mock objektumok olyan mesterségesen létrehozott objektumok, amelyek az
 eredeti rendszer vagy komponens egy részét helyettesítik, és előre definiált válaszokat adnak a
 függvényhívásokra vagy metódusokra. A mock objektumok segítségével szimulálhatók a
 valós környezetben előforduló esetek, például adatbázishoz való kapcsolódás vagy hálózati
-kommunikáció, anélkül hogy a valódi rendszerre vagy szolgáltatásra támaszkodnánk. 
+kommunikáció, anélkül hogy a valódi rendszerre vagy szolgáltatásra támaszkodnánk. Ez a technika jó design esetén is szükséges hiszen, nem lehet teljesen független modulokból egy működő alkalmazást csinálni, valamiféle együttműködés feltétlen szükséges. 
+\begin{figure}[h]
+	\caption{Függőségek mockolása a tesztben}
+	\raggedleft
+	\begin{lstlisting}[language=java]
+		
+	public class GamePlayDAOTest {
+		
+		GamePlayDAO gamePlayDAO;
+		
+		HttpClientFactory httpClientFactory;
+		
+		HttpClient client;
+		HttpResponse response;
+		
+		@BeforeEach
+		void mocking () throws Exception{
+			httpClientFactory = mock(HttpClientFactory.class);
+			client = mock(HttpClient.class);
+			response = mock(HttpResponse.class);
+			gamePlayDAO = new GamePlayDAO(httpClientFactory);
+			when(httpClientFactory.getNewHttpClient())
+			.thenReturn(client);
+			when(client.send(any(),any())).thenReturn(response);
+		}
+	\end{lstlisting}
+	\label{mocking}
+\end{figure} 
+Ahhoz hogy többjátékos módot támogassa a backend, a Server-Sent-Events technológiát alkalmaztam és implementáltam le. Itt a munkahelyi szerveren létre volt hozva egy interfész,WhoLaughslastMessagingProcessor néven, amit implementálni kellett (\ref{messproc}.ábra). Alapvetően 4 darab eseményről értesítjük az összes felhasználót: \begin{enumerate}
+	\item Felhasználó dobott a kockával.
+	\item Felhasználó lépett egy bábuval.
+	\item Játékos csatlakozott egy táblához.
+	\item A játék státusza megváltozott (Például egy játékot elindítottak akkor CREATED státuszról STARTED státuszra vált).
+\end{enumerate}
+Az első esetben az adat amit küldünk a kliens alkalmazásnak az új pálya helyzetét leíró adatok. Tehát hogyha egy játékos lépett akkor a bábu helyzete, a visszaküldött JSON válaszban már az újat reprezentálja. A második esetben megkapjuk, hogy hányast dobott az adott játékos, valamint ki a soron következő játékos. A 3. és a 4. esetben az új táblát leíró JSON adatot küldi el. Azok az osztályok amiket itt elküld, azok a munkahelyi szerverről származnak, ott hívják meg őket a megfelelő objektumokkal. Viszont mivel a frontendről kialakítottuk a kapcsolatot, ezeket az eseményeket mind megkapja az alkalmazás. Viszont ilyen esetben egy olyan probléma merül fel, mivel egyszerre akár többen is használhatják az alkalmazást, tehát nem biztos hogy csak 1 tábla van használatban akár lehet több is. Hiszen tegyük fel egyszerre 2 társaság dönt úgy, hogy játszik az alkalmazással, akkor azokat az eseményeket amik az ő táblájukon történik, másik társaság kliens alkalmazása is megkap. Ez természetesen megengedhetetlen, hiszen ha az egyik társaság befejezi a játékot és a táblájuk a FINISHED státuszra vált, akkor a másik társaság játéka is befejeződne, akár kész vannak, akár nem. Tehát meg kell valahogy különböztetni a küldött eseményeket, mégpedig táblánként, hogy az adott eseményekre való feliratkozásnál csak azokra figyeljen, ami a releváns pályán történik. Eseményt az \textit{EventSender} osztály \textit{send} metódusával lehetséges. Itt megadhatunk paraméterben egy szöveget, ami az eseménynek a neve lesz, amire később referálhatunk a frontenden, hogy melyik eseményre akarunk hivatkozni. Itt paraméterben adtam meg a táblának az \textit{id} tulajdonságát, ami minden táblánál egyedi. Így biztosítani tudtam, hogy a feliratkozásnál, csak a releváns táblára iratkozik fel, így nem lesz probléma egyidejű játéknál több felhasználónál. 
+\begin{figure}[h]
+	\caption{WhoLaughslastMessagingProcessor interfész implementálása}
+	\raggedleft
+	\begin{lstlisting}[language=java]	
+@Component
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+public class MessagingProcessor implements WhoLaughLastMessagingProcessor{
+	private final EventSender sender;
+	@Override
+	public void playerUpdated(PlayerUpdateMessage playerUpdateMessage) {
+		System.out.println("PlayerChange"+playerUpdateMessage
+		.getBoardId());
+		sender.sendEvents("PlayerChange"+playerUpdateMessage
+		.getBoardId(),playerUpdateMessage);
+	}
+	@Override
+	public void rolledDice(RolledDiceMessage rolledDiceMessage) {
+		sender.sendEvents("RollChange"+rolledDiceMessage
+		.getBoardId(),rolledDiceMessage);
+	}
+	@Override
+	public void move(PositionsUpdateMessage positionsUpdateMessage) {
+		
+		sender.sendEvents("PositionChange"+positionsUpdateMessage
+		.getBoardId(),positionsUpdateMessage);
+	}
+	@Override
+	public void gameStatusChange(BoardStatusChangeMessage
+					 boardStatusChangeMessage) {
+		sender.sendEvents("StatusChange"+boardStatusChangeMessage
+		.getBoardId(),boardStatusChangeMessage);
+	}
+}
+		\end{lstlisting}
+		\label{messproc}
+	\end{figure} 
+Valamint még szükség volt arra az osztályra (\ref{eventsender}.ábra) ami magát az eseményeket elküldi a kliens számára.  Egy \textit{SseEmitter} osztályú objektumokból álló listát is létrehoztam mint tagváltozó, itt tárolom a különböző klienseknek a feliratkozását. Ez nagyon fontos hogy CopyOnWriteArrayList típusú legyen, mivel így kezelhető a konkurencia.Valamint létrehoztam egy újabb végpontot, amit majd az \textit{EventSource} létrehozásánál hivatkozhat a frontend.  Ha ez a hívás megtörténik, akkor először létrehozok egy emittert, aminek konstruktorában a \textit{\texttt{LONG.MAX\_VALUE}} értéket adom. Ez az érték azt jelenti hogy egyes emitterek mennyi ideig tartsák fent a kapcsolatot mielőtt megszakítják a kapcsolatot. Ezek után létrehozok egy \textit{SseEmitter} osztályú objektumot ami küld egy \textbf{"INIT"} nevű eseményt, majd ezt az emittert az osztály tagváltozójához hozzáadom. Deklaráltam egy függvényt \textit{sendEvents} néven, ami végigiterál ezeken az emitter-eken, és elküldi a paraméterben átadott névvel és adattal, az eseményt a kliens alkalmazásnak.   
+\begin{figure}[h]
+	\caption{EventSender osztály implementálása}
+	\centering
+	\begin{lstlisting}[language=java]	
+@RestController
+@CrossOrigin(origins = "http://localhost:3000")
+@Component
+public class EventSender {
+		
+	public List<SseEmitter> emmitters = new CopyOnWriteArrayList
+	<SseEmitter>();
+		
+	@RequestMapping("/subscribe")
+	public SseEmitter subscribe() {
+	System.out.println("Subscripbed");
+		SseEmitter emmitter = new SseEmitter(Long.MAX_VALUE);
+		try{
+			emmitter.send(SseEmitter.event().name("INIT"));
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		emmitter.onCompletion(() -> emmitters.remove(emmitter));
+		emmitters.add(emmitter);
+		return emmitter;
+		
+	}
+	public void sendEvents(String eventname, Object data){
+		for(SseEmitter emitter : emmitters){
+			try{
+				emitter.send(SseEmitter.event().name(eventname)
+				.data(data));
+			}catch(IOException e){
+				emmitters.remove(emitter);
+			}
+			}
+		}
+	}
+	\end{lstlisting}
+	\label{eventsender}
+\end{figure} 
+
+
+
 \subsection{Authentikáció}
 \subsubsection{Backend}
 Az authentikációt a Keycloak nyílt forráskódú keretrendszerrel valósítottam meg. Ehhez, hogy konfigurálni tudjam a 
@@ -742,6 +907,8 @@ elteltével eltűnik.
 	 Konva library
 	 \bibitem{postman}
 	 Postman library
+	 \bibitem{swagger}
+	 Swagger documentation
 \end{thebibliography}
 
 \end{document}

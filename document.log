@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9) (preloaded format=pdflatex 2023.10.2)  14 NOV 2023 01:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9) (preloaded format=pdflatex 2023.10.2)  15 NOV 2023 01:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -401,49 +401,214 @@ Overfull \hbox (66.41103pt too wide) in paragraph at lines 424--426
  []
 
 
-Overfull \hbox (9.49457pt too wide) in paragraph at lines 429--430
+Overfull \hbox (200.87086pt too wide) in paragraph at lines 441--443
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[15 <./images/keycloak-login.png>]
+Overfull \hbox (9.49457pt too wide) in paragraph at lines 447--448
 \T1/cmr/m/n/10 A bac-kend API tesz-te-lé-sé-hez, front-end nél-kül, ki-vá-ló me
 g-ol-dást kí-nál a Postman[[]],
  []
 
-[15 <./images/keycloak-login.png>]
-Overfull \hbox (2.45045pt too wide) in paragraph at lines 434--435
+
+Overfull \hbox (2.45045pt too wide) in paragraph at lines 452--453
 []\T1/cmr/bx/n/10 Automatizálás: \T1/cmr/m/n/10 Post-man se-gít-sé-gé-vel au-to
 -ma-ti-zál-ha-tod az API-teszteket
  []
 
 [16]
-<./images/backend-pipeline.png, id=68, 958.3303pt x 113.67468pt>
-File: ./images/backend-pipeline.png Graphic file (type png)
-<use ./images/backend-pipeline.png>
-Package pdftex.def Info: ./images/backend-pipeline.png  used on input line 487.
-
-(pdftex.def)             Requested size: 479.16399pt x 56.83719pt.
-
-Overfull \hbox (134.16399pt too wide) in paragraph at lines 487--489
- [][]
- []
-
-[17]
-<./images/keycloak-cients.png, id=72, 1434.86063pt x 415.5525pt>
-File: ./images/keycloak-cients.png Graphic file (type png)
-<use ./images/keycloak-cients.png>
-Package pdftex.def Info: ./images/keycloak-cients.png  used on input line 517.
-(pdftex.def)             Requested size: 717.42857pt x 207.77574pt.
-
-Overfull \hbox (372.42857pt too wide) in paragraph at lines 517--519
- [][] 
+Overfull \hbox (92.89641pt too wide) in paragraph at lines 508--509
+[][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (58.76945pt too wide) in paragraph at lines 503--520
-\T1/cmr/bx/n/10 KEYC-LO-AK_ADMIN=admin -e KEYC-LO-AK_ADMIN_PASSWORD=admin
+Overfull \hbox (26.91202pt too wide) in paragraph at lines 511--513
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (20.91344pt too wide) in paragraph at lines 514--515
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (14.91486pt too wide) in paragraph at lines 515--516
+[][][][][][][][][] 
+ []
+
+
+Overfull \hbox (32.9106pt too wide) in paragraph at lines 520--521
+[][][][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 504--525
+[]
+ []
+
+
+Overfull \hbox (284.52756pt too wide) in paragraph at lines 504--525
+[]$ 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+[17]
+<./images/backend-pipeline.png, id=71, 958.3303pt x 113.67468pt>
+File: ./images/backend-pipeline.png Graphic file (type png)
+<use ./images/backend-pipeline.png>
+Package pdftex.def Info: ./images/backend-pipeline.png  used on input line 537.
+
+(pdftex.def)             Requested size: 479.16399pt x 56.83719pt.
+
+Overfull \hbox (134.16399pt too wide) in paragraph at lines 537--539
+ [][]
+ []
+
+
+Overfull \hbox (98.89499pt too wide) in paragraph at lines 568--569
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (14.91486pt too wide) in paragraph at lines 570--571
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (92.89641pt too wide) in paragraph at lines 571--572
+[][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (50.90634pt too wide) in paragraph at lines 572--573
+[][][][][][][][][] 
+ []
+
+
+Overfull \hbox (110.89215pt too wide) in paragraph at lines 574--575
+[][][][][][][][][][][][][][][][][] 
+ []
+
 [18 <./images/backend-pipeline.png>]
+Overfull \hbox (98.89499pt too wide) in paragraph at lines 592--593
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (110.89215pt too wide) in paragraph at lines 595--596
+[][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (68.90208pt too wide) in paragraph at lines 596--597
+[][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (62.9035pt too wide) in paragraph at lines 598--599
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (68.90208pt too wide) in paragraph at lines 602--603
+[][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (38.90918pt too wide) in paragraph at lines 603--604
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (92.89641pt too wide) in paragraph at lines 607--609
+[][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (92.89641pt too wide) in paragraph at lines 609--610
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (20.91344pt too wide) in paragraph at lines 613--614
+[][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (62.9035pt too wide) in paragraph at lines 614--615
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (92.89641pt too wide) in paragraph at lines 615--616
+[][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (62.9035pt too wide) in paragraph at lines 632--633
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (68.90208pt too wide) in paragraph at lines 638--639
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (80.89925pt too wide) in paragraph at lines 640--641
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (86.89783pt too wide) in paragraph at lines 644--645
+[][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (26.91202pt too wide) in paragraph at lines 649--650
+[][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (128.8879pt too wide) in paragraph at lines 652--653
+[][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (2.9177pt too wide) in paragraph at lines 655--656
+[][][][][][][][][] 
+ []
+
+[19]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/keycloak-cients.png, id=80, 1434.86063pt x 415.5525pt>
+File: ./images/keycloak-cients.png Graphic file (type png)
+<use ./images/keycloak-cients.png>
+Package pdftex.def Info: ./images/keycloak-cients.png  used on input line 682.
+(pdftex.def)             Requested size: 717.42857pt x 207.77574pt.
+
+Overfull \hbox (372.42857pt too wide) in paragraph at lines 682--684
+ [][] 
+ []
+
+
+Overfull \hbox (58.76945pt too wide) in paragraph at lines 668--685
+\T1/cmr/bx/n/10 KEYC-LO-AK_ADMIN=admin -e KEYC-LO-AK_ADMIN_PASSWORD=admin
+ []
+
+[20]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[21]
 (C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
 g1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
@@ -452,104 +617,104 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 c.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 )
-Overfull \hbox (104.89357pt too wide) in paragraph at lines 530--531
+Overfull \hbox (104.89357pt too wide) in paragraph at lines 695--696
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (20.91344pt too wide) in paragraph at lines 535--536
+Overfull \hbox (20.91344pt too wide) in paragraph at lines 700--701
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (62.07816pt too wide) in paragraph at lines 523--541
+Overfull \hbox (62.07816pt too wide) in paragraph at lines 688--706
 []\T1/cmr/m/n/10 A vég-pon-tok biz-ton-sá-gos-sá té-te-lé-hez a \T1/cmr/bx/n/10
  Spring Se-cu-rity\T1/cmr/m/n/10 -t és az \T1/cmr/bx/n/10 OA-uth2ResourceServer
 
  []
 
-<./images/filterchain.png, id=77, 544.28343pt x 398.99063pt>
+<./images/filterchain.png, id=88, 544.28343pt x 398.99063pt>
 File: ./images/filterchain.png Graphic file (type png)
 <use ./images/filterchain.png>
-Package pdftex.def Info: ./images/filterchain.png  used on input line 551.
+Package pdftex.def Info: ./images/filterchain.png  used on input line 716.
 (pdftex.def)             Requested size: 272.14105pt x 199.49483pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (111.5505pt too wide) in paragraph at lines 554--557
+Overfull \hbox (111.5505pt too wide) in paragraph at lines 719--722
 [] \T1/cmr/m/n/10 to-ke-ne-ket. A keycloak-nál a \T1/cmr/bx/n/10 http://localho
 st:10000/realms/WhoLaughsLast/protocol/openid-
  []
 
-[19 <./images/keycloak-cients.png>]
-Overfull \hbox (158.8808pt too wide) in paragraph at lines 563--564
+
+Overfull \hbox (158.8808pt too wide) in paragraph at lines 728--729
 [][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (122.88931pt too wide) in paragraph at lines 569--570
+Overfull \hbox (122.88931pt too wide) in paragraph at lines 734--735
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (14.91486pt too wide) in paragraph at lines 573--574
+Overfull \hbox (14.91486pt too wide) in paragraph at lines 738--739
 [][][][][][][][][][] 
  []
 
-[20 <./images/filterchain.png>]
-Overfull \hbox (140.88506pt too wide) in paragraph at lines 596--597
+[22]
+Overfull \hbox (140.88506pt too wide) in paragraph at lines 761--762
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (20.91344pt too wide) in paragraph at lines 597--598
+Overfull \hbox (20.91344pt too wide) in paragraph at lines 762--763
 [][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (128.8879pt too wide) in paragraph at lines 601--602
+Overfull \hbox (128.8879pt too wide) in paragraph at lines 766--767
 [][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (110.89215pt too wide) in paragraph at lines 603--604
+Overfull \hbox (110.89215pt too wide) in paragraph at lines 768--769
 [][][][][][][][][][] 
  []
 
-<./images/getTokens.png, id=87, 485.56406pt x 460.72125pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/getTokens.png, id=92, 485.56406pt x 460.72125pt>
 File: ./images/getTokens.png Graphic file (type png)
 <use ./images/getTokens.png>
-Package pdftex.def Info: ./images/getTokens.png  used on input line 616.
+Package pdftex.def Info: ./images/getTokens.png  used on input line 781.
 (pdftex.def)             Requested size: 242.78143pt x 230.36006pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 631--650
+Underfull \hbox (badness 10000) in paragraph at lines 796--815
 []
  []
 
 
-Overfull \hbox (284.52756pt too wide) in paragraph at lines 631--650
+Overfull \hbox (284.52756pt too wide) in paragraph at lines 796--815
 []$ 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [21]
-[22 <./images/getTokens.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 662--692
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 827--857
 []
  []
 
 
-Overfull \hbox (284.52756pt too wide) in paragraph at lines 662--692
+Overfull \hbox (284.52756pt too wide) in paragraph at lines 827--857
 []$ 
  []
 
-[23] [24] [25] [26] (document.aux)
+[24] [25] [26] [27] [28 <./images/keycloak-cients.png>] [29 <./images/filtercha
+in.png>] [30 <./images/getTokens.png>] [31] [32] (document.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
@@ -560,32 +725,33 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7025 strings out of 475247
- 111745 string characters out of 5753980
+ 7109 strings out of 475247
+ 113111 string characters out of 5753980
  2076801 words of memory out of 5000000
- 28494 multiletter control sequences out of 15000+600000
- 571721 words of font info for 64 fonts, out of 8000000 for 9000
+ 28577 multiletter control sequences out of 15000+600000
+ 572036 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,8n,65p,1870b,1563s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,8n,65p,2027b,1563s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
-600\tcrm1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/j
-knappen/ec/dpi600\ectt1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecrm0500.pk> <C:\Users\Bozsik Jozsef\AppData\Lo
-cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Bozsik Joz
-sef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Us
+600\ecit1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\tcrm1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Bozsik Jozsef\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0500.pk> <C:\Users\Bozsik Joz
+sef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Us
 ers\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0
-600.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
-c/dpi600\ecrm0700.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljf
-our/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTe
-X\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Bozsik Jozsef\AppDa
-ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Bozsi
-k Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <
+800.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecrm0600.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTe
+X\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Bozsik Jozsef\AppDa
+ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Bozsi
+k Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <
 C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
-ecrm1200.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecrm1728.pk>
-Output written on document.pdf (26 pages, 384628 bytes).
+ecrm1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecrm1200.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/p
+k/ljfour/jknappen/ec/dpi600\ecrm1728.pk>
+Output written on document.pdf (32 pages, 406791 bytes).
 PDF statistics:
- 570 PDF objects out of 1000 (max. 8388607)
+ 613 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

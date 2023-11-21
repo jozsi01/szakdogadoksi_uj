@@ -7,6 +7,7 @@
 \usepackage{amsmath} 
 \usepackage{t1enc}
 \usepackage{titlesec}
+\usepackage{placeins}
 \title{Szakdolgozat}
 
 \definecolor{mygreen}{RGB}{0,128,0}
@@ -144,61 +145,79 @@ stb…).
 
 Egyszerre akár több játékost is beállíthatunk. Ezután elindítjuk a pályát, ami átnavigál egy
 újabb oldalra, ahol a tábla van megjelenítve. Egy adott táblának 3 státusza lehet: CREATED,
-STOPPED, FINISHED. A CREATED státuszban A kockadobás egy sima gomb, amit ha a
-felhasználó megnyom, generál egy számot 1-től 6-ig. Ezután rákattint a bábura amit mozgatni
+STARTED, FINISHED. A CREATED státuszban tudnak a játékosok belépni az adott pályára. A STARTED állapotban folyik a játék, és már nem lehet csatlakozni hozzá. A FINISHED státuszban valamilyen módon véget ért a játék. A kockadobás egy sima gomb, amit ha a
+felhasználó megnyom, véletlenszerűen létrehoz egy számot 1-től 6-ig. Ezután rákattint a bábura amit mozgatni
 szeretne, és az a megfelelő mennyiséggel előre lép a táblán. Ha éppen ellenfél játékosra lép,
 leüti a tábláról. Ha az összes bábu beér akkor kiírja, hogy nyert az adott játékos és maga a
-tábla átvált FINISHED státuszra. 
+tábla átvált FINISHED státuszra.
+
+\begin{figure}
+	\caption{Egy játékmenet ábrazolása}
+	\raggedleft 
+	\includegraphics[scale=0.5]{folyamatabra}
+	\label{folyamatabra}
+\end{figure}
 \newpage
 \section{Alkalmazás fejlesztéséhez használt technológiák}
 A modern webfejlesztésben szinte elengedhetetlen különböző keretrendszerek használata,
-mivel a hatékonyságban, és a szoftverminőségben is jelentősen tud segíteni a fejlesztő
-számára. 
+mivel a hatékonyságban, és a szoftverminőségben is jelentősen támogatja a munkájában a fejlesztőt.
 \subsection{Frontend}
 
 \subsubsection{Javascript keretrendszer}
 Mivel az alkalmazásom felépítése több nézetből is állt, érdemes volt egy olyan keretrendszert választanom, ami támogatja a komponens 
 alapú megközelítést. Ezt a  Vue.js\cite{vuejs} teljesíti is, így ezt a technológiát választottam. 
 
- A \textbf{komponens alapú architektúra} lényege hogy már az egyszer megírt kódunkat többször, teljesen máshol is fel tudjuk használni. Például tipikus példa 
-ha listázni akarunk valamiféle adatot, bizonyos formázások után. Erre létrehozhatunk egy komponenst amit többször megjelenítünk az oldalon, vagy esetleg teljesen máshol az alkalmazásunkban (\ref{komponens}).ábra. A komponensen belül írjuk meg hogy a komponens hogyan viselkedjen, függvényeket definiálhatunk bennük, eseménykezelőket hozhatunk létre, például egy gomb megnyomására mi történjen. A komponensek egymásba ágyazhatóak így jöhet létre a szülő-gyermek viszony közöttük. Az ilyen komponensek között adatokat adhatunk át, valamint informálhatják különböző események bekövetkeztéről. 
+ A \textbf{komponens alapú architektúra} lényege, hogy már az egyszer megírt kódunkat többször, teljesen máshol is fel tudjuk használni. Például tipikus példa 
+ha listázni akarunk valamiféle adatot, bizonyos formázások után. Erre létrehozhatunk egy komponenst amit többször megjelenítünk az oldalon, vagy esetleg teljesen máshol az alkalmazásunkban (\ref{komponens}).ábra.
+\begin{figure}
+	\caption{Board komponens listázása}
+	
+	\begin{minipage}{\textwidth}
+		\begin{lstlisting}[style=javascriptStyle]
+			<section>
+			<Board data-test="board" v-for="board in boardStore.boards" :key="board.id" :board="board" />
+			</section>
+		\end{lstlisting}
+	\end{minipage}
+	
+	\label{komponens}
+\end{figure}
+\FloatBarrier
+A komponensen belül írjuk meg hogy a komponens hogyan viselkedjen, függvényeket definiálhatunk bennük, eseménykezelőket hozhatunk létre, például egy gomb megnyomására mi történjen(\ref{button-click}.ábra). A komponensek egymásba ágyazhatóak így jöhet létre a szülő-gyermek viszony közöttük. Az ilyen komponensek között adatokat adhatunk át, valamint informálhatják különböző események bekövetkeztéről. 
+\begin{figure}
+	\caption{Egy gomb klikk eseménykezelőjének létrehozása}
+	\begin{minipage}{\textwidth}
+		\begin{lstlisting}[style=javascriptStyle]
+		<button data-test="createButton" @click="creatingNewBoard = !creatingNewBoard"
+		class="button is-primary"><font-awesome-icon style="margin-right: 3px;" :icon="['fas', 'plus']" />Create
+		Board</button>
+		\end{lstlisting}
+	\end{minipage}
+	\label{button-click}
+\end{figure}
 
-Mivel egy társasjáték egy interaktív szórakozás, a felület sokszor fog változni, felhasználói input hatására. A letisztultság érdekében érdemes több kis komponenssel dolgozni, hiszen így az összetartózó felelősségek egy helyen vannak ezáltal könnyebb őket változtatni, valamint bővíteni a kódbázist. Viszont a komponenseknek le kell tudniuk kezelni ha valamilyen input hatására, az általuk megjelenített adatok megváltoznak. Mindezt lekezelni nagyon nehéz lenne, viszont a Vue.js segít ebben. Számon tartja azokat az adatokat amiktől függnek az egyes komponensek és automatikus frissíti őket, hogyha megváltoznak. Így tehát ha megfelelően osztjuk a komponensek felelősségeit, a felület csak azon része fog frissülni aminek muszáj, ezáltal az alkalmazásunk jól fog tudni skálázódni, ha nagyobb használatban van. 
+Mivel egy társasjáték egy interaktív szórakozás, a felület sokszor fog változni, felhasználói input hatására. A letisztultság érdekében érdemes több kis komponenssel dolgozni, hiszen így az összetartózó felelősségek egy helyen vannak, ezáltal könnyebb őket változtatni, valamint bővíteni a kódbázist. Viszont a komponenseknek le kell tudniuk kezelni ha valamilyen input hatására, az általuk megjelenített adatok megváltoznak. Mindezt lekezelni nagyon nehéz lenne, viszont a Vue.js segít ebben. Számon tartja azokat az adatokat amiktől függnek az egyes komponensek és automatikus frissíti őket, hogyha megváltoznak. Így tehát ha megfelelően osztjuk a komponensek felelősségeit, a felület csak azon része fog frissülni aminek muszáj, ezáltal az alkalmazásunk jól fog tudni skálázódni, ha nagyobb használatban van. 
 
 A Vue.js számos olyan direktívát rejt, ami nagyban segíti az interaktív felület fejlesztését. Nagyon sok esetben kell több, hasonló adatot megjeleníteni a UI\footnote{User Interface}-on, erre tökéletesen használható a \textit{v-for} direktíva. Ha esetleg feltételhez kötnénk egyes elemek megjelenítését, akkor a \textit{v-if} használható (\ref{v-if}).ábra. Mindkét esetben változókat is megadhatunk, amik hogyha változnak, a keretrendszer számunkra lekezeli, és frissíti a megjelenítést.  
 
-Komponensen belül is használhatunk \textbf{reaktív adatkötést}. Itt már fejlesztőként figyelni kell, mert itt nekünk kell megadni, hogy melyik változókat akarjuk hogy frissüljenek. A \textit{ref(variable)} kulcsszóval érhetjük hogy kövesse le a változásokat. Olyan esetek is vannak, hogy egy bizonyos feltétel mellett akarunk megjeleníteni egy komponenst vagy elemet, viszont maga a feltétel elég komplex. Erre használhatjuk a \textit{computed} tulajdonságot, ami visszaad egy értéket, és leköveti, hogyha bármilyen adat megváltozik, ami a végeredmény kiszámításához kell. Figyelhetünk is változásokat a \textit{watch} függvénnyel, ami lefut hogyha az adott változó megváltozott. 
-
-Az alkalmazáson belül a navigáció egy fontos elem volt. A felhasználó több nézeten keresztül is navigálhat, ahol a táblák vannak listázva, vagy esetleg ahol maga a játék nézet van megjelenítve. Erre tökéletes megoldást adott a \textbf{VueRouter} (\ref{vuerouter}).ábra. Ez a funkció lehetőséget ad arra hogy egyszerűen tudjunk navigálni komponensek valamint nézetek között, amik nagy gyakorisággal URL változássokkal járnak. A VueRouter sok konfigurációs lehetőséget rejt magában, például meg lehet adni hogy minden navigáció előtt miket végezzen el. 
-\begin{figure}
-	\caption{Board komponens listázása}
-	\begin{adjustwidth}{0cm}{10cm}
-		\begin{minipage}{\textwidth}
-			\begin{lstlisting}[style=javascriptStyle]
-				<section>
-				<Board data-test="board" v-for="board in boardStore.boards" :key="board.id" :board="board" />
-				</section>
-			\end{lstlisting}
-		\end{minipage}
-	\end{adjustwidth}
-	\label{komponens}
-\end{figure}
-
 \begin{figure}
 	\caption{v-if direktíva használata}
-	\begin{adjustwidth}{0cm}{10cm}
-		\begin{minipage}{\textwidth}
-			\begin{lstlisting}[style=javascriptStyle]
-				<button data-test="rollButton" v-if="isItYourPlayer"/>
-			\end{lstlisting}
-		\end{minipage}
-	\end{adjustwidth}
+	
+	\begin{minipage}{\textwidth}
+		\begin{lstlisting}[style=javascriptStyle]
+			<button data-test="rollButton" v-if="isItYourPlayer"/>
+		\end{lstlisting}
+	\end{minipage}
+	
 	\label{v-if}
 \end{figure}
 
+Komponensen belül is használhatunk \textbf{reaktív adatkötést}. Itt már fejlesztőként figyelni kell, mert itt nekünk kell megadni, hogy melyik változókat akarjuk, hogy frissüljenek. A \textit{ref(variable)} kulcsszóval érhetjük, hogy kövesse le a változásokat. Olyan esetek is vannak, hogy egy bizonyos feltétel mellett akarunk megjeleníteni egy komponenst vagy elemet, viszont maga a feltétel elég komplex. Erre használhatjuk a \textit{computed} tulajdonságot, ami visszaad egy értéket, és leköveti, hogyha bármilyen adat megváltozik, ami a végeredmény kiszámításához kell. Figyelhetünk is változásokat a \textit{watch} függvénnyel, ami lefut hogyha az adott változó megváltozott. 
+
+Az alkalmazáson belül a navigáció egy fontos elem volt. A felhasználó több nézeten keresztül is navigálhat, ahol a táblák vannak listázva, vagy esetleg ahol maga a játék nézet van megjelenítve. Erre tökéletes megoldást adott a \textbf{VueRouter} (\ref{vuerouter}).ábra. Ez a funkció lehetőséget ad arra hogy egyszerűen tudjunk navigálni komponensek, valamint nézetek között, amik nagy gyakorisággal URL változássokkal járnak. A VueRouter sok konfigurációs lehetőséget rejt magában, például meg lehet adni hogy minden navigáció előtt miket végezzen el. 
 \begin{figure}
 	\caption{VueRouter létrehozása}
-	\begin{adjustwidth}{0cm}{10cm}
+	
 		\begin{minipage}{\textwidth}
 			\begin{lstlisting}[style=javascriptStyle]
 				const routes: RouteRecordRaw[] = [
@@ -222,7 +241,7 @@ Az alkalmazáson belül a navigáció egy fontos elem volt. A felhasználó töb
 				},
 			\end{lstlisting}
 		\end{minipage}
-	\end{adjustwidth}
+	
 	\label{vuerouter}
 \end{figure}
 
@@ -233,7 +252,7 @@ az alkalmazásnak ahonnan minden szükséges adatot elérek. Erre a Pinia Store 
 A Pinia segítségével definiálhatunk tárolókat, amelyek tárolják az alkalmazásom állapotát,
 és különböző metódusokat határozhat meg az állapot módosítására. Minden tároló külön
 példányként jön létre, lehetővé téve az alkalmazás állapotának területenkénti vagy funkció
-szerinti elválasztását és \mbox{szervezését}. Ezt én két kategóriába soroltam: Azok az állapotok amik a táblák kezelésével foglalkoznak, például új táblák
+szerinti elválasztását és \mbox{szervezését}. Ezt én két kategóriába soroltam: azok az állapotok amik a táblák kezelésével foglalkoznak, például új táblák
 létrehozása, vagy játékos csatlakozása a pályához, vagy a játékmenettel kapcsolatos tevékenységek mint a dobás vagy lépés a pályán (\ref{pinia}.ábra). 
 A Pinia egyik fő előnye a reaktivitási rendszere. A Vue reaktivitását használja fel, hogy
 automatikusan frissítse a komponenseket, amikor az állapot a tárolóban megváltozik. Ez
@@ -242,7 +261,7 @@ felhasználói felület hatékonyabb megjelenítését. Így tehát ha egy Pinia
 
 \begin{figure}
 	\caption{GamePlay store definiálása állapotokkal és függvényekkel}
-	\begin{adjustwidth}{0cm}{10cm}
+	
 		\begin{minipage}{\textwidth}
 			\begin{lstlisting}[style=javascriptStyle]
 				export const useGamePlayStore = defineStore('gamePlayStore', {
@@ -284,7 +303,7 @@ felhasználói felület hatékonyabb megjelenítését. Így tehát ha egy Pinia
 						},
 			\end{lstlisting}
 		\end{minipage}
-	\end{adjustwidth}
+	
 	\label{pinia}
 \end{figure}
 \subsubsection{Modul csomagoló}
@@ -301,42 +320,40 @@ hogy a kódbázist külön modulokra bontsák. Elemzi ezeknek a moduloknak a fü
 modulokat, feloldja a függőségeket és generálja a végső kimeneti fájlokat.
 
 \subsubsection{HTTP kérések küldése}
-A webalkalmazások felépítésé egyszerűen megfogalmazva a következő: A backend-ről szolgáltatjuk az adatokat ahova a kliens alkalmazás, más szóval a frontend kéréseket küld. Ezeket a kéréseket HTTP kérésekként küldi el az interneten keresztül. Ez az egyik legfontosabb feladat funkcionális téren. Mivel ilyen esszenciális 
-ezt megvalósítani, ezért segédkönyvtárat használtam fel a könnyebb és jobb megvalósítás érdekében. Az Axios\cite{axios} könyvtárat használtam fel, mivel az egyik legnépszerűbb, így remek dokumentáció tartozik hozzá, és egyszerű a szintaxisa. 
+A webalkalmazások felépítésé egyszerűen megfogalmazva a következő: A backend-ről szolgáltatjuk az adatokat ahova a kliens alkalmazás, más szóval a frontend kéréseket küld. Ezeket a kéréseket HTTP kérésekként küldi el az interneten keresztül. Ez az egyik legfontosabb feladat funkcionális téren. Tekintettel a megvalósítás fontosságára, ezért segédkönyvtárat használtam fel a könnyebb és jobb megvalósítás érdekében. Az Axios\cite{axiosLibrary} könyvtárat használtam fel, mivel az egyik legnépszerűbb, így remek dokumentáció tartozik hozzá, és egyszerű a szintaxisa. 
 
-Jól strukturált API-t biztosít a HTTP kérések kezeléséhez.Különböző HTTP metódusokat, például GET, POST,
+Jól strukturált API-t biztosít a HTTP kérések kezeléséhez. Különböző HTTP metódusokat, például GET, POST,
 PUT, DELETE stb. használhatunk a kérések elküldésére (\ref{axios}).ábra. Ezek a kérések szinte folyamatosan zajlanak a játék során, így fontos hogy ne legyenek zavaróak és hogy ne akadjon meg emiatt az alkalmazás, hiszen ez nagyban rontaná a felhasználói élményt. Az \textbf{Axios aszinkron kérések} kezelésére épül, amely
 lehetővé teszi az alkalmazás folyamatosságát és reaktivitását. Nem blokkolja a fő
 szálat, így más műveletek végrehajtására is lehetőséget ad, tehát a felület ugyanúgy működik, nem lesz észrevehető "befagyás".
 További előnye a könyvtárnak, a konfigurálhatósága az Axios példánynak. Meg tudjuk adni, hogy minden egyes kéréssel együtt például egy bizonyos fejlécet csatoljon, vagy esetleg minden válasznál ellenőrizze a státuszt. Ez nagyban megkönnyíti a kódolást, valamint a hibázástól is óv, hiszen csak egyszer kell jól megírni a használni kívánt példányt. 
 \begin{figure}
 	\caption{Post HTTP kérés Axios könyvtárral}
-	\begin{adjustwidth}{0cm}{10cm}
+	
 		\begin{minipage}{\textwidth}
 			\begin{lstlisting}[style=javascriptStyle]
 					this.authTokens = (await axios.post("http://localhost:8080/auth/createToken", {authCode: code})).data
 					\end{lstlisting}
 				\end{minipage}
-	\end{adjustwidth}
+	
 \label{axios}
 \end{figure}
 
 \subsubsection{Grafikus könyvtár}
-Természetesen maga a pályát meg kellett tudnom rajzolni. Mivel egész alkalmazásomnak ez a lényege, így természetesen egy külső könyvtárat használtam, hogy minél egyszerűbben és minél szebben tudjam éltre kelteni a társasjátékot. Ehhez a Konva könyvtárat választottam, mert kiemelkedően jó dokumentáció tartozott hozzá, és mivel előtte még nem foglalkoztam ilyen grafikus könyvtárakkal fontos volt hogy könnyedén meg tudjam tanulni. Valamint egyszerű, de mégis sokféle funkcióval rendelkezik amiket felhasználhattam a fejlesztés során. 
-Ez a könyvtár lehetővé teszi a fejlesztők számára, hogy könnyedén rajzolhassanak formákat, vonalakat, szövegeket és egyéb grafikai elemeket a webes felületeken, és interaktív alkalmazásokat hozzanak létre, ahol a felhasználók rajzolhatnak, mozgathatnak és manipulálhatnak grafikai elemeket.Az alábbiakban néhány kulcsfontosságú tulajdonság és funkció, amelyeket a Konva nyújt:
+Természetesen magát a pályát meg kellett tudnom rajzolni. Mivel egész alkalmazásomnak ez a lényege, így természetesen egy külső könyvtárat használtam, hogy minél egyszerűbben és minél szebben tudjam éltre kelteni a társasjátékot. Ehhez a Konva könyvtárat választottam, mert kiemelkedően jó dokumentáció tartozott hozzá, és mivel előtte még nem foglalkoztam ilyen grafikus könyvtárakkal fontos volt, hogy könnyedén meg tudjam tanulni. Valamint egyszerű, de mégis sokféle funkcióval rendelkezik amiket felhasználhattam a fejlesztés során. 
+A Konva lehetővé teszi, hogy könnyedén rajzolhassunk formákat, vonalakat, szövegeket és egyéb grafikai elemeket a webes felületeken, és interaktív alkalmazásokat hozzunk létre, ahol a felhasználók rajzolhatnak, mozgathatnak és manipulálhatnak grafikai elemeket. Az alábbiakban néhány kulcsfontosságú tulajdonság és funkció, amelyeket a Konva nyújt:
 \begin{itemize}
-	\item \textbf{HTML5 Canvas alapú:} Konva a HTML5 Canvas API-t használja, ami lehetővé teszi a közvetlen grafikus rajzolást a webes felületeken. Ez rendkívül hatékony és lehetővé teszi a komplex grafikai elemek létrehozását.
-	\item \textbf{Interaktivitás:} Konva lehetővé teszi az interaktív grafikus elemek létrehozását, például húzható és áthelyezhető elemeket, melyekre kattintva változtathatjuk az állapotukat.
-	\item \textbf{Rétegek és Csoportok:} A könyvtár támogatja a rajzok elrendezéséhez használt rétegek és csoportok létrehozását, ami rendszerezheti és kezelheti a grafikai elemeket.
+	\item \textbf{Interaktivitás:} Konva lehetővé teszi az interaktív elemek létrehozását, például húzható és áthelyezhető elemeket, melyekre kattintva a felhasználó állíthatja az értéküket/állapotukat. 
+	\item \textbf{Rétegek és csoportok:} A könyvtár támogatja a rajzok elrendezéséhez használt rétegek és csoportok létrehozását, ami rendszerezheti és kezelheti a grafikai elemeket.
 	\item \textbf{Szöveg és betűtípusok:} Konva lehetővé teszi a szöveges elemek létrehozását, és támogatja a különböző betűtípusok és formázási lehetőségek használatát.
 	\item \textbf{Animáció:} A könyvtár animációt támogat, így a grafikai elemek mozgathatók és animálhatók.
-	\item \textbf{Eseménykezelés:} Konva lehetővé teszi az események kezelését, például kattintásokat és húzásokat, ami lehetővé teszi az interaktív műveletek megvalósítását (\ref{konva}.ábra)
-	\item \textbf{Több platform támogatása:} A Konva nem csak böngészőkben használható, hanem akár Node.js környezetben is, ami különféle alkalmazások fejlesztését teszi lehetővé.
+	\item \textbf{Eseménykezelés:} Konva lehetővé teszi az események kezelését, például kattintásokat és húzásokat, ami lehetővé teszi az interaktív műveletek megvalósítását. (\ref{konva}.ábra).
+	Valamennyi funkció kulcsfontosságú volt a játék megvalósításához, hiszen az eseménykezelés, és interaktivitás nélkül nem tudtam volna lekövetni a felhasználói inputokat.  
 \end{itemize}
 
 \begin{figure}
 	\caption{Kör létrehozása és eseménykezelő aktiválása Konva-val}
-	\begin{adjustwidth}{0cm}{10cm}
+	
 		\begin{minipage}{\textwidth}
 			\begin{lstlisting}[style=javascriptStyle]
 				var circle = new Konva.Circle({
@@ -358,16 +375,15 @@ Ez a könyvtár lehetővé teszi a fejlesztők számára, hogy könnyedén rajzo
 				
 			\end{lstlisting}
 		\end{minipage}
-	\end{adjustwidth}
+	
 	\label{konva}
 \end{figure} 
 
 \subsection{Backend}
 
 \subsubsection{Java keretrendszer}
-A backend részt JavaSpringben\cite{javaspring} valósítottam meg. A Spring lehetővé teszi a gyors és hatékony
-webalkalmazások építését, miközben egy rugalmas és moduláris környezetet biztosít a
-fejlesztőknek.
+A backend részt JavaSpringben\cite{javaspring} valósítottam meg. Ez a keretrendszer lehetővé teszi a gyors és hatékony
+webalkalmazások építését, miközben egy rugalmas és moduláris környezetet biztosít.
 \begin{itemize}
 	\item  \textbf{Inversion of Control - IoC:} A Spring keretrendszer alapvetően az IoC elvet követi,
 	amelyben a keretrendszer vállalja a felelősséget az objektumok létrehozásáért,
@@ -382,7 +398,7 @@ fejlesztőknek.
 	kínál a webalkalmazások fejlesztéséhez. A Spring MVC (Model-View-Controller)
 	modell segítségével könnyedén készíthetünk hatékony és rugalmas webes
 	alkalmazásokat. A Spring Boot pedig egy továbbfejlesztett modul, amely lehetővé
-	teszi a gyors és egyszerű konfigurációt és a gyors indítást.Több előnye is van a Spring
+	teszi a gyors és egyszerű konfigurációt és a gyors indítást. Több előnye is van a Spring
 	keretrendszernek, viszont mivel az alkalmazásom bonyolultsága nem követelte meg a
 	használatukat, így ezeket nem részletezném.
 \end{itemize}
@@ -393,7 +409,7 @@ A Lombok \cite{lombok}  egy Java nyelvű könyvtár, amely
 segít csökkenteni a boilerplate kódot és növeli a fejlesztési produktivitást.  A Lombok annotációkat használva (\ref{lombok}.ábra) lehetővé teszi, hogy a fejlesztők egyszerűbben és gyorsabban hozzanak létre Java osztályokat. Annotációkat a programozásban gyakran használnak, mivel segítik a kód megértését, segíthetik a fejlesztőt a kódírás minimalizálásában, vagy akár a dokumentáció írásában. A Java nyelvben többféle annotációk léteznek. Ilyenek például a beépített annotációk, amik segítik a kód
 megértését. A @Deprecated annotációval ellátott elemeket jelölik, hogy elavultak vagy nem ajánlottak használatra. Ez figyelmezteti a fejlesztőket, hogy más megoldást vagy alternatívát kell használni.
 
-\begin{figure}[h]
+\begin{figure}
 	\caption{Lombok annotációk használata}
 	\centering
 	\begin{lstlisting}[language=java]
@@ -416,19 +432,22 @@ megértését. A @Deprecated annotációval ellátott elemeket jelölik, hogy el
 \subsubsection{Autentikációs keretrendszer}
 Az autentikációhoz egy Third Party Software-t akartam Használni. Ez azt jelenti, hogy hasonlóan mint a könyváraknál, már előre megírt szoftvert fogok használni. Arra volt szükségem, hogy egyszerűen meg tudjam adni a belépési beállításokat, valamint hogy szerepekhez tudjam rendelni a bejelentkezett felhasználókat, hiszen nem biztos, hogy mindenki ugyanazzal a jogosultságokkal rendelkezik. Ezekkel a kritériumokkal a Keycloak\cite{keycloak} keretrendszer tűnt az ideális választásnak. 
 
-A Keycloak egy sor olyan funkciót kínál, amelyek segítenek az alkalmazások és szolgáltatások biztonságosításában, ideértve a Single Sign-On (SSO), felhasználói hitelesítést, felhasználói engedélyezéseket és az azonosítás közvetítését. A Single Sign-On (SSO) egy olyan hitelesítési és azonosítási technológia, amely lehetővé teszi a felhasználók számára, hogy egyszeri bejelentkezéssel hozzáférjenek több különböző alkalmazáshoz vagy rendszerhez anélkül, hogy minden egyes alkalmazásban külön-külön be kellene jelentkezniük. Ennek előnyei közé tartozik a a felhasználói kényelem, szigorú ellenőrzés, könnyebb felhasználói ellenőrzés. A Keycloak olyan megoldást nyújt, amely egyszerűsíti a biztonság hozzáadásának folyamatát az alkalmazásokhoz, és lehetővé teszi a felhasználói azonosításokat, szerepeket és jogosultságokat központilag történő kezelését (\ref{keycloak-login}.ábra). A keretrendszert integrálni lehet különböző alkalmazásokkal és platformokkal, így értékes eszköz azoknak a szervezeteknek, akik webalkalmazásaikat és API-ikat szeretnék biztonságossá tenni. Ezt felhasználva tudtam a backendről http kéréseket végezni a szintén lokálisan futó Keycloaknak, hogy autentikálja a belépett felhasználót. Támogat különböző hitelesítési módszereket, beleértve a közösségi bejelentkezéseket, több tényezős hitelesítést és még sok mást. Emellett a Keycloak rendkívül rugalmas és bővíthető architektúrával rendelkezik, így alkalmas különféle felhasználási esetekre, a kis alkalmazásoktól a nagyvállalati rendszerekig. Gazdag API-kat kínál, és egy felhasználóbarát adminisztrációs konzolt, amely segít a felhasználók, valóságok és ügyfelek kezelésében.
+A Keycloak egy sor olyan funkciót kínál, amelyek segítenek az alkalmazások és szolgáltatások biztonságosításában, ideértve a Single Sign-On (SSO), felhasználói hitelesítést, felhasználói engedélyezéseket és az azonosítás közvetítését. A Single Sign-On (SSO) egy olyan hitelesítési és azonosítási technológia, amely lehetővé teszi a felhasználók számára, hogy egyszeri bejelentkezéssel hozzáférjenek több különböző alkalmazáshoz vagy rendszerhez anélkül, hogy minden egyes alkalmazásban külön-külön be kellene jelentkezniük. Ennek előnyei közé tartozik a felhasználói kényelem, szigorú ellenőrzés, könnyebb felhasználói ellenőrzés. A Keycloak olyan megoldást nyújt, amely egyszerűsíti a biztonság hozzáadásának folyamatát az alkalmazásokhoz, és lehetővé teszi a felhasználói azonosításokat, szerepeket és jogosultságokat központilag történő kezelését (\ref{keycloak-login}.ábra). A keretrendszert integrálni lehet különböző alkalmazásokkal és platformokkal, ahogyan én is tettem az alkalmazás fejlesztése alatt. Ezt felhasználva tudtam a backendről http kéréseket végezni a szintén lokálisan futó Keycloaknak, hogy autentikálja a belépett felhasználót. Támogat különböző hitelesítési módszereket, beleértve a közösségi bejelentkezéseket, több tényezős hitelesítést és még sok mást. Emellett a Keycloak rendkívül rugalmas és bővíthető architektúrával rendelkezik, így alkalmas különféle felhasználási esetekre, a kis alkalmazásoktól a nagyvállalati rendszerekig. Gazdag API-kat kínál, és egy felhasználóbarát adminisztrációs konzolt, amely segít a felhasználók, valóságok és ügyfelek kezelésében.
 
 \begin{figure}
 	\caption{Keycloak konfigurációs nézete}
-	\raggedleft 
 	\includegraphics[scale=0.5]{keycloak-login}
 	\label{keycloak-login}
 \end{figure}
 
 \subsubsection{Többjátékos mód megvalósítása}
 Mivel a társasjáték csak akkor tud működni ha legalább ketten játszanak vele, így implementálnom kellett olyan funkciókat amik lehetővé teszik, hogy értesüljenek 
-a felhasználók egymás lépéseiről. Mivel a kliens alkalmazás minden felhasználó gépén külön fut, így természetes, hogy a backenden kell ezt a funkciót megvalósítani, hiszen ez az egyetlen közös pont a játékosoknál. Ennek a funciónak a megvalósításához két féle ötlet létezik. A Server-Sent-Events (SSE) vagy a Websocket. Mindkettő olyan technológiák, amelyek lehetővé teszik a kliens és a szerver közötti valós idejű kommunikációt a weben keresztül, de különböznek a működésük és a használatuk szempontjából. Websocket esetében kétirányú kommunikációt tesz lehetővé, ami azt jelenti, hogy mind a kliens, mind a szerver küldhet üzeneteket egymásnak bármikor. A kapcsolat felépítéséhez WebSocket protokollt használja, ami később egy WebSocket kapcsolathoz vezet. Az SSE esetében egyirányú kommunikációt biztosít a szerverről a kliens felé. Csak a szerver küldhet adatokat a kliensnek. Az SSE beépített támogatást nyújt az automatikus újraépítéshez, ami azt jelenti, hogy ha a kapcsolat megszakad, a böngésző automatikusan megpróbálja újraépíteni. Könnyen használható és könnyen implementálható a böngészőben, és a szerveroldalon is könnyen konfigurálható. Mivel az én esetemben csak a klienst kellett értesíteni, hogy a játék állása, státusza megváltozott így a SSE technológiát választottam (\ref{sse}.ábra). 
-\begin{figure}[h]
+a felhasználók egymás lépéseiről. Mivel a kliens alkalmazás minden felhasználó gépén külön fut, így természetes, hogy a backenden kell ezt a funkciót megvalósítani, hiszen ez az egyetlen közös pont a játékosoknál. Ennek a funkciónak a megvalósításához kétféle ötlet létezik. A Server-Sent-Events (SSE) vagy a Websocket. Mindkettő olyan technológiák, amelyek lehetővé teszik a kliens és a szerver közötti valós idejű kommunikációt a weben keresztül, de különböznek a működésük és a használatuk szempontjából.
+
+Websocket esetében kétirányú kommunikációt tesz lehetővé, ami azt jelenti, hogy mind a kliens, mind a szerver küldhet üzeneteket egymásnak bármikor. A kapcsolat felépítéséhez WebSocket protokollt használja, ami később egy WebSocket kapcsolathoz vezet.
+ 
+Az SSE esetében egyirányú kommunikációt biztosít a szerverről a kliens felé. Csak a szerver küldhet adatokat a kliensnek. Az SSE beépített támogatást nyújt az automatikus újraépítéshez, ami azt jelenti, hogy ha a kapcsolat megszakad, a böngésző automatikusan megpróbálja újraépíteni. Könnyen használható és könnyen implementálható a böngészőben, és a szerveroldalon is könnyen konfigurálható. Mivel az én esetemben csak a klienst kellett értesíteni, hogy a játék állása, státusza megváltozott így a SSE technológiát választottam (\ref{sse}.ábra). 
+\begin{figure}
 	\caption{SSE szerver osztály annotációi}
 	\centering
 	\begin{lstlisting}[language=java]
@@ -444,13 +463,13 @@ a felhasználók egymás lépéseiről. Mivel a kliens alkalmazás minden felhas
 	\label{sse}
 \end{figure} 
 \subsubsection{Tesztelés}
-A backend API teszteléséhez, frontend nélkül, kiváló megoldást kínál a Postman\cite{postman}, így ezt használtam a fejlesztés során. Az alábbiakban néhány kulcsfontosságú jellemzőt és funkciót ismertetek, amit a Postman kínál:
+A backendAPI teszteléséhez, frontend nélkül, kiváló megoldást kínál a Postman\cite{postman}, így ezt használtam a fejlesztés során. Az alábbiakban néhány kulcsfontosságú jellemzőt és funkciót ismertetek, amit a Postman kínál:
 
 \begin{itemize}
-	\item \textbf{API Tesztelés:} Postman segítségével könnyedén készíthetsz és futtathatsz API-teszteket. Különböző HTTP kéréseket küldhetsz az API-hoz, és az eredményeket vizsgálhatod.
-	\item \textbf{Környezetek és Változók:} Lehetőséged van környezeteket és változókat definiálni a kérésekben, ami lehetővé teszi különböző környezetek (pl. fejlesztési, tesztelési, élő) közötti könnyű váltást és paraméterezést.
-	\item \textbf{Automatizálás:} Postman segítségével automatizálhatod az API-teszteket és kéréseket. Például létrehozhatsz kollekciókat, amelyeket később futtatni tudsz automatizált módon.
-	\item \textbf{Hitelesítés és Biztonság:} A Postman lehetővé teszi különböző hitelesítési mechanizmusok, például API kulcsok vagy OAuth használatát. Emellett támogatja a biztonsági teszteket is.
+	\item \textbf{API Tesztelés:} Postman segítségével könnyedén lehet tesztelni az általunk megírt  API-t. Könnyen érthető felhasználói felülettel rendelkezik. Egyszerűen küldhetünk HTTP-kérést amit a sokféle képpen konfigurálhatunk. Például a fejlécben megadhatunk új kulcs-érték párokat, a kérés törzsében adhatunk meg adatokat, ennek a formátumát is beállíthatjuk. A választ is kijelzi a rendszer,így tudjuk hogy milyen értékkel tér vissza a végpontunk, vagy esetleg valami hibára futott a kérés. 
+	\item \textbf{Környezetek és változók:} Lehetőségünk van környezeteket és változókat definiálni a kérésekben, ami lehetővé teszi különböző környezetek (pl. fejlesztési, tesztelési, élő) közötti könnyű váltást és paraméterezést.
+	\item \textbf{Automatizálás:} Postman segítségével automatizálhatjuk az API-teszteket és kéréseket. Például létrehozhatunk kollekciókat, amelyeket később futtatni tudunk automatizált módon.
+	\item \textbf{Hitelesítés és biztonság:} A Postman lehetővé teszi különböző hitelesítési mechanizmusok, például API kulcsok vagy OAuth használatát. Ennek a funkciónak nagy hasznát vettem, mivel az autentikált végpontokat így tudtam tesztelni. 
 \end{itemize}
 
 
@@ -464,8 +483,9 @@ A backend API teszteléséhez, frontend nélkül, kiváló megoldást kínál a 
 Első részben az alkalmazás backendjét írtam meg, mert felépítésben így tűnt
 logikusnak. Az osztályokat rétegekbe rendeztem funkciójuk és függőségeik szerint.
 \subsection{Backend}
+\subsubsection{Controller és logika}
 A backend részét a Java Spring projektben valósítottam meg. Ehhez a Spring Initializr-t használtam, mivel meggyorsítja a projekt létrehozásának a feladatát. Itt
-egyszerűen meg lehet adni, hogy milyen függőségeket szeretnénk használni a projektünk során, majd ezután egy zip fájlként le is tölthetjük a gépünkre. Ebben a projektben már be lesznek téve azok az xml tag-ek a pom.xml fájlba, amik leírják a függőségeinket. Ehhez természetesen a fejlesztés során is rakhatunk hozzá. 
+egyszerűen meg lehet adni, hogy milyen függőségeket szeretnénk használni a projektünk során, majd ezután egy zip fájlként le is tölthetjük a gépünkre. Ebben a projektben bekerülnek azok az xml tag-ek a pom.xml fájlba, amik leírják a függőségeinket. Ehhez természetesen a fejlesztés során is rakhatunk hozzá újabb függőségeket
 A Model rétegbe tettem azokat az osztályokat, amiket majd, később a hálózaton elküldök egy
 http (HyperText Transfer Protocol) kérésbe ágyazva a szervernek, majd a válaszokat is ezekbe
 az osztályokba konvertálom át. Az egész backenden ezekkel az objektumokkal dolgozok.
@@ -484,7 +504,7 @@ logikájának a megírását ebben a rétegben kell implementálni. Hagyományos
 végeznénk el az adatok esetleges transzformációját, az üzleti logikánk itt valósulna meg. Az
 én esetemben viszont erre nincsen szükség hiszen már a konzisztens adatot (vagy esetleges
 hibaüzenetet) kapom vissza, közvetetten a szervertől, így itt csak egy továbbhívás történik a
-DAL réteg felé.
+DAL réteg felé. Ha esetleg API verzióváltás történne a szerveren, itt lehetne véghezvinni az adatok esetleges konverzióját az új formátumra.
 A Controller rétegben definiálom azokat az API végpontokat, amiket majd a később megírt
 frontendem fog hívni. Ez a réteg indítja el a kérések sorozatát, ami végigfut a backenden,
 majd visszatér a szervertől kapott adattal (\ref{backend-pipeline}. ábra).
@@ -492,15 +512,15 @@ majd visszatér a szervertől kapott adattal (\ref{backend-pipeline}. ábra).
 Ahogy már korábban említettem, a munkahely által biztosított szerverre kellett http kéréseket
 küldeni. Ehhez volt egy Swagger\cite{swagger} oldal, hogy milyen API végpontok vannak a szerveren, és
 azokhoz milyen URL tartozik.  Az is le volt írva, hogy milyen DTO-kat kell definiálni a
-kommunikációhoz. Ezért így először létrejött a DTO, avagy Model mappa, ahol deklaráltam a
+kommunikációhoz. Ezért így először létrehoztam a DTO, avagy Model mappát, ahol deklaráltam a
 megfelelő osztályokat. A dokumentációban részletezve volt, hogy bizonyos híváshoz milyen
 paramétert kell átadni, valamint mit fog visszaadni. Például, ha egy új táblát szeretnék
 felvenni, akkor az adott POST kérésnél milyen DTO-t kell elküldeni, és milyen objektumot
 fog visszaküldeni. Ez általában a http kérés body-jában küldték, onnan kellett kikonvertálni. Szerencsére ez Spring keretrendszernek hála, nagyon könnyen meg tudtam csinálni (\ref{post-vegpont}.ábra).
-\begin{figure}[h]
+\begin{figure}
 	\caption{Egy post végpont a backenden}
-	\raggedleft
-\begin{adjustwidth}{0cm}{10cm}
+	
+
 	\begin{minipage}{\textwidth}
 	\begin{lstlisting}[language=java]
 		
@@ -522,7 +542,7 @@ public ResponseEntity<?> createBoard(@RequestBody CreateBoardDTO board) {
 }
 	\end{lstlisting}
 \end{minipage}
-\end{adjustwidth}
+
 	\label{post-vegpont}
 \end{figure} 
 
@@ -538,9 +558,10 @@ amiben részletezve volt a hiba.
 	\label{backend-pipeline}
 \end{figure}
 
+\subsubsection{Tesztelés}
 Az implementáció után a kód tesztelése volt hátra, mivel az iparban elvárt a tesztesetek írása hiszen számos előnnyel jár.
-Egységtesztelést végeztem, ami azt jelenti hogy mindig csak egy alap funkciót teszteltem le, ez általában egy osztály és annak függvényei. Többféle tesztelés is létezik, például integration test, ami az egységek együttműködését teszteli, valamint end-to-end tesztek amik az egész alkalmazást fedik le. Az a jó hogyha lefelé haladva ezen a tesztelési hierarchián, egyre több tesztünk van. Egységtesztelés 
-alatt a fejlesztők sok mindenre rájöhetnek a kódbázissal kapcsolatban. Például hogy a felelősségeik hogyan vannak elosztva. Ha egy osztályt nehéz tesztelni, az valószínűleg azért van, mert nagyban függ más komponensektől. Ez egy jele annak hogy rossz a design a kódban, hiszen hogyha egy osztály nagyban függ más osztályoktól, akkor ha azok megváltoznak, az erre is hatással lesz így a fenntarthatóság jóval nehezebb lesz. A tervezésnél fontos hogy lazán csatoltak legyenek az osztályok, hogy ilyen ne fordulhasson elő. Másik fontos előnye a tesztek írásának, hogy amikor újraírunk egy kódrészletet, esetleg optimálisabbá akarjuk tenni, akkor a tesztek segítségével ellenőrizhetjük, hogy megmaradt-e a kívánt funkcionalitás.  Mivel rétegeltem, a különböző funkciókat így könnyedén tudtam tesztelni őket, hiszen
+Egységtesztelést végeztem, ami azt jelenti, hogy mindig csak egy alap funkciót teszteltem le, ez általában egy osztály és annak függvényei. Többféle tesztelés is létezik, például integration test, ami az egységek együttműködését teszteli, valamint end-to-end tesztek amik az egész alkalmazást fedik le. Az a jó hogyha lefelé haladva ezen a tesztelési hierarchián, egyre több tesztünk van. Egységtesztelés 
+alatt a fejlesztők sok mindenre rájöhetnek a kódbázissal kapcsolatban. Például hogy a felelősségeik hogyan vannak elosztva. Ha egy osztályt nehéz tesztelni, az valószínűleg azért van, mert nagyban függ más komponensektől. Ez egy jele annak hogy rossz a design a kódban, hiszen hogyha egy osztály nagyban függ más osztályoktól, akkor ha azok megváltoznak, az erre is hatással lesz így a fenntarthatóság jóval nehezebb lesz. A tervezésnél fontos hogy lazán csatoltak legyenek az osztályok, hogy ilyen ne fordulhasson elő. Másik fontos előnye a tesztek írásának, hogy amikor újraírunk egy kódrészletet, esetleg gyorsabbá, vagy jobban olvashatóvá akarjuk tenni, akkor a tesztek segítségével ellenőrizhetjük, hogy megmaradt-e a kívánt funkcionalitás.  Mivel rétegeltem, a különböző funkciókat így könnyedén tudtam tesztelni őket, hiszen
 egy mockolás (a Mockito [7] könyvtárat használtam ehhez) után egyszerűen tudtam tesztelni (\ref{mocking}.ábra).
 A "mockolás" egy olyan technika, amelyben a tesztelés során a valódi rendszerek vagy
 komponensek helyett szimulált, viselkedést utánzó objektumokat (mock objektumokat) használnak.
@@ -548,8 +569,8 @@ A mock objektumok olyan mesterségesen létrehozott objektumok, amelyek az
 eredeti rendszer vagy komponens egy részét helyettesítik, és előre definiált válaszokat adnak a
 függvényhívásokra vagy metódusokra. A mock objektumok segítségével szimulálhatók a
 valós környezetben előforduló esetek, például adatbázishoz való kapcsolódás vagy hálózati
-kommunikáció, anélkül hogy a valódi rendszerre vagy szolgáltatásra támaszkodnánk. Ez a technika jó design esetén is szükséges hiszen, nem lehet teljesen független modulokból egy működő alkalmazást csinálni, valamiféle együttműködés feltétlen szükséges. 
-\begin{figure}[h]
+kommunikáció, anélkül hogy a valódi rendszerre vagy szolgáltatásra támaszkodnánk. Ez a terv jó design esetén is szükséges hiszen, nem lehet teljesen független modulokból egy működő alkalmazást csinálni, valamiféle együttműködés feltétlen szükséges. 
+\begin{figure}
 	\caption{Függőségek mockolása a tesztben}
 	\raggedleft
 	\begin{lstlisting}[language=java]
@@ -576,14 +597,15 @@ kommunikáció, anélkül hogy a valódi rendszerre vagy szolgáltatásra támas
 	\end{lstlisting}
 	\label{mocking}
 \end{figure} 
+\subsubsection{Többjátékos mód}
 Ahhoz hogy többjátékos módot támogassa a backend, a Server-Sent-Events technológiát alkalmaztam és implementáltam le. Itt a munkahelyi szerveren létre volt hozva egy interfész,WhoLaughslastMessagingProcessor néven, amit implementálni kellett (\ref{messproc}.ábra). Alapvetően 4 darab eseményről értesítjük az összes felhasználót: \begin{enumerate}
 	\item Felhasználó dobott a kockával.
 	\item Felhasználó lépett egy bábuval.
 	\item Játékos csatlakozott egy táblához.
-	\item A játék státusza megváltozott (Például egy játékot elindítottak akkor CREATED státuszról STARTED státuszra vált).
+	\item A játék státusza megváltozott (Például egy játékot elindítottak akkor CREATED státuszról STARTED állapotba kerül).
 \end{enumerate}
-Az első esetben az adat amit küldünk a kliens alkalmazásnak az új pálya helyzetét leíró adatok. Tehát hogyha egy játékos lépett akkor a bábu helyzete, a visszaküldött JSON válaszban már az újat reprezentálja. A második esetben megkapjuk, hogy hányast dobott az adott játékos, valamint ki a soron következő játékos. A 3. és a 4. esetben az új táblát leíró JSON adatot küldi el. Azok az osztályok amiket itt elküld, azok a munkahelyi szerverről származnak, ott hívják meg őket a megfelelő objektumokkal. Viszont mivel a frontendről kialakítottuk a kapcsolatot, ezeket az eseményeket mind megkapja az alkalmazás. Viszont ilyen esetben egy olyan probléma merül fel, mivel egyszerre akár többen is használhatják az alkalmazást, tehát nem biztos hogy csak 1 tábla van használatban akár lehet több is. Hiszen tegyük fel egyszerre 2 társaság dönt úgy, hogy játszik az alkalmazással, akkor azokat az eseményeket amik az ő táblájukon történik, másik társaság kliens alkalmazása is megkap. Ez természetesen megengedhetetlen, hiszen ha az egyik társaság befejezi a játékot és a táblájuk a FINISHED státuszra vált, akkor a másik társaság játéka is befejeződne, akár kész vannak, akár nem. Tehát meg kell valahogy különböztetni a küldött eseményeket, mégpedig táblánként, hogy az adott eseményekre való feliratkozásnál csak azokra figyeljen, ami a releváns pályán történik. Eseményt az \textit{EventSender} osztály \textit{send} metódusával lehetséges. Itt megadhatunk paraméterben egy szöveget, ami az eseménynek a neve lesz, amire később referálhatunk a frontenden, hogy melyik eseményre akarunk hivatkozni. Itt paraméterben adtam meg a táblának az \textit{id} tulajdonságát, ami minden táblánál egyedi. Így biztosítani tudtam, hogy a feliratkozásnál, csak a releváns táblára iratkozik fel, így nem lesz probléma egyidejű játéknál több felhasználónál. 
-\begin{figure}[h]
+Az első esetben az adat amit küldünk a kliens alkalmazásnak az új pálya helyzetét leíró adatok. Tehát hogyha egy játékos lépett akkor a bábu helyzete, a visszaküldött JSON válaszban már az újat reprezentálja. A második esetben megkapjuk, hogy hányast dobott az adott játékos, valamint ki a soron következő játékos. A 3. és a 4. esetben az új táblát leíró JSON adatot küldi el. Azok az osztályok amiket itt elküld, azok a munkahelyi szerverről származnak, ott hívják meg őket a megfelelő objektumokkal. Viszont mivel a frontendről kialakítottuk a kapcsolatot, ezeket az eseményeket mind megkapja az alkalmazás. Viszont ilyen esetben egy olyan probléma merül fel, mivel egyszerre akár többen is használhatják az alkalmazást, tehát nem biztos hogy csak 1 tábla van használatban akár lehet több is. Hiszen tegyük fel, hogy egyszerre 2 társaság dönt úgy, hogy játszik az alkalmazással, akkor azokat az eseményeket amik az ő táblájukon történik, másik társaság kliens alkalmazása is megkap. Ez természetesen megengedhetetlen, hiszen ha az egyik társaság befejezi a játékot és a táblájuk a FINISHED státuszra vált, akkor a másik társaság játéka is befejeződne, akár kész vannak, akár nem. Tehát meg kell valahogy különböztetni a küldött eseményeket, mégpedig táblánként, hogy az adott eseményekre való feliratkozásnál csak azokra figyeljen, ami a releváns pályán történik. Eseményt az \textit{EventSender} osztály \textit{send} metódusával lehetséges. Itt megadhatunk paraméterben egy szöveget, ami az eseménynek a neve lesz, amire később referálhatunk a frontenden, hogy melyik eseményre akarunk hivatkozni. Itt paraméterben adtam meg a táblának az \textit{id} tulajdonságát, ami minden táblánál egyedi. Így biztosítani tudtam, hogy a feliratkozásnál, csak a releváns táblára iratkozik fel, így nem lesz probléma egyidejű játéknál több felhasználónál. 
+\begin{figure}
 	\caption{WhoLaughslastMessagingProcessor interfész implementálása}
 	\raggedleft
 	\begin{lstlisting}[language=java]	
@@ -594,7 +616,9 @@ public class MessagingProcessor implements WhoLaughLastMessagingProcessor{
 	@Override
 	public void playerUpdated(PlayerUpdateMessage playerUpdateMessage) {
 		System.out.println("PlayerChange"+playerUpdateMessage
-		.getBoardId());
+		.getBoardId());\begin{environment-name}
+			content
+		\end{environment-name}
 		sender.sendEvents("PlayerChange"+playerUpdateMessage
 		.getBoardId(),playerUpdateMessage);
 	}
@@ -619,8 +643,9 @@ public class MessagingProcessor implements WhoLaughLastMessagingProcessor{
 		\end{lstlisting}
 		\label{messproc}
 	\end{figure} 
-Valamint még szükség volt arra az osztályra (\ref{eventsender}.ábra) ami magát az eseményeket elküldi a kliens számára.  Egy \textit{SseEmitter} osztályú objektumokból álló listát is létrehoztam mint tagváltozó, itt tárolom a különböző klienseknek a feliratkozását. Ez nagyon fontos hogy CopyOnWriteArrayList típusú legyen, mivel így kezelhető a konkurencia.Valamint létrehoztam egy újabb végpontot, amit majd az \textit{EventSource} létrehozásánál hivatkozhat a frontend.  Ha ez a hívás megtörténik, akkor először létrehozok egy emittert, aminek konstruktorában a \textit{\texttt{LONG.MAX\_VALUE}} értéket adom. Ez az érték azt jelenti hogy egyes emitterek mennyi ideig tartsák fent a kapcsolatot mielőtt megszakítják a kapcsolatot. Ezek után létrehozok egy \textit{SseEmitter} osztályú objektumot ami küld egy \textbf{"INIT"} nevű eseményt, majd ezt az emittert az osztály tagváltozójához hozzáadom. Deklaráltam egy függvényt \textit{sendEvents} néven, ami végigiterál ezeken az emitter-eken, és elküldi a paraméterben átadott névvel és adattal, az eseményt a kliens alkalmazásnak.   
-\begin{figure}[h]
+	\FloatBarrier
+Valamint még szükség volt arra az osztályra (\ref{eventsender}.ábra) ami magát az eseményeket elküldi a kliens számára.  Egy \textit{SseEmitter} osztályú objektumokból álló listát is létrehoztam mint tagváltozó, itt tárolom a különböző klienseknek a feliratkozását. Ez nagyon fontos hogy CopyOnWriteArrayList típusú legyen, mivel így kezelhető a konkurencia.Valamint létrehoztam egy újabb végpontot, amit majd az \textit{EventSource} létrehozásánál hivatkozhat a frontend.  Ha ez a hívás megtörténik, akkor először létrehozok egy emittert, aminek konstruktorában a \textit{\texttt{LONG.MAX\_VALUE}} értéket adom. Ez az érték azt jelenti, hogy egyes emitterek mennyi ideig tartsák fent a kapcsolatot mielőtt megszakítják a kapcsolatot. Ezek után létrehozok egy \textit{SseEmitter} osztályú objektumot ami küld egy \textbf{"INIT"} nevű eseményt, majd ezt az emittert az osztály tagváltozójához hozzáadom. Deklaráltam egy függvényt \textit{sendEvents} néven, ami végigiterál ezeken az emitter-eken, és elküldi a paraméterben átadott névvel és adattal, az eseményt a kliens alkalmazásnak.   
+\begin{figure}[ht]
 	\caption{EventSender osztály implementálása}
 	\centering
 	\begin{lstlisting}[language=java]	
@@ -660,14 +685,14 @@ public class EventSender {
 	\end{lstlisting}
 	\label{eventsender}
 \end{figure} 
+\FloatBarrier
 
 
-
-\subsection{Authentikáció}
+\subsection{Autentikáció}
 \subsubsection{Backend}
-Az authentikációt a Keycloak nyílt forráskódú keretrendszerrel valósítottam meg. Ehhez, hogy konfigurálni tudjam a 
+Az autentikációt a Keycloak nyílt forráskódú keretrendszerrel valósítottam meg. Ehhez, hogy konfigurálni tudjam a 
 szükséges beállításokat, és futtatni tudjam otthoni környezetben, legegyszerűbb megoldásnak tartottam, hogy egy Docker konténerben 
-futattam. Ehhez először telepíteni kellett a Dockert, majd a terminálban kiadni a következő parancsot: 
+futtattam. Ehhez először telepíteni kellett a Dockert, majd a terminálban kiadni a következő parancsot: 
 \textbf{docker run -p 10000:8080 -e KEYCLOAK\_ADMIN=admin -e KEYCLOAK\_ADMIN\_PASSWORD=admin quay.io/keycloak/keycloak:22.0.5 start-dev}
 Itt lehetett beállítani, hogy a keycloak melyik porton fusson. Mivel a backendem spring boot alkalmazás aminek az alapértelmezett portja 8080 így 
 ettől eltérően kellett választani, ami a 10000 lett. A parancs segítségével letöltöttem a megfelelő Docker Imaget amit már könnyedén el lehetett indítani,
@@ -675,14 +700,14 @@ ettől eltérően kellett választani, ami a 10000 lett. A parancs segítségév
 Először is egy új realm-et hoztam létre aminek a neve: WhoLaughsLast. A realmeken belül lehet létrehozni a clients listát amik esetünkben az alkalmazásokat jelentik (\ref{keycloak}.ábra). Így létre is hoztam egyet: \text{who\_laughs\_last\_client} néven majd ehhez a client-hez rendeltem hozzá a felhasználókat. 
 Pár beállítást még kellett végezni a client-en. Először is megadtam a egy érvényes átirányítási URL-t. Ez azt az elérési utat adja meg, ahova bejelentkezés után navigálni akarunk. Én 
 a \textbf{http://localhost:3000/*} adtam meg, hiszen ezen a porton futott nekem a frontend alkalmazás, így a felhasználó bejelentkezés után bent volt az alkalmazásban. A keycloak
-széles API-t kínál így ezt megismerve az backendemről authentikáció során ide küldtem a kéréseket. Azt is be lehet állítani hogy a mennyi idő után jár le az access token érvényessége, tehát utána majd újat kell kérni a szervertől. 
-\begin{figure}[h]
+széles API-t kínál így ezt megismerve az backendemről autentikáció során ide küldtem a kéréseket. Azt is be lehet állítani hogy a mennyi idő után jár le az access token érvényessége, tehát utána majd újat kell kérni a szervertől. 
+\begin{figure}
 	\caption{Keycloakban a clients lista}
 	\centering
 	\includegraphics[scale=0.5]{keycloak-cients}
 	\label{keycloak}
 \end{figure}
-\newpage
+\FloatBarrier
 
 
 A végpontok biztonságossá tételéhez a \textbf{Spring Security}-t és az \textbf{OAuth2ResourceServer} dependency-ket használtam fel. A függőségeket leíró xml-eket beillesztettem a pom.xml fájlba, majd a Maven letöltötte őket, hogy majd használni tudjam (\ref{pom}.ábra).
@@ -703,21 +728,22 @@ A végpontok biztonságossá tételéhez a \textbf{Spring Security}-t és az \te
 	\end{lstlisting}
 	\label{pom}
 \end{figure}
+\FloatBarrier
 
 
-Miután a Spring Security bekerül az alkalmazásban, alapértelmezetten csinál egy SecurityFilterChain-t ami megköveteli hogy az összes API végpontnál
-a hívónak authetntikálnia kell magát. Ezt a függvényt kell felülírni és úgy implementálni ahogyan azt mi szeretnénk. \textbf{@Bean} annotációval van ellátva,
-így ezt a Spring kezeli és tudja hogy mikor kell használni. A kérések beérkeznek az alkalmazásunkba, akkor végighaladnak ezeken a filtereken amiket beállítunk. Miután talál 
-egy olyan filtert ami a kéréshez illik: Például a "/board" végződésű végpontra jött kérés, akkor azt tudja hogy authentikálni kell, és a többi filtert már nem nézi meg, akár illik rá akár nem. 
+Miután a Spring Security bekerül az alkalmazásba, alapértelmezetten csinál egy SecurityFilterChain-t ami megköveteli, hogy az összes API végpontnál
+a hívónak autetntikálnia kell magát. Ezt a függvényt kell felülírni és úgy implementálni ahogyan azt mi szeretnénk. \textbf{@Bean} annotációval van ellátva,
+így ezt a Spring kezeli és tudja, hogy mikor kell használni. Amikor a kérések beérkeznek az alkalmazásunkba, akkor végighaladnak ezeken a szűrőkön amiket beállítunk. Miután talál 
+egy olyan filtert ami a kéréshez illik: Például a "/board" végződésű végpontra jött kérés, akkor azt tudja, hogy autentikálni kell, és a többi filtert már nem nézi meg, akár illik rá akár nem. 
 
-\begin{figure}[h]
+\begin{figure}
 	\caption{SecurityFilterChain működése }
-	\centering
-	\includegraphics[scale=0.5]{filterchain}
+	\includegraphics[scale=0.45]{filterchain}
 \end{figure}
+\FloatBarrier
 
-Úgy konfiguráltam fel a függvényt, hogy 3 végponton kívül mindent authetnikáljon: \textbf{/auth/createToken}, \textbf{/auth/refreshToken} ,\textbf{/subscribe}. Első kettőt végpontot azért nem kell authentikálni, mivel ide érkeznek azok a kérések amikor a felhasználó be akar jelentkezni, és kapja meg a szükséges token-eket amikre majd később szüksége lesz az authentikációnál.Ezek után a OAuth2 resource szervert kellett felkonfigurálni. Az application.yml file-ban írtam bele a különböző elérési utakat amikre a szervernek szüksége van hogy authentikálni tudja a jwt \footnote{Json Web Token} tokeneket. A keycloak-nál a \textbf{http://localhost:10000/realms/WhoLaughsLast/protocol/openid-connect/certs} elérési úton 
-elérhető az adott client-hez tartozó authetnikációs adatok. A jwt tokeneket a http kérések fejlécében küldtem el mint BearerTokenek. Hogy ezekhez hozzá tudjak jutni,
+Úgy konfiguráltam fel a függvényt, hogy 3 végponton kívül mindent authetnikáljon: \textbf{/auth/createToken}, \textbf{/auth/refreshToken} ,\textbf{/subscribe}. Első kettőt végpontot azért nem kell autentikálni, mivel ide érkeznek azok a kérések amikor a felhasználó be akar jelentkezni, és kapja meg a szükséges token-eket amikre majd később szüksége lesz az autentikációnál. Ezek után a OAuth2 resource szervert kellett felkonfigurálni. Az application.yml file-ban írtam bele a különböző elérési utakat amikre a szervernek szüksége van hogy autentikálni tudja a jwt \footnote{Json Web Token} tokeneket. A keycloak-nál a \textbf{http://localhost:10000/realms/WhoLaughsLast/protocol/openid-connect/certs} elérési úton 
+elérhető az adott client-hez tartozó autetnikációs adatok. A jwt tokeneket a http kérések fejlécében küldtem el mint BearerTokenek. Hogy ezekhez hozzá tudjak jutni,
 egy Convertert kellett írni, majd a OAuth szerver ellenőrizze a hitelességüket. 
 
 \begin{figure}
@@ -745,15 +771,16 @@ public SecurityFilterChain securityFilterChain (HttpSecurity http) throws Except
 \end{lstlisting}
 \label{secConf}
 \end{figure}
-\newpage
+\FloatBarrier
+
 
 Ezek után implementáltam az autentikációs végpontot (\ref{authEndpoint}. ábra). Létrehoztam egy új Controllert aminek AuthController lett a neve,
-hogy szeparáltan legyen a többi végponttól ami a játékhoz kell, az átláthatóság és a rendezettség érdekében. Az egyik végpont 
+hogy elkülönítve legyen a többi végponttól ami a játékhoz kell, az átláthatóság és a rendezettség érdekében. Az egyik végpont 
 funkciója az hogy egy paraméterben kapott authorization code-ot elküldi a keycloak végpontjára amiért cserébe egy refresh tokent és egy access tokent kap,
 és ezeket juttatja el a frontendre. A másik végpont funkciója pedig az hogy egy paraméterben kapott refresh tokent beváltva új access tokent kapjon a frontend az autentikációhoz. 
 
-\begin{figure}[h]
-	\caption{Authentikációs végpont}
+\begin{figure}
+	\caption{Autentikációs végpont}
 	\centering
 	\begin{lstlisting}[language=java]
 		
@@ -772,15 +799,14 @@ throws Exception{
 	\end{lstlisting}
 	\label{authEndpoint}
 \end{figure} 
+\FloatBarrier
 
-
-\begin{figure}[h]
-	\caption{Postman authentikációs token kérés}
+\begin{figure}
+	\caption{Postman autentikációs token kérés}
 	\label{fig:postman}
 	\centering
 	\includegraphics[scale=0.5]{getTokens}
 \end{figure}
-
 
 \subsubsection{Frontend}
 A frontenden az autentikáció egyik feladata az authorization code eljuttatása a backend-re volt. Mivel használni akartam a keycloak által 
@@ -789,10 +815,10 @@ URL-jére, hiszen ezt beállítottuk az admin oldalon, így ezt az eseményt fel
 sok hasznos funkcióval rendelkezik, de ennél a problémánál a navigációs őröket (Navigation Guards) tudtam felhasználni. Itt meg tudok adni egy függvényt ami
 mindig meghívódik azelőtt hogy navigáció történne az alkalmazáson belül. Tehát amikor megtörténik a navigáció a keycloak-os felületről az alkalmazásra, a függvény amit 
 definiálok le fog futni. Paraméterként megkapom azt az elérési utat ahonnan navigáltak, valamint azt is ahonnan navigáltak. Mivel ahonnan navigálunk el ott jelenik meg az
-authorization code, így ki tudom nyerni onnan (\ref{authCode}.ábra). Egy újabb Pinia Store-t is definiáltam az autentikációhoz köthető függvények miatt a jó strukturáltság érdekében. Definiáltam egy \textbf{authTokens} változót is ami az éppen aktuális access és refresh tokeneket tartalmazza. Itt implementáltam egy API hívást, ami http kérés body-jában tárolja az authorization code-ot és küldi el a backend számára. A választ eltárolom az authTokens változóban, így ezekkel már el tudom érni a backenden a játékhoz tartozó védett végpontokat is. 
+authorization code, így ki tudom nyerni onnan (\ref{authCode}.ábra). Egy újabb Pinia Store-t is definiáltam az autentikációhoz köthető függvények miatt a jó strukturáltság érdekében. Definiáltam egy \textbf{authTokens} változót is ami az éppen aktuális access és refresh tokeneket tartalmazza. Itt implementáltam egy API hívást, ami http kérés törzsében tárolja az authorization code-ot és küldi el a backend számára. A választ eltárolom az authTokens változóban, így ezekkel már el tudom érni a backenden a játékhoz tartozó védett végpontokat is. 
 \begin{figure}
 	\caption{Authorization code kinyerése az elnavigált URL-ből}
-	\begin{adjustwidth}{0cm}{10cm}
+
 		\begin{minipage}{\textwidth}
 			\begin{lstlisting}[style=javascriptStyle]
 				router.beforeEach(async (to,from,next) => {
@@ -812,18 +838,19 @@ authorization code, így ki tudom nyerni onnan (\ref{authCode}.ábra). Egy újab
 				})
 			\end{lstlisting}
 		\end{minipage}
-	\end{adjustwidth}
+	
 	\label{authCode}
 \end{figure}
+\FloatBarrier
 
 A másik fontos dolog volt implementálni az új access token kérését frontenden. Amint lejárt az addig használt access token érvényessége a szerver 401-es Unauthorized 
-hibakóddal tért vissza. Ilyenkor kellett a refresh tokent használni hogy új access tokent kapjunk. Az axios könyvtárat használtam a http kérések küldésére. Az axios 
-használatakor létrehozunk egy példányt belőle amik tartalmazzák azokat a függvényeket amikkel a http kéréseket el tudjuk küldeni, például a get,post,delete,stb... Amikor létrehozunk egy ilyen példányt, konfigurálhatjuk úgy, hogy minden egyes kérés küldésekor vagy válasz fogadásánál, bizonyos dolgokat végezzen el. Nekem arra volt szükségem hogy minden kérés elküldésekor a http fejlécébe csatolja az éppen aktuális access tokent, hogy majd a backend autentikálni tudja. Valamint minden egyes beérkezett válasznál ellenőriznem kellett, hogy a válasz 401-es hibakóddal tér-e vissza, mert akkor lejárt az access token, és újat kell kérni. Így ebben a részben hívtam meg az implementált API kérést, majd az újonnan kapott tokent eltároltam a Store-ban, majd ezek után újra elküldtem a meghiúsult API kérést. Mivel egy 
-pinia store-ban tároltam el az autentikációs tokeneket, így ha a felhasználó frissíti az oldalt, ezek mind elvesznek. Így erre az eshetőségre is fel kellett konfigurálni az API hívásokat, hogyha nincsenek tokenek, akkor navigáljon el a bejelentkező oldalra. Ilyenkor viszont azt az API hívás amit a frissítés után akarunk végre-hajtani, eldobjuk. Viszont ez nem jelenti azt hogy minden egyes frissítéskor be kell jelentkeznünk, hiszen a Keycloak számon tartja, hogy be vagyunk jelentkezve, ezért rögtön vissza is navigál arra az URL-re amit megadtunk neki (\ref{axios}.ábra).
+hibakóddal tért vissza. Ilyenkor kellett a refresh tokent használni, hogy új access tokent kapjunk. Az axios könyvtárat használtam a http kérések küldésére. Az axios 
+használatakor létrehozunk egy példányt belőle amik tartalmazzák azokat a függvényeket amikkel a http kéréseket el tudjuk küldeni, például a GET,POST,DELETE,stb... Amikor létrehozunk egy ilyen példányt, konfigurálhatjuk úgy, hogy minden egyes kérés küldésekor vagy válasz fogadásánál, bizonyos dolgokat végezzen el. Nekem arra volt szükségem, hogy minden kérés elküldésekor a http fejlécébe csatolja az éppen aktuális access tokent, hogy majd a backend autentikálni tudja. Valamint minden egyes beérkezett válasznál ellenőriznem kellett, hogy a válasz 401-es hibakóddal tér-e vissza, mert akkor lejárt az access token, és újat kell kérni. Így ebben a részben hívtam meg az implementált API kérést, majd az újonnan kapott tokent eltároltam a Store-ban, majd ezek után újra elküldtem a meghiúsult API kérést. Mivel egy 
+pinia store-ban tároltam el az autentikációs tokeneket, így ha a felhasználó frissíti az oldalt, ezek mind elvesznek. Így erre az eshetőségre is fel kellett konfigurálni az API hívásokat, hogyha nincsenek tokenek, akkor navigáljon el a bejelentkező oldalra. Ilyenkor viszont azt az API hívás amit a frissítés után akarunk végre-hajtani, eldobjuk. Viszont ez nem jelenti azt hogy minden egyes frissítéskor be kell jelentkeznünk, hiszen a Keycloak számon tartja, hogy be vagyunk jelentkezve, ezért rögtön vissza is navigál arra az URL-re amit megadtunk neki (\ref{axiosConfig}.ábra).
 
 \begin{figure}
  	\caption{Axios hívások felkonfigurálása autentikáció kezelésére}
- 	\begin{adjustwidth}{0cm}{10cm}
+ 	
  		\begin{minipage}{\textwidth}
  			\begin{lstlisting}[style=javascriptStyle]
  				const AxiosWithToken = axios.create({
@@ -854,32 +881,165 @@ pinia store-ban tároltam el az autentikációs tokeneket, így ha a felhasznál
  				})
  			\end{lstlisting}
  		\end{minipage}
- 	\end{adjustwidth}
- 	\label{axios}
+ 	
+ 	\label{axiosConfig}
 \end{figure}
+\FloatBarrier
 
 \newpage
 
 \subsection{Frontend}
+\subsubsection{Komponensek és játékmenet}
 A frontend készítésnél már volt egy kiinduló gitlab projektem, amit a külső konzulensem
-biztosított számomra. Ez a projekt egy üres projekt volt, de a Vue.js keretrendszer, webpack
+biztosított számomra. A gitlab egy olyan szoftver amit rendkívül gyakran használnak a szoftverfejlesztésben. A lényege, hogyha közösen többen fejlesztenek egy alkalmazást, akkor a különböző kódrészleteket egy helyre töltik fel a fejlesztők, és így áll össze az alkalmazás. Éppen az aktuális verziót le tudják tölteni a saját gépükre, így látják a változtatásokat amiket végbementek. Ez a projekt egy üres projekt volt, de a Vue.js keretrendszer, webpack
 konfiguráció már importálva volt, valamint sok hasznos könyvtárat tartalmazott. Ahogy
 korábban említettem, a Vue.js egy komponens orientált fejlesztés tesz lehetővé. Ezt használva
 először azt terveztem meg hogy milyen komponensekből fog állni a megjelenítés.
 Először a táblák megjelenítéséért felelős komponenst írtam meg. Ez listázza az összes
-szerveren lévő táblát.
-Következőleg az egy táblát reprezentáló komponenst implementáltam le. Itt látszódnak a tábla
-fontosabb adatai, a különböző funkciójú gombok.
-A Pinis Store implementálása következett. Itt definiáltam majd valósítottam meg az összes
-aszinkron api hívást, hogy kényelmesen, az összes komponensből el tudjam érni őket. Itt
-tárolom a táblákat, és egyéb megjelenítést segítő változókat.
-Ezek után csináltam felugró ablakokat, ha egy játékost szeretnék egy táblához csatlakoztatni,
-vagy egy új táblát szeretnénk létrehozni.
-Mivel a backendem hibaüzenetet is adhat, hogyha inkonzisztens adatot küldök el, így annak
-megjelenítésével is foglalkoznom kellett. Ha hiba adódik akkor, egy egyszerű piros ablak
-jelenik meg az oldal tetején, amiben szerepel a hiba leírása. Ez az ablak 2,5 másodperc
-elteltével eltűnik.
+szerveren lévő táblát. Itt iratkozok fel a szerver által küldött SSE eseményekre is, hiszen ez az első olyan komponens amit lerenderel a böngésző, így ennek a kódja fut le először. A Vue komponensekben definiálni lehet expliciten, hogy a komponens bizonyos életciklusaiban milyen függvényeket hívjon meg. Több ilyen életciklus van, például beforeMount,beforeCreated,mounted és még sok más. Én az mounted (\ref{onMounted}.ábra) életciklust definiáltam expliciten. Ilyenkor már a komponens megjelenítette a kinézetet, és működésre kész. Ha ez kész akkor kérem le a szerverről a táblákat tartalmazó adatokat és építem ki a kapcsolatot az SSE emitterel. Ebben a komponensben lehet létrehozni egy új táblát. Ez úgy történik, hogyha rákattintunk a CreateBoard gombra, akkor egy új ablak jelenik meg. Itt adhatjuk meg a táblánk paramétereit, például a nevét, hány játékossal lehet ezt játszani, hány bábuja lesz egy játékosnak, valamint hogy két játékos kiinduló pozíciója között hány darab mező legyen. Az egyes paraméterekre bizonyos feltételek kellettek, hogy teljesüljenek, különben nem lehetett létrehozni őket a szerveren. Így egy \textit{computed} tulajdonság segítségével ellenőriztem ezeket, hogy egészen addig ne lehessen létrehozni, ameddig ezek a feltételek nem teljesülnek. Ha megadjuk a megfelelő paramétereket és rákattintunk a Create gombra, akkor elküldi a backend szervernek a kérést. Ez visszaadja nekünk a szerveren generált pályát, amihez plusz információkat csatol, például az azonosítója, valamint hogy ki fogja kezdeni a játékot, stb\dots. Az összes szerveren lévő táblát a Pinia Storeban, egy \textit{boards} nevezetű változóban tárolom el. Mivel ez egy reaktív változó, így hogyha az értéke változik az összes, ettől függő komponens le fogja követni a változásokat. Így amikor megkapom az újonnan létrejött táblát, hozzáadom ehhez a \textit{boards} tömbhöz, így rögtön frissülni fog a felület amint a Create gombra kattintok. 
 
+\begin{figure}
+	\caption{onMounted életciklus hook meghívása a BoardManagement komponensben}
+	
+		\begin{minipage}{\textwidth}
+			\begin{lstlisting}[style=javascriptStyle]
+				onMounted(async () => {
+					boardStore.eventSource = getEventSource();
+					await boardStore.getBoards();
+				})
+			\end{lstlisting}
+		\end{minipage}
+	
+	\label{onMounted}
+\end{figure}
+\FloatBarrier
+
+Következőleg az egy táblát reprezentáló komponenst implementáltam le. Itt látszódnak a tábla
+fontosabb adatai, a különböző funkciójú gombok, a Start, JoinPlayer, Reset, Stop valamint a DeleteBoard. Ezek a gombok, a DeleteBoard kivételével, függnek attól hogy a pálya milyen állapotban van. A JoinPlayer gomb érhető csak el, hogyha még nincs meg a megfelelő számú játékos a táblához. Ha ez teljesül, akkor csak a Start gomb lesz elérhető, ami elindítja a játékot, így STARTED státuszra változik a tábla. Ezek után a Stop és a Reset gombok lesznek elérhetőkm, ahol az előbbi befejezi a játékot és FINISHED státuszba kerül a tábla, vagy az utóbbi kitörli az összes játékost a tábláról, és CREATED státuszba teszi. Ha a JoinPlayer gombra kattintunk, akkor egy feljövő ablakban tudjuk megadni a játékosunk adatait, ami a neve és a színe. Akár egy felhasználó több játékost is csatlakoztatni tud, így akár nem kell 5 különböző felhasználó ha egy 5 fős pályán akarunk játszani. Az elérhető színeket a szerverről kérdezem le, majd ezeket egy legördülő ablakban listázom ki. Itt is vannak bizonyos megkötések mint hogy a játékos neve legalább 3 karakterből kell hogy álljon, valamint nem lehet olyan színe és neve, amit már egy előbb csatlakozott játékos kiválasztott. A felületen a játékosok neveit olyan színnel jelenítem meg, amelyeket kiválasztottak. Ehhez csak egy függvényt kellett készítenem, ami megfelelő formátumra hozza a szervertől kapott színek neveit, hogy az így kapott nevet a CSS értelmezni tudja (\ref{board}.ábra). 
+
+\begin{figure}
+	\caption{Egy tábla adatainak megjelenítése}
+	\label{board}
+	\centering
+	\includegraphics[scale=0.8]{board}
+\end{figure}
+\FloatBarrier
+Egy játékos megjelenítéséért, külön komponenst hoztam létre, mert így jobban el tudtam szeparálni a különböző felelősségeket a komponensek között. Egy LeavePlayer gombot is létrehoztam, hogy esetleg ha egy játékos meggondolná magát a játék kezdete előtt, ki tudjon még lépni. 
+Ha egy játékos elhagyja a pályát, vagy a tábla státusza megváltozik, akkor erről a többi játékosnak is tudnia kell. Így ha egy ilyen kérés érkezik be a szerverre, az küld egy eseményt erről. Így ebben a komponensben regisztrálok fel a \textit{PlayerChange} és a \textit{StatusChange} eseményekre, hogy így majd meg tudjam jeleníteni, ha esetleg egy másik játékos elhagyta a pályát. A \textit{PlayingBoard} komponens, az ami megjeleníti a pályát és a játékosokat. A mounted életciklusában feliratkozom a \textit{RollChange} és a \textit{PositionChange} eseményekre, hiszen ez ekkor lesz releváns. 
+
+Amint csatlakoztak a játékosok és valamelyikük elindította a játékot, átkerülünk egy új nézetbe, ami a pályát és többi játékost tartalmazza (\ref{playingboard}).ábra.
+\begin{figure}
+	\caption{Játék közbeni kinézet}
+	\label{playingboard}
+	\centering
+	\includegraphics[scale=0.4]{playingboard}
+\end{figure}
+\FloatBarrier
+Amikor átnavigálunk, az elindított táblát, valamint a kezdő játékost elmentem egy külön változóba, hogy később el tudjam érni. Ebben  a komponensben folyton figyeltem ezt a változót a
+\textit{watch} függvénnyel, hiszen így tudtam lekövetni a változásokat amik történtek. A bal oldalon jelenítettem meg a játékosokat, az éppen soron következő játékost kicsit részletesebben. Valamint itt lehet beállítani, hogy akarjuk-e, hogy egy robot játsszon helyettünk, valamint annak a stratégiáját. A CurrentPlayer komponensben jelenítem meg, hogy a soron lévő játékosnak még hány bábuja nincs fent a táblán, valamint itt vannak a Roll és Move gombok. Először a felhasználónak a Roll gombra kell kattintania, ez szimulálja dobást. Ilyenkor egy http kérés történik a szerver felé, ami visszaad egy objektumot, a dobással kapcsolatos információkkal. Ebben benne van a dobás értéke, valamint egy token ami az adott dobáshoz tartozik. Ez a szerver által van generálva és ott van számon tartva, hogy melyik dobáshoz tartozik az adott token. Ha tudunk lépni az adott dobással, tehát vagy hatost dobtunk és ki tudunk jönni a kezdő területről, vagy már lent van bábunk a pályán, akkor meg lehet nyomni a Move gombot. Úgy implementáltam le a játék működését, hogy alapértelmezetten azt a bábut választom ki, ami a már a táblán van, ha esetleg nincs ilyen, akkor az lesz ami még nem került fel. Viszont hogy a felhasználó rákattint egy másikra, akár nem pályán lévőre, akkor avval fog mozogni. Ha nem pályán lévő bábura kattint és nem hatost dobott, akkor viszont hibaüzenetet fog kapni, hogy avval a bábuval nem lehet mozogni, hiszen onnan csak hatos dobással lehet kimenni. A \textit{watch} fügvénnyel figyelem, hogy mikor változik a soron következő játékos, és amikor változik, beállítom a választott bábut az alapértelmezettre. Ha a dobásunk hatos, akkor egy kis értesítés jelenik meg, hogy akár egy új bábut is kivihetünk a táblára.  Ha a Move gombra kattintunk, akkor előre lép annyit a bábunk amennyit dobott vagy ha még nem volt fent, akkor a kezdő pozícióra lép ki. Ehhez el kell küldeni a szervernek az adott dobáshoz tartozó tokent, amit az előző válaszban kaptunk meg, valamint a kiválasztott bábu azonosítóját. A válaszban a pálya új állapotát kapjuk meg, amit a reaktivitásnak köszönhetően rögtön meg is jelenítünk. Amint léptünk, a soron következő játékost állítjuk be, aki elvégzi az előzőekben leírt tevékenységeket. Amint valaki befejezi a játékot, rögtön egy új nézetbe visz át minden játékost az alkalmazás. Itt jelenítjük meg a játékosok állását, hogy ki hogyan szerepelt a játék alatt. A Score változó a szerver által van számolva, a bevitt bábuk száma határozza meg, így alakul ki a végeredmény (\ref{game-end}.ábra). Az Ok gombra kattintva, visszakerülünk abba a nézetbe, ahol az elérhető táblákat listázzuk ki. 
+
+\begin{figure}
+	\caption{A végeredmény megjelenítése a játék befejezése után}
+	\label{game-end}
+	\centering
+	\includegraphics[scale=0.35]{game-end}
+\end{figure}
+\FloatBarrier
+Mivel a backendem hibaüzenetet is adhat, hogyha inkonzisztens adatot küldök el, így annak
+megjelenítésével is foglalkoznom kellett.Például, hogyha egy játékos dob a kockával és nem tud lépni a dobott számmal akkor, egy egyszerű piros ablak
+jelenik meg az oldal tetején, amiben szerepel hogy nem tud lépni az adott számmal.A többi hibaüzenetre is megjelenne ez az ablak, de mivel az egyes gombokat nem lehetne használni hogyha rossz adatot küldenénk a szerverre, így ez az eset nem fordul elő. Ez az ablak 2,5 másodperc elteltével eltűnik.
+\subsubsection{Grafikus megjelenítés}
+
+
+\subsubsection{Többjátékos mód}
+A többjátékos módot az SSE eseményekre való feliratkozással oldottam meg. Magát a több játékos módot úgy teszteltem, hogy egyszerre több lapon nyitottam meg a böngészőmben a
+kliens alkalmazást, és játszottam 2 játékos személyében. 
+
+Első feladat volt felépíteni a kapcsolatot a backenden lévő SseEmitterrel. Ez javascriptben nagyon egyszerűen megvalósítható, csak egy új \textit{EventSource} objektumot kellett létrehozni, aminek paraméterében a backenden lévő elérési utat kellett megadni, ami esetünkben \textbf{"http://localhost:8080/subscribe"} volt. Amint létrejön a \textit{new} kulcsszóval az objektum, már fel is építi a kapcsolatot automatikusan, nem kell vele több mindent csinálni. Így ezt a lépést rögtön az alkalmazás elején megtettem, az eseményekre csak később iratkoztam fel, amikor már releváns volt. Az eseménykezeléssel foglalkozó fájlokat egy külön mappába helyeztem el, mivel így strukturált maradt az alkalmazás.
+Először a Board komponensen belül iratkoztam fel a PlayerChange és StatusChange eseményekre. Ezek akkor sülnek el, amikor egy tábla státusza megváltozik, vagy egy játékos fel- vagy lejelentkezik egy játékra. Az eseményekre való feliratkozást és kezelését két külön fájlban csináltam, mivel így tisztább, és könnyebben olvasható a kód. Pinia store-ban tároltam el az EventSource objektumot amit létrehoztam a kapcsolat kialakításához, hogy ehhez globálisan hozzáférhessek. A feliratkozást az \textit{addEventListener} függvénnyel végeztem el, itt kellett megadni az esemény nevét is, amit majd figyelni. Paraméterben mindig átadtam az a táblának az azonosítóját, amire éppen kíváncsiak vagyunk, így el tudtuk magunkat szeparálni azoktól a tábláktól amikkel esetleg más játékosok játszanak. Itt kellett definiálni, azt is, hogyha megtörténik az esemény akkor mit csináljon az alkalmazás (\ref{statuschange}.ábra). Ezeket a függvényeket rendszereztem egy külön fájlba, hogy átláthatóbb legyen az alkalmazás. Figyelni kellett arra is, hogyha nem éppen az adott felhasználó által csatlakoztatott játékos van soron, akkor a Roll és Move gombokat le kellett tiltani, hogy még véletlenül se tudjon egy másik felhasználó helyett dobni vagy lépni. 
+\begin{figure}
+	\caption{A StatusChange eseményre való feliratkozás és kezelése}
+		\begin{minipage}{\textwidth}
+			\begin{lstlisting}[style=javascriptStyle]
+				async function initStatusChange(board) {
+					const boardStore = useBoardStore();
+					boardStore.eventSource.addEventListener("StatusChange" + board.id, async function (event) {
+						let newStatus = JSON.parse(event.data);
+						await handleStatusChange(newStatus);
+					})
+				}
+			\end{lstlisting}
+		\end{minipage}
+		\begin{minipage}{\textwidth}
+			\begin{lstlisting}[style=javascriptStyle]
+				async function handleStatusChange(statusChangeMessage) {
+					const boardStore = boardStoreFactory();
+					const gamePlayStore = gamePlayStoreFactory();
+					if (statusChangeMessage.newStatus === "FINISHED") {
+						await handleFinished(boardStore,gamePlayStore,statusChangeMessage);
+					}
+					else if (statusChangeMessage.newStatus === "STARTED" && boardStore.joinedPlayer.length > 0) {
+						await handleStarted(boardStore,gamePlayStore,statusChangeMessage)
+					}
+					else if (statusChangeMessage.newStatus === "CREATED") {
+						await handleCreated(boardStore,statusChangeMessage)
+					}
+				}
+			\end{lstlisting}
+		\end{minipage}
+	\label{statuschange}
+\end{figure}
+\FloatBarrier
+A PlayerChange esemény lekezelése viszonylag egyszerű volt. A szerver elküldte a megváltozott tábla új állapotát, majd kicseréltem a \textit{boards} tömbben arra az elemről, ami még erről a tábláról a régi állapotát tartalmazta. Mivel azt a folyamatot, hogy kicserélek egy táblát a \textit{boards} tömbben egy újra, nagyon sokszor megcsinálom, ezért írtam rá egy külön függvényt. 
+
+A StatusChange esemény implementálása kicsit összetettebb volt. Attól függően hogy milyen állapotba került a tábla, különböző dolgokat kellett csinálni. Hogyha CREATED státuszba került, akkor ellenőrizni kellett, hogy újonnan létrehozott tábla, vagy csak egy táblát Reseteltek, és így került ilyen státuszba. Ha az előbbi történt akkor csak hozzá kellett adni a létrehozott táblát a \textit{boards} tömbhöz, ha az utóbbi, akkor ki kellett cserélni a tömbben.Mivel a StatusChange összes eseményét megkapom, hiszen minden tábláról tudni akarom hogy éppen milyen állapotban van, így ennek az eseménynek a kezelése több körültekintést igényel. Ha a STARTED állapotba kerül a tábla, akkor nem tudjuk hogy ki indította el. Így hogyha arra a táblára mi is csatlakoztunk, akkor minket is arra a nézetre kell hogy navigáljon az alkalmazás ahol maga a játék történik. Így el kell tárolnom a \textit{player} objektumokat amikkel csatlakoztam a táblához, és hogyha azon a táblán rajta vagyunk, amit elindítottak, akkor átnavigál a másik nézetre az alkalmazás. Egyébként pedig csak frissíti a \textit{boards} tömböt az új táblával. Hogyha FINISHED státuszba kerül a tábla, hasonlóan járunk el mint előzőleg. Hogyha vannak csatlakozott játékosaink a táblán, akkor átnavigál minket a játék eredmény nézetre, egyébként pedig frissíti a \textit{boards} tömböt. 
+
+A RollChange és a PositionChange eseményekre akkor iratkoztam fel, amikor a \textit{playing} nézetre navigált az alkalmazás. Itt már csak azokat az eseményeket kapjuk el, amik éppen az adott táblához tartoznak, tehát két egyszerre folyó játék nem zavarja meg egymást. A RollChange esemény elküldi hogy hányast dobott az adott játékos. Ha ez egy olyan szám amivel nem tud lépni az adott játékos, akkor rögtön egy PositionChange esemény is érkezik, ami a tábla új állapotát adja meg. Ez az állapot csak abban különbözik az előzőtől, hogy a soron következő játékos azonosítója megváltozik. Mivel ez is egy Store-ban lévő változó, a felület rögtön frissül, amint ez megváltozik, így amint már nem tud lépni a játékos, rögtön a következő játékost írja ki a felület, mint soron következő. Hogyha tud lépni vele, akkor a Move gomb megnyomása után érkezik a PositionChange esemény, ami tartalmazza a bábu új helyzetét. Hogyha hatost dobott a játékos, tehát megint ő jön, akkor a soron következő játékos azonosítója nem változik az üzenetben.  
+
+A játék végén fontos, hogy a kapcsolatot megszüntessük a backend szerverrel, mivel amint visszanavigálunk a kezdő oldalra, hogyha megmaradnának az előző játékból maradt eseménykezelőink, akkor esetleg olyan táblának az eseményeire is fel lehetnénk iratkozva, egy új játék alatt, amit nem is mi indítottunk el. Ezt az \textit{evenSource.close} függvénnyel tehetjük meg. Valamint itt a Pinia Store-okat is alalphelyzetbe állítom, hiszen sok állapotot őriztünk meg az előző játékból, amikre már nincsen szükségünk. Ezek az utasítások (\ref{reset}.ábra) az Ok gombra vannak kötve az eredménytábla alján. Ilyenkor visszanavigálunk a kezdő nézetre ahol újra létrehozzuk a kapcsolatot az SSE Emitterrel valamint feliratkozunk a PlayerChange és StatusChange eseményekre.  
+\begin{figure}
+	\caption{SSE kapcsolat megszüntetése, és a store-ok alaphelyzetbe állítása}
+	\begin{minipage}{\textwidth}
+		\begin{lstlisting}[style=javascriptStyle]
+			function closeScoreboard(router){
+				const gameStore = useGamePlayStore();
+				const boardStore = useBoardStore();
+				boardStore.eventSource.close();
+				boardStore.$reset();
+				gameStore.$reset();
+				router.push({
+					path: '/boardManagement',
+				});
+				
+			}
+		\end{lstlisting}
+	\end{minipage}
+	
+	\label{reset}
+\end{figure}
+\FloatBarrier
+\subsubsection{Robot}
+Egy robotot is implementáltam a felhasználóknak, amit hogyha bekapcsolunk akkor helyettünk játszik. Be lehet állítani hogy pontosan milyen erősségű robotot akarunk szimulálni, van \textit{Beginner} \textit{Intermidiate} és \textit{Advanced}, mindegyik kicsit jobb az előzőnél. Hogyha beállítjuk, hogy a robot játszon helyettünk, akkor a Roll és a Move gombokat nem lehet használni. Bármikor a játék folyamán be lehet állítani, hogy a robot vegye át az irányítást, valamint azt is hogyha ki szeretnénk kapcsolni. Egy leugró ablakban kell kiválasztani, hogy melyik stratégiát szeretnénk választani, alapértelmezett a \textit{Beginner}. Ennek az implementálásához, eléggé kézenfekvő módon a Strategy pattern-t alkalmaztam. Ez egy olyan programtervezési minta, amit olyan esetekben szokták használni, hogyha egy bizonyos algoritmust akarunk változtatni a környezettől függően. A mintában van egy interfész amit, a különböző stratégiák megvalósítanak, és implementálják le különféle módokon, majd ezt az interfészt használva tudjuk alkalmazni az algoritmusokat. A Pinia Store-ban definiáltam egy robotStrategy függvényt. és ezt állítottam be, attól függően hogy mit állított be a felhasználó. Majd létrehoztam egy \textit{executeRobotStrategy} függvényt ami csak meghívja az előbb beállított metódust. Létrehoztam egy komponenst, ami egy legördülő menüből állt, és a választott értékének függvényében állítottam be a megfelelő stratégiát (\ref{setStrat}) A komponens \textit{mounted} életciklusában beállítottam alapértelmezettként, hogy Beginner stratégiát alkalmazzon.
+
+\begin{figure}
+	\caption{Egyes stratégiák beállítása a kiválasztott érték függvénynében}
+	\begin{minipage}{\textwidth}
+		\begin{lstlisting}[style=javascriptStyle]
+			watch(selectedStartegy,(newValue) => {
+				if(newValue === "Intermidiate") gamePlayStore.setRobotStartegyToIntermidiate();
+				else if(newValue === "Advanced") gamePlayStore.setRobotStartegyToAdvanced();
+				else gamePlayStore.setRobotStartegyToBeginner();
+			})
+			onMounted(()=> {
+				gamePlayStore.setRobotStartegyToBeginner();
+			})
+		\end{lstlisting}
+	\end{minipage}
+	
+	\label{setStrat}
+\end{figure}
+\FloatBarrier
+Miután kiválasztottuk a stratégiát és rányomunk a checkboxra, a robot folytatja a játékot helyettünk. Létrehoztam egy \textit{watch} függvényt ami figyeli a checkbox értékét, és annak függvényeben hívja meg a \textit{robotStep} metódust. Itt zajlik le a kockadobás és a bábu mozgatása is. Itt igazából csak azokat a függvényeket hívom meg amik eddig a Roll és Move gombokra voltak kötve egymás után, így szimulálja az emberi inputot. Egy ilyen \textit{robotStep} függvény lefutása egy Roll és Move gomb megnyomással egyenértékű. Ellenőrizni kell hogy az éppen soron következő játékost éppen az adott felhasználó csatlakoztatta-e fel, hiszen ha ezt nem ellenőriznénk akkor hogyha egy felhasználó is bekapcsolja a robotot, az mindenki helyett lépni fog. Mielőtt a mozgást elvégző http kérést elküldenénk, meghívjuk a Strategy minta alapján készült "interfészünket" ami az \textit{executeStrategy} függvény. A stratégiák lényegében csak egy dolgot csinálnak: beállítják hogy melyik legyen az a bábu amivel majd lépni fogunk. Gyakorlatilag a játékban itt van gondolkodni valónk, hiszen sajnos azt hogy hányast dobjunk, nem tudjuk befolyásolni.A \textit{Beginner} stratégiájú robot nem csinál semmit, mindig csak ugyanazzal a bábuval akar beérni a célba , ha ez sikerül akkor megy a következőre. Az \textit{Intermidiate} robot már kihasználja a hatosok adta lehetőségeket. Hogyha a felhasználó hatost dob akkor lerak egy új bábut a táblára. Az \textit{Advanced} robot pedig használja azt a szabályát a játéknak, hogyha egy bábu olyan mezőre lép ahol éppen áll egy másik játékos bábuja, akkor azt leüti a tábláról, így újra csak hatossal lehet visszatenni a játékba. Így először azt ellenőrzi hogy tud e úgy lépni valamelyik bábuval, amivel le tudna ütni egy másikat, ha ez nem lehetséges, akkor használja az \textit{Intermidiate} stratégiát.
 
 
 \newpage
@@ -896,7 +1056,7 @@ elteltével eltűnik.
 	\bibitem{webpack}
 	 Webpack is a static module bundler for modern JavaScript applications.
 	 
-	 \bibitem{axios}
+	 \bibitem{axiosLibrary}
 	 Axios library
 	 
 	 \bibitem{lombok}

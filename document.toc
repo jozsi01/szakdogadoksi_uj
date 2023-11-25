@@ -26,5 +26,5 @@
 \select@language {hungarian} \contentsline {subsection}{\numberline {6.3}Frontend}{34}{}%
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {6.3.1}Komponensek és játékmenet}{34}{}%
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {6.3.2}Grafikus megjelenítés}{38}{}%
-\select@language {hungarian} \contentsline {subsubsection}{\numberline {6.3.3}Többjátékos mód}{40}{}%
-\select@language {hungarian} \contentsline {subsubsection}{\numberline {6.3.4}Robot}{43}{}%
+\select@language {hungarian} \contentsline {subsubsection}{\numberline {6.3.3}Többjátékos mód}{41}{}%
+\select@language {hungarian} \contentsline {subsubsection}{\numberline {6.3.4}Robot}{45}{}%

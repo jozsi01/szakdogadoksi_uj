@@ -976,7 +976,7 @@ A játéktér alakjának megrajzolása az egyik legnehezebb volt a fejlesztés s
 Mivel a játékosoknak körbe kell érniük valahogy, így a pálya elejének és végének kapcsolódnia kell egymáshoz. Ezért legegyszerűbben úgy tudtam megoldani hogyha a pálya kör alakú lesz. Viszont hogyha több mint 2 játékossal csatlakoznak a pályához, akkor elég rosszul néz ki, ha akkor is csak egy sima kör a tábla alakja. Így úgy készítettem el a kinézetét a pályának, hogyha \textit{n} játékossal csatlakoznak a pályához,és \textit{n} nagyobb mint kettő, akkor egy \textit{n}-oldalú sokszög lesz a pálya kinézete. Ennek a megvalósításához 2 függvényt írtam meg, \textit{setUpBoardWith2Player} és a \textit{setUpBoardWithMorePlayer}. Mindkét esetben paraméterben megadtam a \textit{board} objektumot, ami éppen a kirajzolandó táblának a tulajdonságait tartalmazta. A függvények elején kiszámoltam hogy összesen mennyi mező lesz a pályán. Amikor létrehozunk egy táblát, akkor megadjuk hogy két kezdőpozíció között hány darab mezőnek kell lennie, ez a \textit{distanceBetweenPlayers} tulajdonság. Így ki tudtam számolni hogy \(numberOfFields = joinedPlayers * distanceBetweenPlayers\).
 
 Először azt az algoritmust implementáltam le, amikor csak két játékos van. Itt azt akartam elérni, hogy egy kör körvonalán helyezzem el a mezőket, amik szintén kis körökből állnak. Egy kör körvonalának koordinátájának kiszámításához szükség van az adott kör sugarára, valamint a bezárt szögre. A kör sugarát megkaptam úgy,hogy a Stage objektum széllességét elosztottam kettővel. Mivel egy ciklusban rajzoltam ki köröket, ezért mindig az aktuális körnek kellett kiszámolnom  a bezárt szögét. A ciklus nullától 360-ig ment hiszen ez jelentette a teljes kört. Mivel tudtam azt is hogy összesen hány mező lesz a táblán, így a 360-at elosztottam ezzel a számmal, és így megkaptam azt a szöget amennyivel növelnem kell az előző kör bezárt szögéhez képest. Ezt az értéket \textit{angleOffset}-nek neveztem el. Ezt az értéket még radiánba át kellett váltani mivel a \textit{Math.sin} függvény radiánban számol.  Tehát az \textit{n}-edik kör bezárt szöge: \(\alpha_{n} = \alpha_{n-1} + angleOffset\). Így az \textit{n}-edik körnek a koordinátáit ki tudtam számolni a következő képpen: 
-\(x_{n} = sin(\alpha_{n})*r\),valamint \(y_{n} = cos(\alpha_{n})*r\) ahol az r a körnek a sugara. \ref{kettesPlayerKoord}.ábrán látszik, hogy még a \textit{stage.width} és a \textit{stage.height} változókat hozzáadom a koordináták értékeihez. Ez azért szükséges hogy a kör alakú pályának a középpontja, a Stage objektum közepén legyen. 
+\(x_{n} = sin(\alpha_{n})*r\),valamint \(y_{n} = cos(\alpha_{n})*r\) ahol az r a körnek a sugara. \ref{kettesPlayerKoord}.ábrán látszik, hogy még a \textit{stage.width} és a \textit{stage.height} változókat hozzáadom a koordináták értékeihez. Ez azért szükséges hogy a kör alakú pályának a középpontja, a Stage objektumon közepén jelenjen meg. 
 
 \begin{figure}
 	\caption{Egy mező koordinátájának kiszámítása}
@@ -991,6 +991,35 @@ Először azt az algoritmust implementáltam le, amikor csak két játékos van.
 \end{figure}
 
 Mivel a kezdő pozíciókat még valahogy szemléltetni akartam a felhasználók számára, ezért beleraktam egy feltételt, hogyha a bezárt szög osztható 180-nal, akkor a létrehozott kör körvonala olyan, színű legyen mint a játékosé. Mivel azt hogy mennyi mező legyen egy táblán a felhasználó adja meg, így ez a szám a két játékost tartalmazó táblák között is változhat. Ezért hogy egy mező éppen mekkora legyen, tehát a körnek a rádiusza függ attól hogy a pályán mennyi mező van, így kisebb pályákon egyes mezők mérete nagyobb mint nagyobb pályákon.
+
+Ha \textit{setUpBoardWithMorePlayer} függvény implementálása hasonló logikán alapult minta 2 játékossal való pálya kirajzolása. Itt egy \textit{n} oldalú sokszöget kellett rajzolni, ha \textit{n} játékos csatlakozott a táblához. Mivel minden szabályos sokszögnek van köré írható köre, így arra az ötletre jutottam, hogy ennek a körnek az íve mentén kirajzolom a sokszögek csúcsait. Mivel csúcspontok koordinátáit tudtam, így párosával kivonva ezeket egymásból kapok egy olyan vektort, ami az egyik csúcspontból a másikba mutat. Ezt a vektort elosztottam a paraméterben kapott \textit{board} \textit{distanceBetweenPlayers} tulajdonságával, ami így egy olyan vektort ad, ami pontosan a két csúcspont közötti mezők távolságát adja meg egymáshoz képest. Így már végig lehet iterálni a csúcspont koordinátákon, majd az előzőleg kiszámolt vektort folyton hozzáadva az előző koordinátához, meg lehet kapni az oldalak mentén helyezkedő mezők pozícióját.
+ 
+Az algoritmus a csúcspontok meghatározásával kezdődött. Ez hasonlóan csináltam mint a \textit{setUpBoardWithMorePlayer} függvényben, azzal a különbséggel, hogy itt csak a kezdő pozíciójú mezőket határoztam meg. Itt már a körvonalakat is meg tudtam határozni hogy olyan színűek legyenek, mint a játékosok színei. Ezeknek a mezőknek a koordinátáit elmentettem egy \textit{startingPointCoordinates} nevű tömbbe majd ezen a tömbön iteráltam keresztül. Párosával mentem végig az elemeken és vontam ki egymásból a koordinátákat, így megkapva azt a vektort ami egy csúcspontból a másikba mutat, majd ezt elosztani a \textit{distanceBetweenPlayers} tulajdonsággal (\ref{xOffsetMeghat}.ábra). Ezt az értéket az \textit{xOffset} és az \textit{yOffset} változókba mentettem el. Itt ellenőriznem kellett hogy a tömb végén jár-e az iteráció hiszen utoljára az első csúcspont koordinátáiból kell az utolsóét kivonni, hogy teljes legyen a kör. 
+ 
+\begin{figure}
+	\caption{Az sokszög oldalvonal menti mezők eltolásának meghatározása}
+	\begin{minipage}{\textwidth}
+		\begin{lstlisting}[style=javascriptStyle]
+			    for (let i = 0; i < startingPointCoordinates.length; i++) {
+				let xOffset;
+				let yOffset;
+				if (i === startingPointCoordinates.length - 1) {
+					xOffset = (startingPointCoordinates[0].x - startingPointCoordinates[i].x) / (board.distanceBetweenPlayers);
+					yOffset = (startingPointCoordinates[0].y - startingPointCoordinates[i].y) / (board.distanceBetweenPlayers);
+				}
+				else {
+					xOffset = (startingPointCoordinates[i + 1].x - startingPointCoordinates[i].x) / (board.distanceBetweenPlayers);
+					yOffset = (startingPointCoordinates[i + 1].y - startingPointCoordinates[i].y) / (board.distanceBetweenPlayers);
+				}
+		\end{lstlisting}
+	\end{minipage}
+	
+	\label{xOffsetMeghat}
+\end{figure}
+\FloatBarrier
+
+Ezek után egy iterációval létrehoztam a két csúcspont közötti mezőket folyton hozzáadva az \textit{xOffset} és \textit{yOffset} változókat az x és y koordinátáihoz. Így az oldalvonal melletti mezőket is létre tudtam hozni, és teljesen létrehozni egy szabályos sokszög alakú pályát. Közben figyelni kellett arra is, hogy mivel nem sorrendben, hanem először a csúcspontokat, majd a oldalvonal menti mezőket hoztam létre, így a mezők azonosítóit nehezebb volt megadni, a két iterációban külön változókat kellett létrehozni, hogy ezeket megfelelően meg tudjam adni. 
+
 \subsubsection{Többjátékos mód}
 A többjátékos módot az SSE eseményekre való feliratkozással oldottam meg. Magát a több játékos módot úgy teszteltem, hogy egyszerre több lapon nyitottam meg a böngészőmben a
 kliens alkalmazást, és játszottam 2 játékos személyében. 

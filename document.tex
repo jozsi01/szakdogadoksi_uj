@@ -607,7 +607,6 @@ Ahhoz hogy többjátékos módot támogassa a backend, a Server-Sent-Events tech
 Az első esetben az adat amit küldünk a kliens alkalmazásnak az új pálya helyzetét leíró adatok. Tehát hogyha egy játékos lépett akkor a bábu helyzete, a visszaküldött JSON válaszban már az újat reprezentálja. A második esetben megkapjuk, hogy hányast dobott az adott játékos, valamint ki a soron következő játékos. A 3. és a 4. esetben az új táblát leíró JSON adatot küldi el. Azok az osztályok amiket itt elküld, azok a munkahelyi szerverről származnak, ott hívják meg őket a megfelelő objektumokkal. Viszont mivel a frontendről kialakítottuk a kapcsolatot, ezeket az eseményeket mind megkapja az alkalmazás. Viszont ilyen esetben egy olyan probléma merül fel, mivel egyszerre akár többen is használhatják az alkalmazást, tehát nem biztos hogy csak 1 tábla van használatban akár lehet több is. Hiszen tegyük fel, hogy egyszerre 2 társaság dönt úgy, hogy játszik az alkalmazással, akkor azokat az eseményeket amik az ő táblájukon történik, másik társaság kliens alkalmazása is megkap. Ez természetesen megengedhetetlen, hiszen ha az egyik társaság befejezi a játékot és a táblájuk a FINISHED státuszra vált, akkor a másik társaság játéka is befejeződne, akár kész vannak, akár nem. Tehát meg kell valahogy különböztetni a küldött eseményeket, mégpedig táblánként, hogy az adott eseményekre való feliratkozásnál csak azokra figyeljen, ami a releváns pályán történik. Eseményt az \textit{EventSender} osztály \textit{send} metódusával lehetséges. Itt megadhatunk paraméterben egy szöveget, ami az eseménynek a neve lesz, amire később referálhatunk a frontenden, hogy melyik eseményre akarunk hivatkozni. Itt paraméterben adtam meg a táblának az \textit{id} tulajdonságát, ami minden táblánál egyedi. Így biztosítani tudtam, hogy a feliratkozásnál, csak a releváns táblára iratkozik fel, így nem lesz probléma egyidejű játéknál több felhasználónál. 
 \begin{figure}
 	\caption{WhoLaughslastMessagingProcessor interfész implementálása}
-	\raggedleft
 	\begin{lstlisting}[language=java]	
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -647,7 +646,7 @@ public class MessagingProcessor implements WhoLaughLastMessagingProcessor{
 Valamint még szükség volt arra az osztályra (\ref{eventsender}.ábra) ami magát az eseményeket elküldi a kliens számára.  Egy \textit{SseEmitter} osztályú objektumokból álló listát is létrehoztam mint tagváltozó, itt tárolom a különböző klienseknek a feliratkozását. Ez nagyon fontos hogy CopyOnWriteArrayList típusú legyen, mivel így kezelhető a konkurencia.Valamint létrehoztam egy újabb végpontot, amit majd az \textit{EventSource} létrehozásánál hivatkozhat a frontend.  Ha ez a hívás megtörténik, akkor először létrehozok egy emittert, aminek konstruktorában a \textit{\texttt{LONG.MAX\_VALUE}} értéket adom. Ez az érték azt jelenti, hogy egyes emitterek mennyi ideig tartsák fent a kapcsolatot mielőtt megszakítják a kapcsolatot. Ezek után létrehozok egy \textit{SseEmitter} osztályú objektumot ami küld egy \textbf{"INIT"} nevű eseményt, majd ezt az emittert az osztály tagváltozójához hozzáadom. Deklaráltam egy függvényt \textit{sendEvents} néven, ami végigiterál ezeken az emitter-eken, és elküldi a paraméterben átadott névvel és adattal, az eseményt a kliens alkalmazásnak.   
 \begin{figure}[ht]
 	\caption{EventSender osztály implementálása}
-	\centering
+	\begin{minipage}{\textwidth}
 	\begin{lstlisting}[language=java]	
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -683,6 +682,7 @@ public class EventSender {
 		}
 	}
 	\end{lstlisting}
+	\end{minipage}
 	\label{eventsender}
 \end{figure} 
 \FloatBarrier
@@ -950,7 +950,47 @@ megjelenítésével is foglalkoznom kellett.Például, hogyha egy játékos dob 
 jelenik meg az oldal tetején, amiben szerepel hogy nem tud lépni az adott számmal.A többi hibaüzenetre is megjelenne ez az ablak, de mivel az egyes gombokat nem lehetne használni hogyha rossz adatot küldenénk a szerverre, így ez az eset nem fordul elő. Ez az ablak 2,5 másodperc elteltével eltűnik.
 \subsubsection{Grafikus megjelenítés}
 
+A játéktér megjelenítése nagyon fontos feladat volt, hiszen ez nagy mértékben befolyásolja a felhasználói élményt, így lényeges volt hogy igényes legyen. A Konva könyvtárat használtam fel ehhez ami remek eszközöket biztosít a feladat megvalósítására. 
+Először a pályát kellett megrajzolnom. Amikor létrehozzuk a táblát, minden csatlakozott játékosnak van egy alap kiinduló pozíciója, ami egy szám. Ide kerülnek fel először a bábuk és ide kell visszaérkezniük. Minden bábuhoz tartozik egy \textit{positionOnTheBoard} nevű tulajdonság, ami a helyzetét adja meg a táblán. Hogyha ez -1, akkor még nem lépett ki, vagy már körbeért a pályán. A pályának a mezőit körök reprezentálják. Ilyen köröket a Konva segítségével könnyen létre tudtam hozni (\ref{konva}.ábra), és több tulajdonságot adhattam meg neki. Mivel meg akartam valósítani, hogyha rákattintunk egy mezőre, akkor az éppen azon lévő bábut válassza ki, így minden egyes körnek adtam egy azonosítót, ami azt jelzi, hogy éppen hanyadik mező a táblán. Így annyi a dolgom, hogy meg kell keresni azt a bábut, aminek a \textit{positionOnTheBoard} tulajdonsága megegyezik a kattintott kör azonosítójával, és hogyha van ilyen, akkor azt beállítani mint választott bábu .
 
+A játéktér alakjának megrajzolása az egyik legnehezebb volt a fejlesztés során. Legelső lépés volt magának a helynek a meghatározása ahol ki fogom rajzolni a könyvtárat. Ahhoz hogy rajzolni tudjunk a felületre, létre kell hoznunk egy Stage objektumot, ami majd tartalmazza a további objektumainkat. Ennek a Stage objektum \textit{container} tulajdonságának kell beállítani azt a html elemet, ahol akarjuk hogy megjelenjen a pálya. Itt adhatjuk meg hogy milyen széles és magas legyen (\ref{konvaStage}.ábra). 
+
+\begin{figure}
+	\caption{Konva Stage objektum beállítása}
+	\begin{minipage}{\textwidth}
+		\begin{lstlisting}[style=javascriptStyle]
+			 const containerWidth = document.getElementById("container").offsetWidth;
+			const containerHeight = document.getElementById("container").offsetHeight;
+			var stage = new Konva.Stage({
+				container: 'board',
+				width: containerWidth,
+				height: containerHeight
+			});
+		\end{lstlisting}
+	\end{minipage}
+	
+	\label{konvaStage}
+\end{figure}
+\FloatBarrier
+
+Mivel a játékosoknak körbe kell érniük valahogy, így a pálya elejének és végének kapcsolódnia kell egymáshoz. Ezért legegyszerűbben úgy tudtam megoldani hogyha a pálya kör alakú lesz. Viszont hogyha több mint 2 játékossal csatlakoznak a pályához, akkor elég rosszul néz ki, ha akkor is csak egy sima kör a tábla alakja. Így úgy készítettem el a kinézetét a pályának, hogyha \textit{n} játékossal csatlakoznak a pályához,és \textit{n} nagyobb mint kettő, akkor egy \textit{n}-oldalú sokszög lesz a pálya kinézete. Ennek a megvalósításához 2 függvényt írtam meg, \textit{setUpBoardWith2Player} és a \textit{setUpBoardWithMorePlayer}. Mindkét esetben paraméterben megadtam a \textit{board} objektumot, ami éppen a kirajzolandó táblának a tulajdonságait tartalmazta. A függvények elején kiszámoltam hogy összesen mennyi mező lesz a pályán. Amikor létrehozunk egy táblát, akkor megadjuk hogy két kezdőpozíció között hány darab mezőnek kell lennie, ez a \textit{distanceBetweenPlayers} tulajdonság. Így ki tudtam számolni hogy \(numberOfFields = joinedPlayers * distanceBetweenPlayers\).
+
+Először azt az algoritmust implementáltam le, amikor csak két játékos van. Itt azt akartam elérni, hogy egy kör körvonalán helyezzem el a mezőket, amik szintén kis körökből állnak. Egy kör körvonalának koordinátájának kiszámításához szükség van az adott kör sugarára, valamint a bezárt szögre. A kör sugarát megkaptam úgy,hogy a Stage objektum széllességét elosztottam kettővel. Mivel egy ciklusban rajzoltam ki köröket, ezért mindig az aktuális körnek kellett kiszámolnom  a bezárt szögét. A ciklus nullától 360-ig ment hiszen ez jelentette a teljes kört. Mivel tudtam azt is hogy összesen hány mező lesz a táblán, így a 360-at elosztottam ezzel a számmal, és így megkaptam azt a szöget amennyivel növelnem kell az előző kör bezárt szögéhez képest. Ezt az értéket \textit{angleOffset}-nek neveztem el. Ezt az értéket még radiánba át kellett váltani mivel a \textit{Math.sin} függvény radiánban számol.  Tehát az \textit{n}-edik kör bezárt szöge: \(\alpha_{n} = \alpha_{n-1} + angleOffset\). Így az \textit{n}-edik körnek a koordinátáit ki tudtam számolni a következő képpen: 
+\(x_{n} = sin(\alpha_{n})*r\),valamint \(y_{n} = cos(\alpha_{n})*r\) ahol az r a körnek a sugara. \ref{kettesPlayerKoord}.ábrán látszik, hogy még a \textit{stage.width} és a \textit{stage.height} változókat hozzáadom a koordináták értékeihez. Ez azért szükséges hogy a kör alakú pályának a középpontja, a Stage objektum közepén legyen. 
+
+\begin{figure}
+	\caption{Egy mező koordinátájának kiszámítása}
+	\begin{minipage}{\textwidth}
+		\begin{lstlisting}[style=javascriptStyle]
+		 x: stage.width() / 2 + (Math.sin(angleInRadian) * boardGameradius),
+	   	 y: stage.height() / 2 + (Math.cos(angleInRadian) * boardGameradius),
+		\end{lstlisting}
+	\end{minipage}
+	
+	\label{kettesPlayerKoord}
+\end{figure}
+
+Mivel a kezdő pozíciókat még valahogy szemléltetni akartam a felhasználók számára, ezért beleraktam egy feltételt, hogyha a bezárt szög osztható 180-nal, akkor a létrehozott kör körvonala olyan, színű legyen mint a játékosé. Mivel azt hogy mennyi mező legyen egy táblán a felhasználó adja meg, így ez a szám a két játékost tartalmazó táblák között is változhat. Ezért hogy egy mező éppen mekkora legyen, tehát a körnek a rádiusza függ attól hogy a pályán mennyi mező van, így kisebb pályákon egyes mezők mérete nagyobb mint nagyobb pályákon.
 \subsubsection{Többjátékos mód}
 A többjátékos módot az SSE eseményekre való feliratkozással oldottam meg. Magát a több játékos módot úgy teszteltem, hogy egyszerre több lapon nyitottam meg a böngészőmben a
 kliens alkalmazást, és játszottam 2 játékos személyében. 
@@ -1039,7 +1079,7 @@ Egy robotot is implementáltam a felhasználóknak, amit hogyha bekapcsolunk akk
 	\label{setStrat}
 \end{figure}
 \FloatBarrier
-Miután kiválasztottuk a stratégiát és rányomunk a checkboxra, a robot folytatja a játékot helyettünk. Létrehoztam egy \textit{watch} függvényt ami figyeli a checkbox értékét, és annak függvényeben hívja meg a \textit{robotStep} metódust. Itt zajlik le a kockadobás és a bábu mozgatása is. Itt igazából csak azokat a függvényeket hívom meg amik eddig a Roll és Move gombokra voltak kötve egymás után, így szimulálja az emberi inputot. Egy ilyen \textit{robotStep} függvény lefutása egy Roll és Move gomb megnyomással egyenértékű. Ellenőrizni kell hogy az éppen soron következő játékost éppen az adott felhasználó csatlakoztatta-e fel, hiszen ha ezt nem ellenőriznénk akkor hogyha egy felhasználó is bekapcsolja a robotot, az mindenki helyett lépni fog. Mielőtt a mozgást elvégző http kérést elküldenénk, meghívjuk a Strategy minta alapján készült "interfészünket" ami az \textit{executeStrategy} függvény. A stratégiák lényegében csak egy dolgot csinálnak: beállítják hogy melyik legyen az a bábu amivel majd lépni fogunk. Gyakorlatilag a játékban itt van gondolkodni valónk, hiszen sajnos azt hogy hányast dobjunk, nem tudjuk befolyásolni.A \textit{Beginner} stratégiájú robot nem csinál semmit, mindig csak ugyanazzal a bábuval akar beérni a célba , ha ez sikerül akkor megy a következőre. Az \textit{Intermidiate} robot már kihasználja a hatosok adta lehetőségeket. Hogyha a felhasználó hatost dob akkor lerak egy új bábut a táblára. Az \textit{Advanced} robot pedig használja azt a szabályát a játéknak, hogyha egy bábu olyan mezőre lép ahol éppen áll egy másik játékos bábuja, akkor azt leüti a tábláról, így újra csak hatossal lehet visszatenni a játékba. Így először azt ellenőrzi hogy tud e úgy lépni valamelyik bábuval, amivel le tudna ütni egy másikat, ha ez nem lehetséges, akkor használja az \textit{Intermidiate} stratégiát.
+Miután kiválasztottuk a stratégiát és rányomunk a checkboxra, a robot folytatja a játékot helyettünk. Létrehoztam egy \textit{watch} függvényt ami figyeli a checkbox értékét, és annak függvényeben hívja meg a \textit{robotStep} metódust. Itt zajlik le a kockadobás és a bábu mozgatása is. Itt igazából csak azokat a függvényeket hívom meg amik eddig a Roll és Move gombokra voltak kötve egymás után, így szimulálja az emberi inputot. Egy ilyen \textit{robotStep} függvény lefutása egy Roll és Move gomb megnyomással egyenértékű. Mivel amikor a saját bábuval lépünk, akkor is kapunk eseményt hogy a pálya állapota megváltozott, így a \textit{handlePositionChange} függvényben is meghívtam a \textit{robotStep} függvényt. Így folyamatosan fog lépni a robot nem kell a felhasználónak semmit sem csinálnia. Így akkor is meghívódik a \textit{robotStep} függvény amikor egy más játékos lépett, hiszen akkor kapunk PositionChange eseményt, de mivel ellenőrzöm, hogy csak akkor fusson le a \textit{rollDice} és a \textit{movePlayer} függvény, ha éppen a mi játékosunk van soron, így ez nem okoz problémát a működésben. Ellenőrizni kell hogy az éppen soron következő játékost éppen az adott felhasználó csatlakoztatta-e fel, hiszen ha ezt nem ellenőriznénk akkor hogyha egy felhasználó is bekapcsolja a robotot, az mindenki helyett lépni fog. Mielőtt a mozgást elvégző http kérést elküldenénk, meghívjuk a Strategy minta alapján készült "interfészünket" ami az \textit{executeStrategy} függvény. A stratégiák lényegében csak egy dolgot csinálnak: beállítják hogy melyik legyen az a bábu amivel majd lépni fogunk. Gyakorlatilag a játékban itt van gondolkodni valónk, hiszen sajnos azt hogy hányast dobjunk, nem tudjuk befolyásolni.A \textit{Beginner} stratégiájú robot nem csinál semmit, mindig csak ugyanazzal a bábuval akar beérni a célba , ha ez sikerül akkor megy a következőre. Az \textit{Intermidiate} robot már kihasználja a hatosok adta lehetőségeket. Hogyha a felhasználó hatost dob akkor lerak egy új bábut a táblára. Az \textit{Advanced} robot pedig használja azt a szabályát a játéknak, hogyha egy bábu olyan mezőre lép ahol éppen áll egy másik játékos bábuja, akkor azt leüti a tábláról, így újra csak hatossal lehet visszatenni a játékba. Így először azt ellenőrzi hogy tud e úgy lépni valamelyik bábuval, amivel le tudna ütni egy másikat, ha ez nem lehetséges, akkor használja az \textit{Intermidiate} stratégiát.
 
 
 \newpage

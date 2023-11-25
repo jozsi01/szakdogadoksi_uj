@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9) (preloaded format=pdflatex 2023.10.2)  22 NOV 2023 00:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.11.25)  25 NOV 2023 17:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,12 +6,9 @@ entering extended mode
 (document.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
-
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cl
-s
+(D:\mitex\tex/latex/base\article.cls
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+(D:\mitex\tex/latex/base\size10.clo
 File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
@@ -25,10 +22,7 @@ File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-)
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\listin
-gs.sty
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval
+) (D:\mitex\tex/latex/listings\listings.sty (D:\mitex\tex/latex/graphics\keyval
 .sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
@@ -46,35 +40,29 @@ Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \lst@lineno=\count198
 \lst@maxwidth=\dimen144
 
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmis
-c.sty
+(D:\mitex\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 \c@lstnumber=\count199
 \lst@skipnumbers=\count266
 \lst@framebox=\box52
 )
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\listin
-gs.cfg
+(D:\mitex\tex/latex/listings\listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
 Package: listings 2023/02/27 1.9 (Carsten Heinz)
 
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.s
-ty
+(D:\mitex\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
 
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\co
-lor.cfg
+(D:\mitex\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 227.
 
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pd
-ftex.def
+(D:\mitex\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 )
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathco
-lor.ltx)
+(D:\mitex\tex/latex/graphics\mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
 Package xcolor Info: Model `RGB' extended on input line 1369.
@@ -85,26 +73,19 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
 )
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/changepage\chan
-gepage.sty
+(D:\mitex\tex/latex/changepage\changepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
 \c@cp@cntr=\count267
 \cp@tempcnt=\count268
 )
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
-cx.sty
+(D:\mitex\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
-cs.sty
+(D:\mitex\tex/latex/graphics\graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
-
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.s
-ty
+ (D:\mitex\tex/latex/graphics\trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-)
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\gr
-aphics.cfg
+) (D:\mitex\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
@@ -112,63 +93,47 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 \Gin@req@height=\dimen145
 \Gin@req@width=\dimen146
 )
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.s
-ty
-Package: babel 2023/08/29 v3.93 The Babel package
+(D:\mitex\tex/generic/babel\babel.sty
+Package: babel 2023/09/29 v3.95 The Babel package
 \babel@savecnt=\count269
 \U@D=\dimen147
 \l@unhyphenated=\language79
-
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabe
-l.def)
+ (D:\mitex\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count270
-
 *************************************
 * Local config file bblopts.cfg used
 *
-
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.c
-fg
+(D:\mitex\tex/latex/arabi\bblopts.cfg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/babel-hungarian
-\magyar.ldf
+(D:\mitex\tex/latex/babel-hungarian\magyar.ldf
 Language: hungarian 2019/01/14 v1.5c Magyar (Hungarian) support for babel
 Package babel Info: Making ` an active character on input line 2819.
 \c@footnote@add=\count271
 \c@footnote@ch=\count272
 ))
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/
-hu\babel-hungarian.tex
+(D:\mitex\tex/generic/babel/locale/hu\babel-hungarian.tex
 Package babel Info: Importing font and identification data for hungarian
 (babel)             from babel-hu.ini. Reported on input line 11.
 )
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath
-.sty
+(D:\mitex\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip50
 
 For additional information on amsmath, use the `?' option.
-
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext
-.sty
+(D:\mitex\tex/latex/amsmath\amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
-
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.
-sty
+ (D:\mitex\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks19
 \ex@=\dimen148
-))
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.
-sty
+)) (D:\mitex\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen149
 )
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.
-sty
+(D:\mitex\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count273
@@ -218,12 +183,10 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \mathdisplay@stack=\toks23
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
-)
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\t1enc.sty
+) (D:\mitex\tex/latex/base\t1enc.sty
 Package: t1enc 1994/06/01 Standard LaTeX package
 )
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titles
-ec.sty
+(D:\mitex\tex/latex/titlesec\titlesec.sty
 Package: titlesec 2023/10/27 v2.16 Sectioning titles
 \ttl@box=\box55
 \beforetitleunit=\skip53
@@ -235,12 +198,10 @@ Package: titlesec 2023/10/27 v2.16 Sectioning titles
 \titlewidthlast=\dimen160
 \titlewidthfirst=\dimen161
 )
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/placeins\placei
-ns.sty
+(D:\mitex\tex/latex/placeins\placeins.sty
 Package: placeins 2005/04/18  v 2.2
 )
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3bac
-kend-pdftex.def
+(D:\mitex\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count285
 \l__pdf_internal_box=\box56
@@ -263,8 +224,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
 \c@lstlisting=\count286
 
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\sup
-p-pdf.mkii
+(D:\mitex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count287
 \scratchdimen=\dimen162
@@ -277,26 +237,22 @@ p-pdf.mkii
 \MPnumerator=\count291
 \makeMPintoPDFobject=\count292
 \everyMPtoPDFconversion=\toks26
-)
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\ep
-stopdf-base.sty
+) (D:\mitex\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstop
-df-sys.cfg
+(D:\mitex\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cl
-s
+(D:\mitex\tex/latex/base\article.cls
 LaTeX Info: Redefining \cal on input line 497.
 LaTeX Info: Redefining \mit on input line 498.
 ) [1
 
 
-{C:/Users/Bozsik Jozsef/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (doc
-ument.toc)
+{C:/Users/bozsi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (document.to
+c)
 \tf@toc=\write3
 \openout3 = `document.toc'.
 
@@ -312,15 +268,13 @@ File: ./images/folyamatabra.png Graphic file (type png)
 <use ./images/folyamatabra.png>
 Package pdftex.def Info: ./images/folyamatabra.png  used on input line 157.
 (pdftex.def)             Requested size: 327.84904pt x 217.18587pt.
- [7]
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
-g1.sty
+ [7] (D:\mitex\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 76.
 
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+(D:\mitex\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ) [8 <./images/folyamatabra.png>] [9]
 
@@ -342,9 +296,7 @@ Overfull \hbox (1.5198pt too wide) in paragraph at lines 325--341
 é-hez. Kü-lön-bö-z® HTTP
  []
 
-[12] [13]
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
-g1.sty
+[12] [13] (D:\mitex\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 Underfull \vbox (badness 1728) has occurred while \output is active []
@@ -443,92 +395,92 @@ Overfull \hbox (110.89215pt too wide) in paragraph at lines 595--596
  []
 
 [19 <./images/backend-pipeline.png>] [20]
-Overfull \hbox (98.89499pt too wide) in paragraph at lines 614--615
+Overfull \hbox (98.89499pt too wide) in paragraph at lines 613--614
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (110.89215pt too wide) in paragraph at lines 617--618
+Overfull \hbox (110.89215pt too wide) in paragraph at lines 616--617
 [][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (68.90208pt too wide) in paragraph at lines 618--619
+Overfull \hbox (68.90208pt too wide) in paragraph at lines 617--618
 [][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (62.9035pt too wide) in paragraph at lines 622--623
+Overfull \hbox (62.9035pt too wide) in paragraph at lines 621--622
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (68.90208pt too wide) in paragraph at lines 626--627
+Overfull \hbox (68.90208pt too wide) in paragraph at lines 625--626
 [][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (38.90918pt too wide) in paragraph at lines 627--628
+Overfull \hbox (38.90918pt too wide) in paragraph at lines 626--627
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (92.89641pt too wide) in paragraph at lines 631--633
+Overfull \hbox (92.89641pt too wide) in paragraph at lines 630--632
 [][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (92.89641pt too wide) in paragraph at lines 633--634
+Overfull \hbox (92.89641pt too wide) in paragraph at lines 632--633
 [][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (20.91344pt too wide) in paragraph at lines 637--638
+Overfull \hbox (20.91344pt too wide) in paragraph at lines 636--637
 [][][][][][][][][][] 
  []
 
 
-Overfull \hbox (62.9035pt too wide) in paragraph at lines 638--639
+Overfull \hbox (62.9035pt too wide) in paragraph at lines 637--638
 [][][][][][][] 
  []
 
 
-Overfull \hbox (92.89641pt too wide) in paragraph at lines 639--640
+Overfull \hbox (92.89641pt too wide) in paragraph at lines 638--639
 [][][][][][][][][][][][] 
  []
 
 [21] [22]
-Overfull \hbox (62.9035pt too wide) in paragraph at lines 657--658
+Overfull \hbox (62.9035pt too wide) in paragraph at lines 656--657
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (68.90208pt too wide) in paragraph at lines 663--664
+Overfull \hbox (68.90208pt too wide) in paragraph at lines 662--663
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (80.89925pt too wide) in paragraph at lines 665--666
+Overfull \hbox (80.89925pt too wide) in paragraph at lines 664--665
 [][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (86.89783pt too wide) in paragraph at lines 669--670
+Overfull \hbox (86.89783pt too wide) in paragraph at lines 668--669
 [][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (26.91202pt too wide) in paragraph at lines 674--675
+Overfull \hbox (26.91202pt too wide) in paragraph at lines 673--674
 [][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (128.8879pt too wide) in paragraph at lines 677--678
+Overfull \hbox (128.8879pt too wide) in paragraph at lines 676--677
 [][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (2.9177pt too wide) in paragraph at lines 680--681
+Overfull \hbox (2.9177pt too wide) in paragraph at lines 679--680
 [][][][][][][][][] 
  []
 
@@ -550,13 +502,10 @@ Overfull \hbox (25.2082pt too wide) in paragraph at lines 693--710
 
 [25
 
-]
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
-g1.sty
+] (D:\mitex\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmis
-c.sty
+(D:\mitex\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 )
 Overfull \hbox (104.89357pt too wide) in paragraph at lines 720--721
@@ -664,44 +613,42 @@ Overfull \hbox (92.9176pt too wide) in paragraph at lines 945--946
  [][] 
  []
 
-[38 <./images/game-end.png>]
-Underfull \vbox (badness 2932) has occurred while \output is active []
-
- [39]
-[40] [41] [42] [43] (document.aux)
+[38 <./images/game-end.png>] [39] [40] [41] [42] [43] [44] [45] (document.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 7232 strings out of 475247
- 115703 string characters out of 5753980
- 2067801 words of memory out of 5000000
- 28696 multiletter control sequences out of 15000+600000
+ 7253 strings out of 475247
+ 111964 string characters out of 5774675
+ 2067785 words of memory out of 5000000
+ 28717 multiletter control sequences out of 15000+600000
  572036 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,8n,65p,2877b,1500s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
-600\ecit1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/j
-knappen/ec/dpi600\tcrm1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Bozsik Jozsef\AppData\Lo
-cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Bozsik Joz
-sef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0500.pk> <C:\Us
-ers\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0
-800.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
-c/dpi600\ecrm0600.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljf
-our/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTe
-X\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Bozsik Jozsef\AppDa
-ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Bozsi
-k Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <
-C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
-ecrm1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecrm1200.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/p
-k/ljfour/jknappen/ec/dpi600\ecrm1728.pk>
-Output written on document.pdf (43 pages, 549951 bytes).
+ <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit
+1000.pk> <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\tcrm1000.pk> <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecbx1200.pk> <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ectt1000.pk> <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecrm0500.pk> <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\bozsi\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\bozsi\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\bozsi\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\bozsi\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\bozsi\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\
+bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\
+Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk
+> <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1
+728.pk><D:/mitex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/mitex/fonts/type
+1/public/amsfonts/cm/cmmi7.pfb><D:/mitex/fonts/type1/public/amsfonts/cm/cmr10.p
+fb><D:/mitex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/mitex/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb><D:/mitex/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on document.pdf (45 pages, 618054 bytes).
 PDF statistics:
- 672 PDF objects out of 1000 (max. 8388607)
+ 719 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

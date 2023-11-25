@@ -740,7 +740,7 @@ egy olyan filtert ami a kéréshez illik: Például a "/board" végződésű vé
 	\caption{SecurityFilterChain működése }
 	\includegraphics[scale=0.45]{filterchain}
 \end{figure}
-\FloatBarrier
+
 
 Úgy konfiguráltam fel a függvényt, hogy 3 végponton kívül mindent authetnikáljon: \textbf{/auth/createToken}, \textbf{/auth/refreshToken} ,\textbf{/subscribe}. Első kettőt végpontot azért nem kell autentikálni, mivel ide érkeznek azok a kérések amikor a felhasználó be akar jelentkezni, és kapja meg a szükséges token-eket amikre majd később szüksége lesz az autentikációnál. Ezek után a OAuth2 resource szervert kellett felkonfigurálni. Az application.yml file-ban írtam bele a különböző elérési utakat amikre a szervernek szüksége van hogy autentikálni tudja a jwt \footnote{Json Web Token} tokeneket. A keycloak-nál a \textbf{http://localhost:10000/realms/WhoLaughsLast/protocol/openid-connect/certs} elérési úton 
 elérhető az adott client-hez tartozó autetnikációs adatok. A jwt tokeneket a http kérések fejlécében küldtem el mint BearerTokenek. Hogy ezekhez hozzá tudjak jutni,
@@ -799,7 +799,6 @@ throws Exception{
 	\end{lstlisting}
 	\label{authEndpoint}
 \end{figure} 
-\FloatBarrier
 
 \begin{figure}
 	\caption{Postman autentikációs token kérés}
@@ -975,7 +974,7 @@ A játéktér alakjának megrajzolása az egyik legnehezebb volt a fejlesztés s
 
 Mivel a játékosoknak körbe kell érniük valahogy, így a pálya elejének és végének kapcsolódnia kell egymáshoz. Ezért legegyszerűbben úgy tudtam megoldani hogyha a pálya kör alakú lesz. Viszont hogyha több mint 2 játékossal csatlakoznak a pályához, akkor elég rosszul néz ki, ha akkor is csak egy sima kör a tábla alakja. Így úgy készítettem el a kinézetét a pályának, hogyha \textit{n} játékossal csatlakoznak a pályához,és \textit{n} nagyobb mint kettő, akkor egy \textit{n}-oldalú sokszög lesz a pálya kinézete. Ennek a megvalósításához 2 függvényt írtam meg, \textit{setUpBoardWith2Player} és a \textit{setUpBoardWithMorePlayer}. Mindkét esetben paraméterben megadtam a \textit{board} objektumot, ami éppen a kirajzolandó táblának a tulajdonságait tartalmazta. A függvények elején kiszámoltam hogy összesen mennyi mező lesz a pályán. Amikor létrehozunk egy táblát, akkor megadjuk hogy két kezdőpozíció között hány darab mezőnek kell lennie, ez a \textit{distanceBetweenPlayers} tulajdonság. Így ki tudtam számolni hogy \(numberOfFields = joinedPlayers * distanceBetweenPlayers\).
 
-Először azt az algoritmust implementáltam le, amikor csak két játékos van. Itt azt akartam elérni, hogy egy kör körvonalán helyezzem el a mezőket, amik szintén kis körökből állnak. Egy kör körvonalának koordinátájának kiszámításához szükség van az adott kör sugarára, valamint a bezárt szögre. A kör sugarát megkaptam úgy,hogy a Stage objektum széllességét elosztottam kettővel. Mivel egy ciklusban rajzoltam ki köröket, ezért mindig az aktuális körnek kellett kiszámolnom  a bezárt szögét. A ciklus nullától 360-ig ment hiszen ez jelentette a teljes kört. Mivel tudtam azt is hogy összesen hány mező lesz a táblán, így a 360-at elosztottam ezzel a számmal, és így megkaptam azt a szöget amennyivel növelnem kell az előző kör bezárt szögéhez képest. Ezt az értéket \textit{angleOffset}-nek neveztem el. Ezt az értéket még radiánba át kellett váltani mivel a \textit{Math.sin} függvény radiánban számol.  Tehát az \textit{n}-edik kör bezárt szöge: \(\alpha_{n} = \alpha_{n-1} + angleOffset\). Így az \textit{n}-edik körnek a koordinátáit ki tudtam számolni a következő képpen: 
+Először azt az algoritmust implementáltam le, amikor csak két játékos van. Itt azt akartam elérni, hogy egy kör körvonalán helyezzem el a mezőket, amik szintén kis körökből állnak. Egy kör körvonalának koordinátájának kiszámításához szükség van az adott kör sugarára, valamint a bezárt szögre. A kör sugarát megkaptam úgy,hogy a Stage objektum széllességét elosztottam kettővel. Mivel egy ciklusban rajzoltam ki köröket, ezért mindig az aktuális körnek kellett kiszámolnom  a bezárt szögét. A ciklus nullától 360-ig ment hiszen ez jelentette a teljes kört. Mivel tudtam azt is hogy összesen hány mező lesz a táblán, így a 360-at elosztottam ezzel a számmal, és így megkaptam azt a szöget amennyivel növelnem kell az előző kör bezárt szögéhez képest. Ezt az értéket \textit{angleOffset}-nek neveztem el. Ezt az értéket még radiánba át kellett váltani mivel a \textit{Math.sin} függvény radiánban számol.  Tehát az \textit{n}-edik kör bezárt szöge: \(\alpha_{n} = \alpha_{n-1} + angleOffset\). Így az \textit{n}-edik körnek a koordinátáit ki tudtam számolni a következőképpen: 
 \(x_{n} = sin(\alpha_{n})*r\),valamint \(y_{n} = cos(\alpha_{n})*r\) ahol az r a körnek a sugara. \ref{kettesPlayerKoord}.ábrán látszik, hogy még a \textit{stage.width} és a \textit{stage.height} változókat hozzáadom a koordináták értékeihez. Ez azért szükséges hogy a kör alakú pályának a középpontja, a Stage objektumon közepén jelenjen meg. 
 
 \begin{figure}
@@ -1019,6 +1018,58 @@ Az algoritmus a csúcspontok meghatározásával kezdődött. Ez hasonlóan csin
 \FloatBarrier
 
 Ezek után egy iterációval létrehoztam a két csúcspont közötti mezőket folyton hozzáadva az \textit{xOffset} és \textit{yOffset} változókat az x és y koordinátáihoz. Így az oldalvonal melletti mezőket is létre tudtam hozni, és teljesen létrehozni egy szabályos sokszög alakú pályát. Közben figyelni kellett arra is, hogy mivel nem sorrendben, hanem először a csúcspontokat, majd a oldalvonal menti mezőket hoztam létre, így a mezők azonosítóit nehezebb volt megadni, a két iterációban külön változókat kellett létrehozni, hogy ezeket megfelelően meg tudjam adni. 
+
+
+
+Miután kirajzoltam a pályát,a következő feladatom az volt, hogy megjelenítsem a játékosok bábujait a pályán. Ehhez a playingBoard komponens \textit{mounted} életciklusában létrehoztam egy \textit{watch} függvény ami figyeli, hogy az aktuális táblával, amivel éppen játszanak, történik-e valamilyen változás. A Stage objektumból le lehet kérdezni bizonyos típusú objektumokat. Mivel tudom, hogy a mezők mind \textit{Circle} típusú objektumok, így egy tömbbe egyszerűen el tudtam menteni az összes mező objektumot. A \textit{watch} függvényben egy 3-szor egymásba ágyazott for-ciklus szerepel. Első ciklus a mezőken iterál majd a második ciklus a játékosokon, a harmadik pedig az egyes játékos bábujain. Hogyha találok egy olyan bábut, aminek a \textit{positionOnTheBoard} tulajdonsága megegyezik a mező azonosítójával, akkor tudom hogy azon a mezőn kell hogy legyen bábu. Így ebben az esetben létrehozok egy Konva által nyújtott \textit{Path} objektumot. A \textit{Path} objektumnak a data tulajdonságának meg lehet adni egy svg\footnote{Scalable Vector Graphics}-nek a leírását. Ez azért fontos mert így bármilyen svg-t meg tudok jeleníteni az alkalmazásomban. A projektembe beimportáltam a Font-Awesome könyvtárnak pár ikonját, és a bábu megjelenítéséhez a \textit{faChessPawn} ikonjukat használtam. Ennek az ikonnak az svg leírását ki tudtam nyerni, így meg tudtam jeleníteni ezt az ikont mint objektum, tehát több tulajdonságát is állíthattam, mint a pozíciója, milyen színű legyen az ikon, valamint hogy hol helyezkedjen el. Tehát hogyha találtam egy olyan mezőt aminek az azonosítója megegyezett a bábu \textit{positionOnTheBoard} tulajdonságával, akkor létrehozok egy Path objektumot, és a koordinátáját beállítom, a mező koordinátájára,az azonosítóját a bábu azonosítójára, valamint a színét éppen az adott játékoséra. Mivel az ikon mérete kicsit nagyobb volt mint a mező mérete, így ezt a \textit{scale} tulajdonsággal oldottam meg. Valamint amikor létrehozom az új Path objektumot, egy eseménykezelőt is rakok rá, hogyha rákattintanak, akkor ennek az objektum azonosítójával megegyező bábu lesz a játékos által választott bábu. 
+
+Ez így sajnos még nem elég a működőképes funkcionalitáshoz. Mivel eddig még csak új objektumokat rajzoltunk ki, viszont ha lépünk egy bábuval, akkor onnan el kell tűnnie, ahonnan elléptünk. Ezt a problémát viszonylag egyszerűen, bár nem túl hatékonyan oldom meg. Mivel amikor változás lép fel a tábla állapotával kapcsolatban, tegyük fel egy bábuval léptek, akkor a tábla új állapotát kapom meg, viszont nem tudom hogy pontosan mi történt, melyik bábuval léptek. Egy megoldás lenne mindig eltárolni az előző tábla állapotát, és összevetni az újonnan kapottal, viszont egy ilyen kis alkalmazásban egy egyszerűbb megoldás is lehetséges, mégpedig egyszerűen újrarajzolni az egészet. Én az utóbbit választottam. Mielőtt még a 3-szorosan egymásba ágyazott for ciklusba belépnék, és hozzáadnám az új ikonokat az új helyükön, eltávolítom az összes Path objektumot a Stage objektumból. Ezáltal eltűnik a régi tábla állása, és már csak az új állapot szerinti Path objektumokat adjuk hozzá, és így olyan mintha lépne a játékos a bábuval. Mivel ez nagyon gyorsan történik, a felhasználó észre sem veszi, hogy az összes bábu eltűnt majd újra megjelent. Ennek a módszernek az a hátránya, hogy így az összes többi bábut, amivel nem léptek, feleslegesen veszem le, majd teszem vissza ugyan oda a pozícióba, de mivel ez a szám kicsi és nem ront a játékélményben, így inkább ezt az egyszerű megoldást választottam. 
+
+A felhasználói élmény növelése érdekében valahogy meg akartam jeleníteni, hogy az adott játékosnak éppen melyik a kiválasztott bábuja amivel lépni fog. Az éppen kiválasztott bábu egy kis fekete körvonalat kap az ikon köré, így jelezve a felhasználónak hogy az van kiválasztva. Ennek automatikusan kellett működnie, hiszen ha a robotot bekapcsolja a felhasználó akkor is jelezni kell, hogy melyik bábuval fog éppen lépni a robot. Ehhez is egy \textit{watch} függvényt használtam ami azt nézi, hogy változott-e  a kiválasztott bábu. Amint változik, megkeresi a Stage objektumban azt a objektumot, ami újonnan lett a kiválasztott bábu és a \textit{stroke} valamint \textit{strokeWidth} tulajdonságát beállítja a megfelelőre (\ref{addOutline}.ábra).
+
+\begin{figure}
+	\caption{A körvonal beállítása az aktuális bábura}
+	\begin{minipage}{\textwidth}
+		\begin{lstlisting}[style=javascriptStyle]
+			 watch(() => gamePlayStore.selectedPiece, (selectedpiece) => {
+				let paths = stage.find("Path");
+				removeEveryOutline(paths);
+				let selectedPiece = findPieceInStage(selectedpiece);
+				if (selectedPiece) {
+					selectedPiece.stroke('black');
+					selectedPiece.strokeWidth(10);
+				}
+			})
+			\end{lstlisting}
+		\end{minipage}
+		
+		\label{addOutline}
+	\end{figure}
+	\FloatBarrier
+
+ Itt is hasonló problémába ütközünk mint a lépés megvalósításánál, hiszen ez a függvény mindig csak beállítja a tulajdonságot, sosem veszi le, ha már éppen nem az a választott bábu, ami akkor történhet ha a felhasználó egy másik bábura kattintott, vagy már egy másik játékos van soron. A megoldás is hasonló mint a lépés implementálásánál: eltüntetjük a körvonalat az összes ikonról, arról is amin nem volt, majd beállítjuk az aktuálisra (\ref{removeOutline}.ábra). Ez is felesleges munkát végez de mivel szemmel láthatólag nem ront a felhasználói élményen, így benne hagytam. 
+\begin{figure}
+	\caption{Az összes körvonal eltávolítása a Path objektumokról}
+	\begin{minipage}{\textwidth}
+		\begin{lstlisting}[style=javascriptStyle]
+		function removePathsFromLayer(layer) {
+			const children = layer.getChildren(); // Get all children of the layer
+			for (let i = children.length - 1; i >= 0; i--) {
+				const child = children[i];
+				if (child instanceof Konva.Path) {
+					child.destroy(); // Remove the Konva.Path object
+				}
+			}
+			layer.draw(); // Redraw the layer to apply the changes
+		}
+		\end{lstlisting}
+	\end{minipage}
+	
+	\label{removeOutline}
+\end{figure}
+
+
+
 
 \subsubsection{Többjátékos mód}
 A többjátékos módot az SSE eseményekre való feliratkozással oldottam meg. Magát a több játékos módot úgy teszteltem, hogy egyszerre több lapon nyitottam meg a böngészőmben a
@@ -1065,7 +1116,7 @@ A StatusChange esemény implementálása kicsit összetettebb volt. Attól függ
 
 A RollChange és a PositionChange eseményekre akkor iratkoztam fel, amikor a \textit{playing} nézetre navigált az alkalmazás. Itt már csak azokat az eseményeket kapjuk el, amik éppen az adott táblához tartoznak, tehát két egyszerre folyó játék nem zavarja meg egymást. A RollChange esemény elküldi hogy hányast dobott az adott játékos. Ha ez egy olyan szám amivel nem tud lépni az adott játékos, akkor rögtön egy PositionChange esemény is érkezik, ami a tábla új állapotát adja meg. Ez az állapot csak abban különbözik az előzőtől, hogy a soron következő játékos azonosítója megváltozik. Mivel ez is egy Store-ban lévő változó, a felület rögtön frissül, amint ez megváltozik, így amint már nem tud lépni a játékos, rögtön a következő játékost írja ki a felület, mint soron következő. Hogyha tud lépni vele, akkor a Move gomb megnyomása után érkezik a PositionChange esemény, ami tartalmazza a bábu új helyzetét. Hogyha hatost dobott a játékos, tehát megint ő jön, akkor a soron következő játékos azonosítója nem változik az üzenetben.  
 
-A játék végén fontos, hogy a kapcsolatot megszüntessük a backend szerverrel, mivel amint visszanavigálunk a kezdő oldalra, hogyha megmaradnának az előző játékból maradt eseménykezelőink, akkor esetleg olyan táblának az eseményeire is fel lehetnénk iratkozva, egy új játék alatt, amit nem is mi indítottunk el. Ezt az \textit{evenSource.close} függvénnyel tehetjük meg. Valamint itt a Pinia Store-okat is alalphelyzetbe állítom, hiszen sok állapotot őriztünk meg az előző játékból, amikre már nincsen szükségünk. Ezek az utasítások (\ref{reset}.ábra) az Ok gombra vannak kötve az eredménytábla alján. Ilyenkor visszanavigálunk a kezdő nézetre ahol újra létrehozzuk a kapcsolatot az SSE Emitterrel valamint feliratkozunk a PlayerChange és StatusChange eseményekre.  
+A játék végén fontos, hogy a kapcsolatot megszüntessük a backend szerverrel, mivel amint visszanavigálunk a kezdő oldalra, hogyha megmaradnának az előző játékból maradt eseménykezelőink, akkor esetleg olyan táblának az eseményeire is fel lehetnénk iratkozva, egy új játék alatt, amit nem is mi indítottunk el. Ezt az \textit{evenSource.close} függvénnyel tehetjük meg. Valamint itt a Pinia Store-okat is alaphelyzetbe állítom, hiszen sok állapotot őriztünk meg az előző játékból, amikre már nincsen szükségünk. Ezek az utasítások (\ref{reset}.ábra) az Ok gombra vannak kötve az eredménytábla alján. Ilyenkor visszanavigálunk a kezdő nézetre ahol újra létrehozzuk a kapcsolatot az SSE Emitterrel valamint feliratkozunk a PlayerChange és StatusChange eseményekre.  
 \begin{figure}
 	\caption{SSE kapcsolat megszüntetése, és a store-ok alaphelyzetbe állítása}
 	\begin{minipage}{\textwidth}

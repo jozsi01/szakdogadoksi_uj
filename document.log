@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.11.25)  25 NOV 2023 23:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9) (preloaded format=pdflatex 2023.10.2)  27 NOV 2023 21:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,9 +6,12 @@ entering extended mode
 (document.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
-(D:\mitex\tex/latex/base\article.cls
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cl
+s
 Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(D:\mitex\tex/latex/base\size10.clo
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
 File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
@@ -22,7 +25,10 @@ File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-) (D:\mitex\tex/latex/listings\listings.sty (D:\mitex\tex/latex/graphics\keyval
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\listin
+gs.sty
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval
 .sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
@@ -40,29 +46,35 @@ Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \lst@lineno=\count198
 \lst@maxwidth=\dimen144
 
-(D:\mitex\tex/latex/listings\lstmisc.sty
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmis
+c.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 \c@lstnumber=\count199
 \lst@skipnumbers=\count266
 \lst@framebox=\box52
 )
-(D:\mitex\tex/latex/listings\listings.cfg
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\listin
+gs.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
 ))
 Package: listings 2023/02/27 1.9 (Carsten Heinz)
 
-(D:\mitex\tex/latex/xcolor\xcolor.sty
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.s
+ty
 Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
 
-(D:\mitex\tex/latex/graphics-cfg\color.cfg
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\co
+lor.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 227.
 
-(D:\mitex\tex/latex/graphics-def\pdftex.def
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pd
+ftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 )
-(D:\mitex\tex/latex/graphics\mathcolor.ltx)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathco
+lor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
 Package xcolor Info: Model `RGB' extended on input line 1369.
@@ -73,19 +85,26 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
 )
-(D:\mitex\tex/latex/changepage\changepage.sty
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/changepage\chan
+gepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
 \c@cp@cntr=\count267
 \cp@tempcnt=\count268
 )
-(D:\mitex\tex/latex/graphics\graphicx.sty
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
+cx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(D:\mitex\tex/latex/graphics\graphics.sty
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphi
+cs.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
- (D:\mitex\tex/latex/graphics\trig.sty
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.s
+ty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (D:\mitex\tex/latex/graphics-cfg\graphics.cfg
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\gr
+aphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
@@ -93,47 +112,63 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 \Gin@req@height=\dimen145
 \Gin@req@width=\dimen146
 )
-(D:\mitex\tex/generic/babel\babel.sty
-Package: babel 2023/09/29 v3.95 The Babel package
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.s
+ty
+Package: babel 2023/08/29 v3.93 The Babel package
 \babel@savecnt=\count269
 \U@D=\dimen147
 \l@unhyphenated=\language79
- (D:\mitex\tex/generic/babel\txtbabel.def)
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabe
+l.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count270
+
 *************************************
 * Local config file bblopts.cfg used
 *
-(D:\mitex\tex/latex/arabi\bblopts.cfg
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.c
+fg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
-(D:\mitex\tex/latex/babel-hungarian\magyar.ldf
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/babel-hungarian
+\magyar.ldf
 Language: hungarian 2019/01/14 v1.5c Magyar (Hungarian) support for babel
 Package babel Info: Making ` an active character on input line 2819.
 \c@footnote@add=\count271
 \c@footnote@ch=\count272
 ))
-(D:\mitex\tex/generic/babel/locale/hu\babel-hungarian.tex
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/
+hu\babel-hungarian.tex
 Package babel Info: Importing font and identification data for hungarian
 (babel)             from babel-hu.ini. Reported on input line 11.
 )
-(D:\mitex\tex/latex/amsmath\amsmath.sty
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath
+.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip50
 
 For additional information on amsmath, use the `?' option.
-(D:\mitex\tex/latex/amsmath\amstext.sty
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext
+.sty
 Package: amstext 2021/08/26 v2.01 AMS text
- (D:\mitex\tex/latex/amsmath\amsgen.sty
+
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.
+sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks19
 \ex@=\dimen148
-)) (D:\mitex\tex/latex/amsmath\amsbsy.sty
+))
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.
+sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen149
 )
-(D:\mitex\tex/latex/amsmath\amsopn.sty
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.
+sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count273
@@ -183,10 +218,12 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \mathdisplay@stack=\toks23
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
-) (D:\mitex\tex/latex/base\t1enc.sty
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\t1enc.sty
 Package: t1enc 1994/06/01 Standard LaTeX package
 )
-(D:\mitex\tex/latex/titlesec\titlesec.sty
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titles
+ec.sty
 Package: titlesec 2023/10/27 v2.16 Sectioning titles
 \ttl@box=\box55
 \beforetitleunit=\skip53
@@ -198,10 +235,12 @@ Package: titlesec 2023/10/27 v2.16 Sectioning titles
 \titlewidthlast=\dimen160
 \titlewidthfirst=\dimen161
 )
-(D:\mitex\tex/latex/placeins\placeins.sty
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/placeins\placei
+ns.sty
 Package: placeins 2005/04/18  v 2.2
 )
-(D:\mitex\tex/latex/l3backend\l3backend-pdftex.def
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3bac
+kend-pdftex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count285
 \l__pdf_internal_box=\box56
@@ -224,7 +263,8 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
 LaTeX Font Info:    ... okay on input line 50.
 \c@lstlisting=\count286
 
-(D:\mitex\tex/context/base/mkii\supp-pdf.mkii
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\sup
+p-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count287
 \scratchdimen=\dimen162
@@ -237,22 +277,26 @@ LaTeX Font Info:    ... okay on input line 50.
 \MPnumerator=\count291
 \makeMPintoPDFobject=\count292
 \everyMPtoPDFconversion=\toks26
-) (D:\mitex\tex/latex/epstopdf-pkg\epstopdf-base.sty
+)
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\ep
+stopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(D:\mitex\tex/latex/00miktex\epstopdf-sys.cfg
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstop
+df-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-(D:\mitex\tex/latex/base\article.cls
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cl
+s
 LaTeX Info: Redefining \cal on input line 497.
 LaTeX Info: Redefining \mit on input line 498.
 ) [1
 
 
-{C:/Users/bozsi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (document.to
-c)
+{C:/Users/Bozsik Jozsef/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (doc
+ument.toc)
 \tf@toc=\write3
 \openout3 = `document.toc'.
 
@@ -268,13 +312,15 @@ File: ./images/folyamatabra.png Graphic file (type png)
 <use ./images/folyamatabra.png>
 Package pdftex.def Info: ./images/folyamatabra.png  used on input line 157.
 (pdftex.def)             Requested size: 327.84904pt x 217.18587pt.
- [7] (D:\mitex\tex/latex/listings\lstlang1.sty
+ [7]
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
+g1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 76.
 
-(D:\mitex\tex/latex/base\t1cmtt.fd
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ) [8 <./images/folyamatabra.png>] [9]
 
@@ -296,7 +342,9 @@ Overfull \hbox (1.5198pt too wide) in paragraph at lines 325--341
 é-hez. Kü-lön-bö-z® HTTP
  []
 
-[12] [13] (D:\mitex\tex/latex/listings\lstlang1.sty
+[12] [13]
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
+g1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 Underfull \vbox (badness 1728) has occurred while \output is active []
@@ -502,10 +550,13 @@ Overfull \hbox (25.2082pt too wide) in paragraph at lines 693--710
 
 [25
 
-] (D:\mitex\tex/latex/listings\lstlang1.sty
+]
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
+g1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-(D:\mitex\tex/latex/listings\lstmisc.sty
+(C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmis
+c.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 )
 Overfull \hbox (104.89357pt too wide) in paragraph at lines 720--721
@@ -612,46 +663,69 @@ Overfull \hbox (92.9176pt too wide) in paragraph at lines 944--945
  [][] 
  []
 
-[37 <./images/game-end.png>] [38] [39] [40] [41] [42] [43] [44] [45]
+[37 <./images/game-end.png>] [38] [39]
+<./images/7espalya.png, id=164, 903.375pt x 852.18375pt>
+File: ./images/7espalya.png Graphic file (type png)
+<use ./images/7espalya.png>
+Package pdftex.def Info: ./images/7espalya.png  used on input line 1026.
+(pdftex.def)             Requested size: 451.6864pt x 426.09082pt.
+
+Overfull \hbox (106.6864pt too wide) in paragraph at lines 1026--1027
+ [][] 
+ []
+
+[40] [41 <./images/7espalya.png>]
+<./images/babu.png, id=172, 109.1578pt x 115.18031pt>
+File: ./images/babu.png Graphic file (type png)
+<use ./images/babu.png>
+Package pdftex.def Info: ./images/babu.png  used on input line 1040.
+(pdftex.def)             Requested size: 54.57877pt x 57.59pt.
+ [42 <./images/babu.png>] [43] [44] [45]
+[46]
 Underfull \vbox (badness 2012) has occurred while \output is active []
 
- [46]
-[47] [48] (document.aux)
+ [47]
+[48] [49] (document.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 7279 strings out of 475247
- 112325 string characters out of 5774675
- 2067785 words of memory out of 5000000
- 28743 multiletter control sequences out of 15000+600000
+ 7302 strings out of 475247
+ 116928 string characters out of 5753980
+ 2067801 words of memory out of 5000000
+ 28766 multiletter control sequences out of 15000+600000
  572036 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,8n,65p,2877b,1500s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit
-1000.pk> <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\tcrm1000.pk> <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecbx1200.pk> <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ectt1000.pk> <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecrm0500.pk> <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\bozsi\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\bozsi\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\bozsi\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\bozsi\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\bozsi\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\
-bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\
-Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk
-> <C:\Users\bozsi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1
-728.pk><D:/mitex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/mitex/fonts/type
-1/public/amsfonts/cm/cmmi7.pfb><D:/mitex/fonts/type1/public/amsfonts/cm/cmr10.p
-fb><D:/mitex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/mitex/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb><D:/mitex/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on document.pdf (48 pages, 630937 bytes).
+ 57i,8n,65p,2994b,1500s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
+600\ecit1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\tcrm1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Bozsik Jozsef\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Bozsik Joz
+sef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0500.pk> <C:\Us
+ers\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0
+800.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecrm0600.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\ecrm0700.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTe
+X\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Bozsik Jozsef\AppDa
+ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Bozsi
+k Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <
+C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
+ecrm1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecrm1200.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/p
+k/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Users/Bozsik Jozsef/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Bozsik Jozse
+f/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Us
+ers/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmr10.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr7.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Bozsik Jozsef/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on document.pdf (49 pages, 668926 bytes).
 PDF statistics:
- 732 PDF objects out of 1000 (max. 8388607)
+ 740 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

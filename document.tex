@@ -1,6 +1,7 @@
 \documentclass[a4paper,twoside]{article}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{url}
 \usepackage{changepage}
 \usepackage{graphicx}
 \usepackage[hungarian]{babel}
@@ -1155,7 +1156,7 @@ A játék végén fontos, hogy a kapcsolatot megszüntessük a backend szerverre
 \end{figure}
 \FloatBarrier
 \subsubsection{Robot}
-Egy robotot is implementáltam a felhasználóknak, amit hogyha bekapcsolunk akkor helyettünk játszik. Be lehet állítani hogy pontosan milyen erősségű robotot akarunk szimulálni, van \textit{Beginner} \textit{Intermidiate} és \textit{Advanced}, mindegyik kicsit jobb az előzőnél. Hogyha beállítjuk, hogy a robot játszon helyettünk, akkor a Roll és a Move gombokat nem lehet használni. Bármikor a játék folyamán be lehet állítani, hogy a robot vegye át az irányítást, valamint azt is hogyha ki szeretnénk kapcsolni. Egy leugró ablakban kell kiválasztani, hogy melyik stratégiát szeretnénk választani, alapértelmezett a \textit{Beginner}. Ennek az implementálásához, eléggé kézenfekvő módon a Strategy pattern-t alkalmaztam. Ez egy olyan programtervezési minta, amit olyan esetekben szokták használni, hogyha egy bizonyos algoritmust akarunk változtatni a környezettől függően. A mintában van egy interfész amit, a különböző stratégiák megvalósítanak, és implementálják le különféle módokon, majd ezt az interfészt használva tudjuk alkalmazni az algoritmusokat. A Pinia Store-ban definiáltam egy robotStrategy függvényt. és ezt állítottam be, attól függően hogy mit állított be a felhasználó. Majd létrehoztam egy \textit{executeRobotStrategy} függvényt ami csak meghívja az előbb beállított metódust. Létrehoztam egy komponenst, ami egy legördülő menüből állt, és a választott értékének függvényében állítottam be a megfelelő stratégiát (\ref{setStrat}) A komponens \textit{mounted} életciklusában beállítottam alapértelmezettként, hogy Beginner stratégiát alkalmazzon.
+Egy robotot is implementáltam a felhasználóknak, amit hogyha bekapcsolunk akkor helyettünk játszik. Be lehet állítani hogy pontosan milyen erősségű robotot akarunk szimulálni, van \textit{Beginner} \textit{Intermidiate} és \textit{Advanced}, mindegyik kicsit jobb az előzőnél. Hogyha beállítjuk, hogy a robot játsszon helyettünk, akkor a Roll és a Move gombokat nem lehet használni. Bármikor a játék folyamán be lehet állítani, hogy a robot vegye át az irányítást, valamint azt is hogyha ki szeretnénk kapcsolni. Egy leugró ablakban kell kiválasztani, hogy melyik stratégiát szeretnénk választani, alapértelmezett a \textit{Beginner}. Ennek az implementálásához, eléggé kézenfekvő módon a Strategy pattern-t alkalmaztam. Ez egy olyan programtervezési minta, amit olyan esetekben szokták használni, hogyha egy bizonyos algoritmust akarunk változtatni a környezettől függően. A mintában van egy interfész amit, a különböző stratégiák megvalósítanak, és implementálják le különféle módokon, majd ezt az interfészt használva tudjuk alkalmazni az algoritmusokat. A Pinia Store-ban definiáltam egy robotStrategy függvényt. és ezt állítottam be, attól függően hogy mit állított be a felhasználó. Majd létrehoztam egy \textit{executeRobotStrategy} függvényt ami csak meghívja az előbb beállított metódust. Létrehoztam egy komponenst, ami egy legördülő menüből állt, és a választott értékének függvényében állítottam be a megfelelő stratégiát (\ref{setStrat}) A komponens \textit{mounted} életciklusában beállítottam alapértelmezettként, hogy Beginner stratégiát alkalmazzon.
 
 \begin{figure}
 	\caption{Egyes stratégiák beállítása a kiválasztott érték függvénynében}
@@ -1175,36 +1176,66 @@ Egy robotot is implementáltam a felhasználóknak, amit hogyha bekapcsolunk akk
 	\label{setStrat}
 \end{figure}
 \FloatBarrier
-Miután kiválasztottuk a stratégiát és rányomunk a checkboxra, a robot folytatja a játékot helyettünk. Létrehoztam egy \textit{watch} függvényt ami figyeli a checkbox értékét, és annak függvényeben hívja meg a \textit{robotStep} metódust. Itt zajlik le a kockadobás és a bábu mozgatása is. Itt igazából csak azokat a függvényeket hívom meg amik eddig a Roll és Move gombokra voltak kötve egymás után, így szimulálja az emberi inputot. Egy ilyen \textit{robotStep} függvény lefutása egy Roll és Move gomb megnyomással egyenértékű. Mivel amikor a saját bábuval lépünk, akkor is kapunk eseményt hogy a pálya állapota megváltozott, így a \textit{handlePositionChange} függvényben is meghívtam a \textit{robotStep} függvényt. Így folyamatosan fog lépni a robot nem kell a felhasználónak semmit sem csinálnia. Így akkor is meghívódik a \textit{robotStep} függvény amikor egy más játékos lépett, hiszen akkor kapunk PositionChange eseményt, de mivel ellenőrzöm, hogy csak akkor fusson le a \textit{rollDice} és a \textit{movePlayer} függvény, ha éppen a mi játékosunk van soron, így ez nem okoz problémát a működésben. A függvény belsejében a program lefutását kicsit lassítom a \textit{setTimeout} függvénnyel, ami a futó szálat alvó állapotba helyezi. Hogyha ezt a lépést nem tenném meg akkor a robot lépései túl gyorsak lennének a felhasználóknak, hogy felfoghassák mi is történik a pályán. Ezt az értéket 350  milliszekundumra állítottam. Ellenőrizni kell hogy az éppen soron következő játékost éppen az adott felhasználó csatlakoztatta-e fel, hiszen ha ezt nem ellenőriznénk akkor hogyha egy felhasználó is bekapcsolja a robotot, az mindenki helyett lépni fog. Mielőtt a mozgást elvégző http kérést elküldenénk, meghívjuk a Strategy minta alapján készült "interfészünket" ami az \textit{executeStrategy} függvény. A stratégiák lényegében csak egy dolgot csinálnak: beállítják hogy melyik legyen az a bábu amivel majd lépni fogunk. Gyakorlatilag a játékban itt van gondolkodni valónk, hiszen sajnos azt hogy hányast dobjunk, nem tudjuk befolyásolni.A \textit{Beginner} stratégiájú robot nem csinál semmit, mindig csak ugyanazzal a bábuval akar beérni a célba , ha ez sikerül akkor megy a következőre. Az \textit{Intermidiate} robot már kihasználja a hatosok adta lehetőségeket. Hogyha a felhasználó hatost dob akkor lerak egy új bábut a táblára. Az \textit{Advanced} robot pedig használja azt a szabályát a játéknak, hogyha egy bábu olyan mezőre lép ahol éppen áll egy másik játékos bábuja, akkor azt leüti a tábláról, így újra csak hatossal lehet visszatenni a játékba. Így először azt ellenőrzi hogy tud e úgy lépni valamelyik bábuval, amivel le tudna ütni egy másikat, ha ez nem lehetséges, akkor használja az \textit{Intermidiate} stratégiát.
+Miután kiválasztottuk a stratégiát és rányomunk a checkboxra, a robot folytatja a játékot helyettünk. Létrehoztam egy \textit{watch} függvényt ami figyeli a checkbox értékét, és annak függvényeben hívja meg a \textit{robotStep} metódust. Itt zajlik le a kockadobás és a bábu mozgatása is. Itt igazából csak azokat a függvényeket hívom meg amik eddig a Roll és Move gombokra voltak kötve egymás után, így szimulálja az emberi inputot. Egy ilyen \textit{robotStep} függvény lefutása egy Roll és Move gomb megnyomással egyenértékű. Mivel amikor a saját bábuval lépünk, akkor is kapunk eseményt hogy a pálya állapota megváltozott, így a \textit{handlePositionChange} függvényben is meghívtam a \textit{robotStep} függvényt. Így folyamatosan fog lépni a robot nem kell a felhasználónak semmit sem csinálnia. Így akkor is meghívódik a \textit{robotStep} függvény amikor egy más játékos lépett, hiszen akkor kapunk PositionChange eseményt, de mivel ellenőrzöm, hogy csak akkor fusson le a \textit{rollDice} és a \textit{movePlayer} függvény, ha éppen a mi játékosunk van soron, így ez nem okoz problémát a működésben. A függvény belsejében a program lefutását kicsit lassítom a \textit{setTimeout} függvénnyel, ami a futó szálat alvó állapotba helyezi. Hogyha ezt a lépést nem tenném meg akkor a robot lépései túl gyorsak lennének a felhasználóknak, hogy felfoghassák mi is történik a pályán. Ezt az értéket 350  milliszekundumra állítottam. Ellenőrizni kell hogy az éppen soron következő játékost éppen az adott felhasználó csatlakoztatta-e fel, hiszen ha ezt nem ellenőriznénk akkor hogyha egy felhasználó is bekapcsolja a robotot, az mindenki helyett lépni fog. Mielőtt a mozgást elvégző http kérést elküldenénk, meghívjuk a Strategy minta alapján készült "interfészünket" ami az \textit{executeStrategy} függvény. A stratégiák lényegében csak egy dolgot csinálnak: beállítják hogy melyik legyen az a bábu amivel majd lépni fogunk. Gyakorlatilag a játékban itt van gondolkodni valónk, hiszen sajnos azt hogy hányast dobjunk, nem tudjuk befolyásolni.A \textit{Beginner} stratégiájú robot nem csinál semmit, mindig csak ugyanazzal a bábuval akar beérni a célba , ha ez sikerül akkor megy a következőre. Az \textit{Intermidiate} robot már kihasználja a hatosok adta lehetőségeket. Hogyha a felhasználó hatost dob akkor lerak egy új bábut a táblára. Ha nem hatost dobott a felhasználó, akkor megkeresi azt a bábut, ami legközelebb áll ahhoz hogy beérjen, és azt választja ki. A legközelebbi bábu kiválasztása bonyolultabb, mint ahogyan hangzik. Mivel körbe megy a tábla ezért hogyha a kezdő pozíciója a játékosnak 0, akkor a hozzá legközelebbi mező, ahonnan a bábuk be tudnak érni, az értéke a legnagyobb szám lesz, hiszen pont azelőtt a mező előtt ér véget a kör. Viszont a többi kezdőpozíciója előtt már "újrakezdődött" a számolás, így nem elég csak azt megnézni hogy melyik a legnagyobb szám és azt kiválasztani. A \textit{findClosestPiece} függvény, ami meghatározza a legközelebbi bábut a beéréshez, először is minden táblán lévő bábu helyzetéből kivonja, a játékos kezdő pozícióját és ezeket a pozíciókat eltárolja egy tömbbe (\ref{absPos}.ábra).
+\begin{figure}
+	\caption{A kiinduló helytől számított relatív pozíciók kiszámítása}
+	\begin{minipage}{\textwidth}
+		\begin{lstlisting}[style=javascriptStyle]
+			getRelativPosition(){
+				let positionContainer = [];
+				this.currentPlayer.pieces.forEach(piece => {
+					if(piece.positionOnTheBoard >=0)
+					{
+						let absolutePosition = piece.positionOnTheBoard - this.currentPlayer.startingIndexOnBoard;
+						positionContainer.push({absolutePos: absolutePosition,piece:piece});
+						
+					}
+				})
+				return positionContainer;
+			},
+		\end{lstlisting}
+	\end{minipage}
+	
+	\label{absPos}
+\end{figure}
+\FloatBarrier
+ A negatív és pozitív értékű pozíciókat szétválogatja két különböző tömbbe. Mivel ha negatív értékű a pozíció akkor az biztosan közelebb van a bejutáshoz, mint a pozitív, így először ezen a tömbbön iterál végig. Itt minél nagyobb a negatív érték, annál közelebb van a beéréshez, így rendezi nagyság szerint, és így megkapjuk a legközelebbi pozíciót. Ha esetleg nincsen negatív értékű pozíció, akkor ugyanezt megcsináljuk a pozitív értékűekre (\ref{findClos}.ábra). 
+
+\begin{figure}
+	\caption{findClosestPiece függvény implementálása}
+	\begin{minipage}{\textwidth}
+		\begin{lstlisting}[style=javascriptStyle]
+		findClosestPiece(){
+			let absolutePos = this.getAbsolutePositions();
+			let negativPos = absolutePos.filter(p=>p.absolutePos<0);
+			let positivePos = absolutePos.filter(p=>p.absolutePos>=0);
+			if(negativPos.length > 0) {
+				const closest = negativPos.reduce((max, current) => (current.absolutePos > max.absolutePos ? current : max), negativPos[0]);
+				this.selectedPiece = closest.piece;
+			}
+			else if(positivePos.length > 0){
+				const closest = positivePos.reduce((max, current) => (current.absolutePos > max.absolutePos ? current : max), positivePos[0]);
+				this.selectedPiece = closest.piece;
+			}
+		},
+		\end{lstlisting}
+	\end{minipage}
+	
+	\label{findClos}
+\end{figure}
+\FloatBarrier
+ Az \textit{Advanced} robot pedig használja azt a szabályát a játéknak, hogyha egy bábu olyan mezőre lép ahol éppen áll egy másik játékos bábuja, akkor azt leüti a tábláról, így újra csak hatossal lehet visszatenni a játékba. Így először azt ellenőrzi hogy tud e úgy lépni valamelyik bábuval, amivel le tudna ütni egy másikat, ha ez nem lehetséges, akkor használja az \textit{Intermidiate} stratégiát.
+ 
+A két stratégiát teszteltem egy sima \textit{Beginner} robot ellen egy kétszemélyes, 10 mezőt tartalmazó pályán. Minden játékosnak 5 darab bábuja volt. 10 darab játszmát szimuláltam le. Az \textit{Intermidiate} mind az \textit{Advanced} stratégia 7 darab győzelmet szerzett. Ez arra enged következtetni, hogy \textit{Intermidiate} stratégiában implementált logika segíti a felhasználót a nyerésben, hiszen kihasználja a játék egyes szabályait, viszont nem olyan nagy mértékben, mint ahogy remélnénk. Az \textit{Advanced} stratégia az eredményekben nem mutatott javulást, viszont ez fogható a kis játéktérre, hiszen egy nagyobb pályán, több játékossal játszva, a leütést nagyobb eséllyel tudta volna használni. 
+\section{Összefoglalás}
+\subsection{Továbbfejlesztési lehetőségek}
+Az alkalmazást többféleképpen lehetne tovább fejleszteni. Egyrészt újabb funkciókat lehetne belevinni, mint például egy bajnokság indítása bizonyos időközönként, vagy egy másfajta módban indítani a játékot, ahol a hagyományostól eltérő szabályok vannak életben. A bejelentkezett felhasználóknak a preferált beállításait el lehetne menteni, vagy esetleg az eddigi meccseit számon tartani. Valamint természetesen, hogy ne csak lokálisan futtatható legyen a játék, hanem az interneten elérhető weboldalak valamelyikére feltölteni, vagy egy saját szerveren futtatni, hogy másokkal is játszhassuk a társast. 
+\subsection{Tapasztalatok}
+A társasjáték fejlesztése során rengeteg gyakorlati tapasztalatot szereztem a webalkalmazások készítésével kapcsolatban. Jobban megismertem a böngészők működését, és hogy hogyan segíthetik a fejlesztőket. Sokat fejlődtem abban hogy hogyan kell megtervezni a backend részét az alkalmazásnak, valamint az autentikációt integrálni, hogy csak a bejelentkezett felhasználók tudjanak hozzáférni az erőforrásokhoz. A HTTP kommunikációról egy magabiztos tudást szereztem, aminek igen nagy haszna van a későbbi karrieremre tekintve. Összességében sikerült elvégeznem a kitűzött céljaimat, és elégedett vagyok a létrehozott alkalmazással.
 
 
 \newpage
-\begin{thebibliography}{9}
-	\bibitem{javaspring}
-	Java Spring framework.
-	
-	\bibitem{vuejs}
-	Vuejs framework.
-	
-	\bibitem{pinia}
-	Pinia Store library.
-	
-	\bibitem{webpack}
-	 Webpack is a static module bundler for modern JavaScript applications.
-	 
-	 \bibitem{axiosLibrary}
-	 Axios library
-	 
-	 \bibitem{lombok}
-	 Lombok library
-	 \bibitem{keycloak}
-	 Keycloak library
-	 \bibitem{konva}
-	 Konva library
-	 \bibitem{postman}
-	 Postman library
-	 \bibitem{swagger}
-	 Swagger documentation
-\end{thebibliography}
+\bibliographystyle{plain} % We choose the "plain" reference style
+\bibliography{refs} % Entries are in the refs.bib file
 
 \end{document}

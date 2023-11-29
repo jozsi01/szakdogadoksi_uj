@@ -1,0 +1,48 @@
+\begin{thebibliography}{1}
+
+\bibitem{axiosLibrary}
+{Axios} könyvtár dokumentáció.
+\newblock \url{https://axios-http.com/docs/intro}.
+\newblock Elérhető: 2023-11-29.
+
+\bibitem{javaspring}
+{Java SpringBoot} keretrendszer dokumentáció.
+\newblock \url{https://spring.io/}.
+\newblock Elérhető: 2023-11-29.
+
+\bibitem{keycloak}
+{Keycloak} autentikációs keretrendszer dokumentáció.
+\newblock \url{https://www.keycloak.org/}.
+\newblock Elérhető: 2023-11-29.
+
+\bibitem{lombok}
+{Lombok} könvtár dokumentáció.
+\newblock \url{https://projectlombok.org/}.
+\newblock Elérhető: 2023-11-29.
+
+\bibitem{pinia}
+{Pinia} Állapottároló könyvtár dokumentáció.
+\newblock \url{https://pinia.vuejs.org/}.
+\newblock Elérhető: 2023-11-29.
+
+\bibitem{postman}
+{Postman} api tesztelő eszköz dokumentáció.
+\newblock \url{https://www.postman.com/}.
+\newblock Elérhető: 2023-11-29.
+
+\bibitem{swagger}
+{Swagger} api dokumentáló eszköz dokumentáció.
+\newblock \url{https://swagger.io/}.
+\newblock Elérhető: 2023-11-29.
+
+\bibitem{vuejs}
+{Vue.js } keretrendszer dokumentáció.
+\newblock \url{https://https://vuejs.org/}.
+\newblock Elérhető: 2023-11-29.
+
+\bibitem{webpack}
+{Webpack} modul csomagoló dokumentáció.
+\newblock \url{https://webpack.js.org/}.
+\newblock Elérhető: 2023-11-29.
+
+\end{thebibliography}

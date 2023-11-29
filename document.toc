@@ -28,3 +28,6 @@
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {6.3.2}Grafikus megjelenítés}{37}{}%
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {6.3.3}Többjátékos mód}{43}{}%
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {6.3.4}Robot}{46}{}%
+\select@language {hungarian} \contentsline {section}{\numberline {7}Összefoglalás}{49}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {7.1}Továbbfejlesztési lehetőségek}{49}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {7.2}Tapasztalatok}{50}{}%

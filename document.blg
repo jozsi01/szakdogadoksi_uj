@@ -12,49 +12,54 @@ Warning--to sort, need author or key in webpack
 Warning--to sort, need author or key in axiosLibrary
 Warning--to sort, need author or key in konva
 Warning--to sort, need author or key in ioc
+Warning--to sort, need author or key in dependencyInj
 Warning--to sort, need author or key in lombok
+Warning--to sort, need author or key in lombokWork
 Warning--to sort, need author or key in keycloak
+Warning--to sort, need author or key in sse
+Warning--to sort, need author or key in websocket
 Warning--to sort, need author or key in postman
 Warning--to sort, need author or key in swagger
-You've used 11 entries,
+Warning--to sort, need author or key in mockito
+You've used 16 entries,
             2118 wiz_defined-function locations,
-            533 strings with 4973 characters,
-and the built_in function-call counts, 1870 in all, are:
-= -- 187
-> -- 11
+            550 strings with 5524 characters,
+and the built_in function-call counts, 2710 in all, are:
+= -- 272
+> -- 16
 < -- 0
-+ -- 11
++ -- 16
 - -- 0
-* -- 57
-:= -- 220
-add.period$ -- 33
-call.type$ -- 11
-change.case$ -- 33
+* -- 82
+:= -- 315
+add.period$ -- 48
+call.type$ -- 16
+change.case$ -- 48
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 77
-empty$ -- 254
+cite$ -- 32
+duplicate$ -- 112
+empty$ -- 369
 format.name$ -- 0
-if$ -- 463
+if$ -- 673
 int.to.chr$ -- 0
-int.to.str$ -- 11
+int.to.str$ -- 16
 missing$ -- 0
-newline$ -- 58
+newline$ -- 83
 num.names$ -- 0
-pop$ -- 110
+pop$ -- 160
 preamble$ -- 1
-purify$ -- 22
+purify$ -- 32
 quote$ -- 0
-skip$ -- 54
+skip$ -- 79
 stack$ -- 0
-substring$ -- 55
-swap$ -- 11
+substring$ -- 80
+swap$ -- 16
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 44
-warning$ -- 11
+type$ -- 64
+warning$ -- 16
 while$ -- 0
-width$ -- 13
-write$ -- 101
-(There were 11 warnings)
+width$ -- 18
+write$ -- 146
+(There were 16 warnings)

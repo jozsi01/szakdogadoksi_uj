@@ -5,6 +5,11 @@
 \newblock \url{https://axios-http.com/docs/intro}.
 \newblock Elérhető: 2023-11-29.
 
+\bibitem{dependencyInj}
+{Dependency Injection} programozási technika leírás.
+\newblock \url{https://en.wikipedia.org/wiki/Dependency_injection}.
+\newblock {Elérhető: 2023-12-02}.
+
 \bibitem{ioc}
 {Inversion of control} tervezési minta leírás.
 \newblock \url{https://en.wikipedia.org/wiki/Inversion_of_control}.
@@ -25,10 +30,21 @@
 \newblock \url{https://konvajs.org/docs/index.html}.
 \newblock {Elérhető: 2023-12-02}.
 
+\bibitem{lombokWork}
+{Lombok} annotációk működésének leírása.
+\newblock
+  \url{https://www.toptal.com/java/write-fat-free-java-code-project-lombok}.
+\newblock {Elérhető: 2023-12-02}.
+
 \bibitem{lombok}
 {Lombok} könvtár dokumentáció.
 \newblock \url{https://projectlombok.org/}.
 \newblock Elérhető: 2023-11-29.
+
+\bibitem{mockito}
+{Mockito} tesztelési könyvtár dokumentáció.
+\newblock \url{https://site.mockito.org/}.
+\newblock {Elérhető: 2023-12-02}.
 
 \bibitem{pinia}
 {Pinia} Állapottároló könyvtár dokumentáció.
@@ -39,6 +55,11 @@
 {Postman} api tesztelő eszköz dokumentáció.
 \newblock \url{https://www.postman.com/}.
 \newblock Elérhető: 2023-11-29.
+
+\bibitem{sse}
+{Server-Sent Events} technológia leírása.
+\newblock \url{https://www.baeldung.com/spring-server-sent-events}.
+\newblock {Elérhető: 2023-12-02}.
 
 \bibitem{swagger}
 {Swagger} api dokumentáló eszköz dokumentáció.
@@ -54,5 +75,10 @@
 {Webpack} modul csomagoló dokumentáció.
 \newblock \url{https://webpack.js.org/}.
 \newblock Elérhető: 2023-11-29.
+
+\bibitem{websocket}
+{WebSocket} technológia leírása.
+\newblock \url{https://en.wikipedia.org/wiki/WebSocket}.
+\newblock {Elérhető: 2023-12-02}.
 
 \end{thebibliography}

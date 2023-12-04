@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9) (preloaded format=pdflatex 2023.10.2)  2 DEC 2023 16:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9) (preloaded format=pdflatex 2023.10.2)  5 DEC 2023 00:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -336,10 +336,11 @@ Overfull \hbox (4.82904pt too wide) in paragraph at lines 322--323
 z-va a kö-vet-ke-z®: A backend-
  []
 
-[12]
-Underfull \vbox (badness 1308) has occurred while \output is active []
 
- [13]
+Underfull \vbox (badness 7796) has occurred while \output is active []
+
+ [12]
+[13]
 (C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
 g1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
@@ -347,26 +348,35 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 <./images/keycloak-login.png, id=62, 666.23906pt x 347.79938pt>
 File: ./images/keycloak-login.png Graphic file (type png)
 <use ./images/keycloak-login.png>
-Package pdftex.def Info: ./images/keycloak-login.png  used on input line 436.
+Package pdftex.def Info: ./images/keycloak-login.png  used on input line 435.
 (pdftex.def)             Requested size: 333.11871pt x 173.89926pt.
  [15]
-Overfull \hbox (7.27289pt too wide) in paragraph at lines 463--464
+Overfull \hbox (12.27167pt too wide) in paragraph at lines 462--463
 \T1/cmr/m/n/10 A bac-ken-dA-PI tesz-te-lé-sé-hez, front-end nél-kül, ki-vá-ló m
 eg-ol-dást kí-nál a Postman[[]],
  []
 
-[16 <./images/keycloak-login.png>] [17] [18]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16 <./images/keycloak-login.png>] [17] [18]
 <./images/backend-pipeline.png, id=76, 764.10469pt x 97.11281pt>
 File: ./images/backend-pipeline.png Graphic file (type png)
 <use ./images/backend-pipeline.png>
-Package pdftex.def Info: ./images/backend-pipeline.png  used on input line 554.
+Package pdftex.def Info: ./images/backend-pipeline.png  used on input line 553.
 
 (pdftex.def)             Requested size: 343.84393pt x 43.70035pt.
- [19 <./images/backend-pipeline.png>] [20] [21] [22] [23] [24] [25]
+ [19 <./images/backend-pipeline.png>]
+Overfull \hbox (8.33542pt too wide) in paragraph at lines 601--602
+[]\T1/cmr/m/n/10 A já-ték stá-tu-sza meg-vál-to-zott, pél-dá-ul egy já-té-kot e
+l-in-dí-tot-tak ak-kor CREA-
+ []
+
+[20] [21] [22] [23] [24] [25]
 <./images/keycloak-cients.png, id=102, 548.0475pt x 389.20406pt>
 File: ./images/keycloak-cients.png Graphic file (type png)
 <use ./images/keycloak-cients.png>
-Package pdftex.def Info: ./images/keycloak-cients.png  used on input line 704.
+Package pdftex.def Info: ./images/keycloak-cients.png  used on input line 702.
 (pdftex.def)             Requested size: 274.02307pt x 194.60155pt.
  [26
 
@@ -379,32 +389,33 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 c.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 ) [27 <./images/keycloak-cients.png>]
-<./images/filterchain.png, id=110, 544.28343pt x 398.99063pt>
-File: ./images/filterchain.png Graphic file (type png)
-<use ./images/filterchain.png>
-Package pdftex.def Info: ./images/filterchain.png  used on input line 738.
-(pdftex.def)             Requested size: 244.92528pt x 179.54411pt.
- [28] [29 <./images/filterchain.png>]
+<./images/jwt.png, id=110, 821.31844pt x 432.11438pt>
+File: ./images/jwt.png Graphic file (type png)
+<use ./images/jwt.png>
+Package pdftex.def Info: ./images/jwt.png  used on input line 771.
+(pdftex.def)             Requested size: 287.46576pt x 151.2423pt.
+ [28] [29 <./images/jwt.png>]
 <./images/getTokens.png, id=118, 485.56406pt x 460.72125pt>
 File: ./images/getTokens.png Graphic file (type png)
 <use ./images/getTokens.png>
-Package pdftex.def Info: ./images/getTokens.png  used on input line 804.
+Package pdftex.def Info: ./images/getTokens.png  used on input line 807.
 (pdftex.def)             Requested size: 242.78143pt x 230.36006pt.
+
 [30] [31 <./images/getTokens.png>] [32] [33] [34]
 <./images/board.png, id=136, 558.58687pt x 213.79875pt>
 File: ./images/board.png Graphic file (type png)
 <use ./images/board.png>
-Package pdftex.def Info: ./images/board.png  used on input line 920.
+Package pdftex.def Info: ./images/board.png  used on input line 923.
 (pdftex.def)             Requested size: 351.91159pt x 134.69391pt.
 
-Overfull \hbox (6.91159pt too wide) in paragraph at lines 920--921
+Overfull \hbox (6.91159pt too wide) in paragraph at lines 923--924
  [][] 
  []
 
 <./images/playingboard.png, id=137, 964.35281pt x 688.07062pt>
 File: ./images/playingboard.png Graphic file (type png)
 <use ./images/playingboard.png>
-Package pdftex.def Info: ./images/playingboard.png  used on input line 931.
+Package pdftex.def Info: ./images/playingboard.png  used on input line 934.
 (pdftex.def)             Requested size: 337.52853pt x 240.82832pt.
 [35 <./images/board.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -413,16 +424,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <./images/game-end.png, id=146, 1047.16219pt x 258.21469pt>
 File: ./images/game-end.png Graphic file (type png)
 <use ./images/game-end.png>
-Package pdftex.def Info: ./images/game-end.png  used on input line 941.
+Package pdftex.def Info: ./images/game-end.png  used on input line 944.
 (pdftex.def)             Requested size: 335.09874pt x 82.63039pt.
  [37 <./images/game-end.png>] [38] [39]
 <./images/7espalya.png, id=164, 903.375pt x 852.18375pt>
 File: ./images/7espalya.png Graphic file (type png)
 <use ./images/7espalya.png>
-Package pdftex.def Info: ./images/7espalya.png  used on input line 1023.
+Package pdftex.def Info: ./images/7espalya.png  used on input line 1026.
 (pdftex.def)             Requested size: 451.6864pt x 426.09082pt.
 
-Overfull \hbox (106.6864pt too wide) in paragraph at lines 1023--1024
+Overfull \hbox (106.6864pt too wide) in paragraph at lines 1026--1027
  [][] 
  []
 
@@ -430,7 +441,7 @@ Overfull \hbox (106.6864pt too wide) in paragraph at lines 1023--1024
 <./images/babu.png, id=172, 109.1578pt x 115.18031pt>
 File: ./images/babu.png Graphic file (type png)
 <use ./images/babu.png>
-Package pdftex.def Info: ./images/babu.png  used on input line 1037.
+Package pdftex.def Info: ./images/babu.png  used on input line 1040.
 (pdftex.def)             Requested size: 54.57877pt x 57.59pt.
  [42 <./images/babu.png>] [43] [44] [45]
 [46]
@@ -438,9 +449,21 @@ Underfull \vbox (badness 2012) has occurred while \output is active []
 
  [47]
 [48] [49] [50] (document.bbl
-Underfull \hbox (badness 2486) in paragraph at lines 19--22
+Underfull \hbox (badness 3439) in paragraph at lines 9--12
+[]\T1/cmr/m/n/10 Dependency In-jec-ti-on prog-ra-mo-zá-si tech-ni-ka le-írás.  
+$\T1/cmtt/m/n/10 https : / / en .
+ []
+
+
+Underfull \hbox (badness 2486) in paragraph at lines 24--27
 []\T1/cmr/m/n/10 Keycloak au-ten-ti-ká-ci-ós ke-ret-rend-szer do-ku-men-tá-ció.
   $\T1/cmtt/m/n/10 https : / / www .
+ []
+
+
+Underfull \hbox (badness 3977) in paragraph at lines 80--83
+[]\T1/cmr/m/n/10 WebSocket tech-no-ló-gia le-írá-sa.  $\T1/cmtt/m/n/10 https : 
+/ / en . wikipedia . org / wiki /
  []
 
 ) [51] (document.aux)
@@ -450,10 +473,10 @@ L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 7408 strings out of 475247
- 118529 string characters out of 5753980
+ 7417 strings out of 475247
+ 118541 string characters out of 5753980
  2067801 words of memory out of 5000000
- 28865 multiletter control sequences out of 15000+600000
+ 28874 multiletter control sequences out of 15000+600000
  572036 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,8n,65p,3445b,1500s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -481,9 +504,9 @@ cmr10.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmr7.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Bozsik Jozsef/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on document.pdf (51 pages, 638176 bytes).
+Output written on document.pdf (51 pages, 700496 bytes).
 PDF statistics:
- 763 PDF objects out of 1000 (max. 8388607)
+ 760 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

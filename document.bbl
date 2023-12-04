@@ -1,12 +1,17 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{axiosLibrary}
 {Axios} könyvtár dokumentáció.
 \newblock \url{https://axios-http.com/docs/intro}.
 \newblock Elérhető: 2023-11-29.
 
+\bibitem{ioc}
+{Inversion of control} tervezési minta leírás.
+\newblock \url{https://en.wikipedia.org/wiki/Inversion_of_control}.
+\newblock {Elérhető: 2023-12-02}.
+
 \bibitem{javaspring}
-{Java SpringBoot} keretrendszer dokumentáció.
+{Java Spring} keretrendszer dokumentáció.
 \newblock \url{https://spring.io/}.
 \newblock Elérhető: 2023-11-29.
 
@@ -14,6 +19,11 @@
 {Keycloak} autentikációs keretrendszer dokumentáció.
 \newblock \url{https://www.keycloak.org/}.
 \newblock Elérhető: 2023-11-29.
+
+\bibitem{konva}
+{Konva} grafikus könyvtár dokumentáció.
+\newblock \url{https://konvajs.org/docs/index.html}.
+\newblock {Elérhető: 2023-12-02}.
 
 \bibitem{lombok}
 {Lombok} könvtár dokumentáció.

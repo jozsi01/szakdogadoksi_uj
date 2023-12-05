@@ -6,7 +6,7 @@
 \select@language {hungarian} \contentsline {subsection}{\numberline {5.1}Frontend}{8}{}%
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {5.1.1}Javascript keretrendszer}{8}{}%
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {5.1.2}Állapottároló}{10}{}%
-\select@language {hungarian} \contentsline {subsubsection}{\numberline {5.1.3}Modul csomagoló}{10}{}%
+\select@language {hungarian} \contentsline {subsubsection}{\numberline {5.1.3}Modul csomagoló}{12}{}%
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {5.1.4}HTTP kérések küldése}{12}{}%
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {5.1.5}Grafikus könyvtár}{13}{}%
 \select@language {hungarian} \contentsline {subsection}{\numberline {5.2}Backend}{13}{}%
@@ -28,6 +28,6 @@
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {6.3.2}Grafikus megjelenítés}{37}{}%
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {6.3.3}Többjátékos mód}{43}{}%
 \select@language {hungarian} \contentsline {subsubsection}{\numberline {6.3.4}Robot}{46}{}%
-\select@language {hungarian} \contentsline {section}{\numberline {7}Összefoglalás}{49}{}%
-\select@language {hungarian} \contentsline {subsection}{\numberline {7.1}Továbbfejlesztési lehetőségek}{49}{}%
+\select@language {hungarian} \contentsline {section}{\numberline {7}Összefoglalás}{50}{}%
+\select@language {hungarian} \contentsline {subsection}{\numberline {7.1}Továbbfejlesztési lehetőségek}{50}{}%
 \select@language {hungarian} \contentsline {subsection}{\numberline {7.2}Tapasztalatok}{50}{}%

@@ -61,6 +61,11 @@
 \newblock \url{https://www.baeldung.com/spring-server-sent-events}.
 \newblock {Elérhető: 2023-12-02}.
 
+\bibitem{strategy}
+{Strategy} tervezési minta leírása.
+\newblock \url{https://en.wikipedia.org/wiki/Strategy_pattern}.
+\newblock {Elérhető: 2023-12-02}.
+
 \bibitem{swagger}
 {Swagger} api dokumentáló eszköz dokumentáció.
 \newblock \url{https://swagger.io/}.

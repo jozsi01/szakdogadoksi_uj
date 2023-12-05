@@ -2,6 +2,8 @@
 \providecommand\babel@aux[2]{}
 \@nameuse{bbl@beforestart}
 \catcode \string ``=12
+\providecommand\@newglossary[4]{}
+\@newglossary{main}{glg}{gls}{glo}
 \@writefile{toc}{\select@language{hungarian} \contentsline {section}{\numberline {1}Összefoglaló}{4}{}\protected@file@percent }
 \@writefile{toc}{\select@language{hungarian} \contentsline {section}{\numberline {2}Abstract}{5}{}\protected@file@percent }
 \citation{javaspring}
@@ -15,6 +17,7 @@
 \@writefile{toc}{\select@language{hungarian} \contentsline {section}{\numberline {5}Alkalmazás fejlesztéséhez használt technológiák}{8}{}\protected@file@percent }
 \@writefile{toc}{\select@language{hungarian} \contentsline {subsection}{\numberline {5.1}Frontend}{8}{}\protected@file@percent }
 \@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.1.1}Javascript keretrendszer}{8}{}\protected@file@percent }
+\newlabel{vuejs-tech}{{5.1.1}{8}{Javascript keretrendszer}{}{}}
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {3}{\ignorespaces Egy gomb klikk eseménykezelőjének létrehozása}}{9}{}\protected@file@percent }
 \newlabel{button-click}{{3}{9}{Javascript keretrendszer}{}{}}
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {4}{\ignorespaces v-if direktíva használata}}{9}{}\protected@file@percent }
@@ -24,13 +27,14 @@
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {5}{\ignorespaces VueRouter létrehozása}}{10}{}\protected@file@percent }
 \newlabel{vuerouter}{{5}{10}{Javascript keretrendszer}{}{}}
 \@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.1.2}Állapottároló}{10}{}\protected@file@percent }
-\@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.1.3}Modul csomagoló}{10}{}\protected@file@percent }
-\@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {6}{\ignorespaces GamePlay store definiálása állapotokkal és függvényekkel}}{11}{}\protected@file@percent }
+\@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {6}{\ignorespaces GamePlay Pinia Store definiálása állapotokkal és függvényekkel}}{11}{}\protected@file@percent }
 \newlabel{pinia}{{6}{11}{Állapottároló}{}{}}
 \citation{axiosLibrary}
 \citation{konva}
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {7}{\ignorespaces Post http kérés Axios könyvtárral}}{12}{}\protected@file@percent }
 \newlabel{axios}{{7}{12}{HTTP kérések küldése}{}{}}
+\@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.1.3}Modul csomagoló}{12}{}\protected@file@percent }
+\newlabel{webpack-tech}{{5.1.3}{12}{Modul csomagoló}{}{}}
 \@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.1.4}HTTP kérések küldése}{12}{}\protected@file@percent }
 \newlabel{axios-tech}{{5.1.4}{12}{HTTP kérések küldése}{}{}}
 \citation{ioc}
@@ -85,7 +89,7 @@
 \newlabel{pom}{{18}{27}{Backend}{}{}}
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {19}{\ignorespaces SecurityConfig implementálása}}{29}{}\protected@file@percent }
 \newlabel{secConf}{{19}{29}{Backend}{}{}}
-\@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {20}{\ignorespaces Egy jwt token dekódolása}}{29}{}\protected@file@percent }
+\@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {20}{\ignorespaces Egy JWT token dekódolása}}{29}{}\protected@file@percent }
 \newlabel{jwt}{{20}{29}{Backend}{}{}}
 \@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {6.2.2}Frontend}{30}{}\protected@file@percent }
 \newlabel{aut-frontend}{{6.2.2}{30}{Frontend}{}{}}
@@ -112,7 +116,7 @@
 \newlabel{konvaStage}{{29}{38}{Grafikus megjelenítés}{}{}}
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {30}{\ignorespaces Egy mező koordinátájának kiszámítása}}{39}{}\protected@file@percent }
 \newlabel{kettesPlayerKoord}{{30}{39}{Grafikus megjelenítés}{}{}}
-\@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {31}{\ignorespaces Az sokszög oldalvonal menti mezők eltolásának meghatározása}}{40}{}\protected@file@percent }
+\@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {31}{\ignorespaces A sokszög oldalvonal menti mezők eltolásának meghatározása}}{40}{}\protected@file@percent }
 \newlabel{xOffsetMeghat}{{31}{40}{Grafikus megjelenítés}{}{}}
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {32}{\ignorespaces Hét játékost tartalmazó pálya megjelenítése}}{41}{}\protected@file@percent }
 \newlabel{hetesPalya}{{32}{41}{Grafikus megjelenítés}{}{}}
@@ -125,7 +129,8 @@
 \newlabel{removeOutline}{{35}{44}{Grafikus megjelenítés}{}{}}
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {36}{\ignorespaces A StatusChange eseményre való feliratkozás és kezelése}}{45}{}\protected@file@percent }
 \newlabel{statuschange}{{36}{45}{Többjátékos mód}{}{}}
-\@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {37}{\ignorespaces SSE kapcsolat megszüntetése, és a store-ok alaphelyzetbe állítása}}{46}{}\protected@file@percent }
+\citation{strategy}
+\@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {37}{\ignorespaces SSE kapcsolat megszüntetése, és a Pinia Store-ok alaphelyzetbe állítása}}{46}{}\protected@file@percent }
 \newlabel{reset}{{37}{46}{Többjátékos mód}{}{}}
 \@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {6.3.4}Robot}{46}{}\protected@file@percent }
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {38}{\ignorespaces Egyes stratégiák beállítása a kiválasztott érték függvénynében}}{47}{}\protected@file@percent }
@@ -134,8 +139,10 @@
 \newlabel{absPos}{{39}{48}{Robot}{}{}}
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {40}{\ignorespaces findClosestPiece függvény implementálása}}{49}{}\protected@file@percent }
 \newlabel{findClos}{{40}{49}{Robot}{}{}}
-\@writefile{toc}{\select@language{hungarian} \contentsline {section}{\numberline {7}Összefoglalás}{49}{}\protected@file@percent }
-\@writefile{toc}{\select@language{hungarian} \contentsline {subsection}{\numberline {7.1}Továbbfejlesztési lehetőségek}{49}{}\protected@file@percent }
+\@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {41}{\ignorespaces Robot stratégiák mérési eredménye}}{50}{}\protected@file@percent }
+\newlabel{robot-abra}{{41}{50}{Robot}{}{}}
+\@writefile{toc}{\select@language{hungarian} \contentsline {section}{\numberline {7}Összefoglalás}{50}{}\protected@file@percent }
+\@writefile{toc}{\select@language{hungarian} \contentsline {subsection}{\numberline {7.1}Továbbfejlesztési lehetőségek}{50}{}\protected@file@percent }
 \@writefile{toc}{\select@language{hungarian} \contentsline {subsection}{\numberline {7.2}Tapasztalatok}{50}{}\protected@file@percent }
 \bibstyle{plain}
 \bibdata{refs}
@@ -151,8 +158,9 @@
 \bibcite{pinia}{10}
 \bibcite{postman}{11}
 \bibcite{sse}{12}
-\bibcite{swagger}{13}
-\bibcite{vuejs}{14}
-\bibcite{webpack}{15}
-\bibcite{websocket}{16}
-\gdef \@abspage@last{51}
+\bibcite{strategy}{13}
+\bibcite{swagger}{14}
+\bibcite{vuejs}{15}
+\bibcite{webpack}{16}
+\bibcite{websocket}{17}
+\gdef \@abspage@last{52}

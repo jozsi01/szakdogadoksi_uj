@@ -46,6 +46,11 @@
 \newblock \url{https://site.mockito.org/}.
 \newblock {Elérhető: 2023-12-02}.
 
+\bibitem{obeserver}
+{Observer} tervezési minta leírása.
+\newblock \url{https://en.wikipedia.org/wiki/Observer_pattern}.
+\newblock {Elérhető: 2023-12-02}.
+
 \bibitem{pinia}
 {Pinia} Állapottároló könyvtár dokumentáció.
 \newblock \url{https://pinia.vuejs.org/}.

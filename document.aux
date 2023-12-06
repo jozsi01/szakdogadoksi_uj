@@ -4,13 +4,17 @@
 \catcode \string ``=12
 \providecommand\@newglossary[4]{}
 \@newglossary{main}{glg}{gls}{glo}
+\providecommand\@glsorder[1]{}
+\providecommand\@istfilename[1]{}
+\@istfilename{document.ist}
+\@glsorder{word}
 \@writefile{toc}{\select@language{hungarian} \contentsline {section}{\numberline {1}Összefoglaló}{4}{}\protected@file@percent }
 \@writefile{toc}{\select@language{hungarian} \contentsline {section}{\numberline {2}Abstract}{5}{}\protected@file@percent }
 \citation{javaspring}
 \@writefile{toc}{\select@language{hungarian} \contentsline {section}{\numberline {3}Bevezetés}{6}{}\protected@file@percent }
 \@writefile{toc}{\select@language{hungarian} \contentsline {section}{\numberline {4}Feladatkiírás pontosítása és részletes elemzése}{7}{}\protected@file@percent }
 \citation{vuejs}
-\@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {1}{\ignorespaces Egy játékmenet ábrazolása}}{8}{}\protected@file@percent }
+\@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {1}{\ignorespaces Egy játékmenet ábrázolása}}{8}{}\protected@file@percent }
 \newlabel{folyamatabra}{{1}{8}{Feladatkiírás pontosítása és részletes elemzése}{}{}}
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {2}{\ignorespaces Board komponens listázása}}{8}{}\protected@file@percent }
 \newlabel{komponens}{{2}{8}{Javascript keretrendszer}{}{}}
@@ -37,30 +41,31 @@
 \newlabel{webpack-tech}{{5.1.3}{12}{Modul csomagoló}{}{}}
 \@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.1.4}HTTP kérések küldése}{12}{}\protected@file@percent }
 \newlabel{axios-tech}{{5.1.4}{12}{HTTP kérések küldése}{}{}}
+\@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.1.5}Grafikus könyvtár}{13}{}\protected@file@percent }
 \citation{ioc}
 \citation{dependencyInj}
-\@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.1.5}Grafikus könyvtár}{13}{}\protected@file@percent }
-\@writefile{toc}{\select@language{hungarian} \contentsline {subsection}{\numberline {5.2}Backend}{13}{}\protected@file@percent }
-\@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.2.1}Java keretrendszer}{13}{}\protected@file@percent }
 \citation{lombok}
 \citation{lombokWork}
-\citation{keycloak}
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {8}{\ignorespaces Kör létrehozása és eseménykezelő aktiválása Konva-val}}{14}{}\protected@file@percent }
 \newlabel{konva}{{8}{14}{Grafikus könyvtár}{}{}}
-\@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.2.2}Lombok}{14}{}\protected@file@percent }
-\citation{sse}
-\citation{websocket}
+\@writefile{toc}{\select@language{hungarian} \contentsline {subsection}{\numberline {5.2}Backend}{14}{}\protected@file@percent }
+\@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.2.1}Java keretrendszer}{14}{}\protected@file@percent }
+\citation{keycloak}
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {9}{\ignorespaces Lombok annotációk használata}}{15}{}\protected@file@percent }
 \newlabel{lombok}{{9}{15}{Lombok}{}{}}
+\@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.2.2}Lombok}{15}{}\protected@file@percent }
 \@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.2.3}Autentikációs keretrendszer}{15}{}\protected@file@percent }
 \newlabel{auth-tech}{{5.2.3}{15}{Autentikációs keretrendszer}{}{}}
-\@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.2.4}Többjátékos mód megvalósítása}{15}{}\protected@file@percent }
-\newlabel{tobbjatekos}{{5.2.4}{15}{Többjátékos mód megvalósítása}{}{}}
-\citation{postman}
+\citation{obeserver}
+\citation{sse}
+\citation{websocket}
 \@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {10}{\ignorespaces Keycloak konfigurációs nézet részlete}}{16}{}\protected@file@percent }
 \newlabel{keycloak-login}{{10}{16}{Autentikációs keretrendszer}{}{}}
-\@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {11}{\ignorespaces SSE szerver osztály annotációi}}{16}{}\protected@file@percent }
-\newlabel{sse}{{11}{16}{Többjátékos mód megvalósítása}{}{}}
+\@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.2.4}Többjátékos mód megvalósítása}{16}{}\protected@file@percent }
+\newlabel{tobbjatekos}{{5.2.4}{16}{Többjátékos mód megvalósítása}{}{}}
+\citation{postman}
+\@writefile{lof}{\select@language{hungarian} \contentsline {figure}{\numberline {11}{\ignorespaces SSE szerver osztály annotációi}}{17}{}\protected@file@percent }
+\newlabel{sse}{{11}{17}{Többjátékos mód megvalósítása}{}{}}
 \@writefile{toc}{\select@language{hungarian} \contentsline {subsubsection}{\numberline {5.2.5}Tesztelés}{17}{}\protected@file@percent }
 \citation{swagger}
 \@writefile{toc}{\select@language{hungarian} \contentsline {section}{\numberline {6}Önálló munka bemutatása}{18}{}\protected@file@percent }
@@ -155,12 +160,13 @@
 \bibcite{lombokWork}{7}
 \bibcite{lombok}{8}
 \bibcite{mockito}{9}
-\bibcite{pinia}{10}
-\bibcite{postman}{11}
-\bibcite{sse}{12}
-\bibcite{strategy}{13}
-\bibcite{swagger}{14}
-\bibcite{vuejs}{15}
-\bibcite{webpack}{16}
-\bibcite{websocket}{17}
-\gdef \@abspage@last{51}
+\bibcite{obeserver}{10}
+\bibcite{pinia}{11}
+\bibcite{postman}{12}
+\bibcite{sse}{13}
+\bibcite{strategy}{14}
+\bibcite{swagger}{15}
+\bibcite{vuejs}{16}
+\bibcite{webpack}{17}
+\bibcite{websocket}{18}
+\gdef \@abspage@last{52}

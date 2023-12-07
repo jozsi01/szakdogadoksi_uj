@@ -10,6 +10,11 @@
 \newblock \url{https://en.wikipedia.org/wiki/Dependency_injection}.
 \newblock {Elérhető: 2023-12-02}.
 
+\bibitem{fontawesome}
+{Font Awesome} ikon könyvtár dokumentációja.
+\newblock \url{https://fontawesome.com/docs}.
+\newblock {Elérhető: 2023-12-02}.
+
 \bibitem{ioc}
 {Inversion of control} tervezési minta leírás.
 \newblock \url{https://en.wikipedia.org/wiki/Inversion_of_control}.

@@ -22,46 +22,47 @@ Warning--to sort, need author or key in websocket
 Warning--to sort, need author or key in postman
 Warning--to sort, need author or key in swagger
 Warning--to sort, need author or key in mockito
+Warning--to sort, need author or key in fontawesome
 Warning--to sort, need author or key in strategy
-You've used 18 entries,
+You've used 19 entries,
             2118 wiz_defined-function locations,
-            556 strings with 5719 characters,
-and the built_in function-call counts, 3046 in all, are:
-= -- 306
-> -- 18
+            559 strings with 5811 characters,
+and the built_in function-call counts, 3214 in all, are:
+= -- 323
+> -- 19
 < -- 0
-+ -- 18
++ -- 19
 - -- 0
-* -- 92
-:= -- 353
-add.period$ -- 54
-call.type$ -- 18
-change.case$ -- 54
+* -- 97
+:= -- 372
+add.period$ -- 57
+call.type$ -- 19
+change.case$ -- 57
 chr.to.int$ -- 0
-cite$ -- 36
-duplicate$ -- 126
-empty$ -- 415
+cite$ -- 38
+duplicate$ -- 133
+empty$ -- 438
 format.name$ -- 0
-if$ -- 757
+if$ -- 799
 int.to.chr$ -- 0
-int.to.str$ -- 18
+int.to.str$ -- 19
 missing$ -- 0
-newline$ -- 93
+newline$ -- 98
 num.names$ -- 0
-pop$ -- 180
+pop$ -- 190
 preamble$ -- 1
-purify$ -- 36
+purify$ -- 38
 quote$ -- 0
-skip$ -- 89
+skip$ -- 94
 stack$ -- 0
-substring$ -- 90
-swap$ -- 18
+substring$ -- 95
+swap$ -- 19
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
-warning$ -- 18
+type$ -- 76
+warning$ -- 19
 while$ -- 0
-width$ -- 20
-write$ -- 164
-(There were 18 warnings)
+width$ -- 21
+write$ -- 173
+(There were 19 warnings)

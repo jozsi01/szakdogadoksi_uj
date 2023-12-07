@@ -50,13 +50,36 @@
 	xleftmargin=0pt,
 	xrightmargin=0pt,
 }
-\makeglossaries
-\newacronym{latex}{LaTeX}{Leslie's All-Purpose TeX}
-\newacronym{pdf}{PDF}{Portable Document Format}
-\newacronym{html}{HTML}{Hypertext Markup Language}
 
+\newcommand{\vikszerzo}{Bozsik József}
+\newcommand{\vikkonzulens}{Dr. Somogyi Péter, Aranyi Róbert}
+\newcommand{\vikcim}{Webes társasjáték fejlesztés}
+\newcommand{\viktanszek}{Irányítástechnika és Informatika Tanszék}
+\newcommand{\vikdoktipus}{Szakdolgozat}
+\newcommand{\vikdepartmentr}{Bódis-Szomorú András}
 \begin{document}
-\maketitle
+\begin{titlepage}
+	\begin{center}
+		\includegraphics[width=60mm,keepaspectratio]{BMElogo.png}\\
+		\vspace{0.3cm}
+		\textbf{Budapesti Mûszaki és Gazdaságtudományi Egyetem}\\
+		\textmd{Villamosmérnöki és Informatikai Kar}\\
+		\textmd{\viktanszek}\\[5cm]
+		
+		\vspace{0.4cm}
+		{\huge \bfseries \vikcim}\\[0.8cm]
+		\vspace{0.5cm}
+		\textsc{\Large \vikdoktipus}\\[4cm]
+		
+		\begin{tabular}{cc}
+			\makebox[7cm]{\emph{Készítette}} & \makebox[7cm]{\emph{Konzulens}} \\
+			\makebox[7cm]{\vikszerzo} & \makebox[7cm]{\vikkonzulens}
+		\end{tabular}
+		
+		\vfill
+		{\large \today}
+	\end{center}
+\end{titlepage}
 \newpage
 \tableofcontents
 \newpage
@@ -1237,7 +1260,8 @@ Miután kiválasztottuk a stratégiát és rányomunk a checkboxra, a robot foly
 		\caption{Robot stratégiák mérési eredménye}
 		\label{robot-abra}
 		\centering
-		\includegraphics[scale=0.6]{robot-abra}
+		\includegraphics[scale=0.6]{rob-abra1}
+		\includegraphics[scale=0.6]{rob-abra2}
 	\end{figure}
 \end{itemize}
  

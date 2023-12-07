@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9) (preloaded format=pdflatex 2023.10.2)  7 DEC 2023 01:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.9) (preloaded format=pdflatex 2023.10.2)  7 DEC 2023 22:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -439,12 +439,6 @@ es\glossary-tree.sty
 Package: glossary-tree 2023/09/29 v4.53 (NLCT)
 \glstreeindent=\skip67
 ))
-\glswrite=\write3
-\glo@main@file=\write4
-\openout4 = `document.glo'.
-
-Package glossaries Info: Writing glossary file document.glo on input line 53.
-
 (C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3bac
 kend-pdftex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
@@ -453,20 +447,20 @@ File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 ) (document.aux)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
 \c@lstlisting=\count314
 
 (C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\sup
@@ -498,48 +492,62 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 s
 LaTeX Info: Redefining \cal on input line 497.
 LaTeX Info: Redefining \mit on input line 498.
-) [1
+)
+<./images/BMElogo.png, id=1, 975.645pt x 273.02pt>
+File: ./images/BMElogo.png Graphic file (type png)
+<use ./images/BMElogo.png>
+Package pdftex.def Info: ./images/BMElogo.png  used on input line 63.
+(pdftex.def)             Requested size: 170.71652pt x 47.77087pt.
 
-\openout3 = `document.ist'.
+Overfull \hbox (77.3386pt too wide) in paragraph at lines 74--78
+ [][] 
+ []
+
+[1
 
 
-{C:/Users/Bozsik Jozsef/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (doc
-ument.toc)
-\tf@toc=\write5
-\openout5 = `document.toc'.
+{C:/Users/Bozsik Jozsef/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./im
+ages/BMElogo.png>] (document.toc)
+\tf@toc=\write3
+\openout3 = `document.toc'.
 
  [2] [3]
-Overfull \hbox (1.44684pt too wide) in paragraph at lines 85--91
+Overfull \hbox (1.44684pt too wide) in paragraph at lines 108--114
 []\T1/cmr/m/n/10 Ebben a do-ku-men-tum-ban össze-fog-la-lom, hogy ho-gyan imp-l
 e-men-tál-tam, mind
  []
 
 [4] [5] [6]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-54.
+77.
 
 (C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-<./images/folyamatabra.png, id=29, 681.29532pt x 444.15938pt>
+<./images/folyamatabra.png, id=31, 694.84593pt x 446.41782pt>
 File: ./images/folyamatabra.png Graphic file (type png)
 <use ./images/folyamatabra.png>
-Package pdftex.def Info: ./images/folyamatabra.png  used on input line 164.
-(pdftex.def)             Requested size: 340.64682pt x 222.07913pt.
+Package pdftex.def Info: ./images/folyamatabra.png  used on input line 187.
+(pdftex.def)             Requested size: 347.4221pt x 223.20836pt.
+
+Overfull \hbox (2.4221pt too wide) in paragraph at lines 187--189
+ [][]
+ []
+
 [7]
 (C:\Users\Bozsik Jozsef\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlan
 g1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) [8 <./images/folyamatabra.png>] [9]
 
-LaTeX Warning: Float too large for page by 9.83118pt on input line 313.
+LaTeX Warning: Float too large for page by 9.83118pt on input line 336.
 
 
-Underfull \vbox (badness 6927) has occurred while \output is active []
+Underfull \vbox (badness 2189) has occurred while \output is active []
 
  [10]
 [11]
-Overfull \hbox (2.33075pt too wide) in paragraph at lines 328--329
+Overfull \hbox (2.33075pt too wide) in paragraph at lines 351--352
 \T1/cmr/m/n/10 A web-al-kal-ma-zá-sok fel-épí-té-se egy-sze-r¶-en meg-fo-gal-ma
 z-va a kö-vet-ke-z®: a backend-
  []
@@ -549,23 +557,23 @@ z-va a kö-vet-ke-z®: a backend-
 g1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) [14] [15]
-<./images/keycloak-login.png, id=65, 666.23906pt x 347.79938pt>
+<./images/keycloak-login.png, id=67, 666.23906pt x 347.79938pt>
 File: ./images/keycloak-login.png Graphic file (type png)
 <use ./images/keycloak-login.png>
-Package pdftex.def Info: ./images/keycloak-login.png  used on input line 441.
+Package pdftex.def Info: ./images/keycloak-login.png  used on input line 464.
 (pdftex.def)             Requested size: 333.11871pt x 173.89926pt.
  [16 <./images/keycloak-login.png>] [17] [18]
-<./images/backend-pipeline.png, id=76, 764.10469pt x 97.11281pt>
+<./images/backend-pipeline.png, id=78, 764.10469pt x 97.11281pt>
 File: ./images/backend-pipeline.png Graphic file (type png)
 <use ./images/backend-pipeline.png>
-Package pdftex.def Info: ./images/backend-pipeline.png  used on input line 559.
+Package pdftex.def Info: ./images/backend-pipeline.png  used on input line 582.
 
 (pdftex.def)             Requested size: 343.84393pt x 43.70035pt.
  [19 <./images/backend-pipeline.png>] [20] [21] [22] [23] [24] [25]
-<./images/keycloak-cients.png, id=101, 548.0475pt x 389.20406pt>
+<./images/keycloak-cients.png, id=103, 548.0475pt x 389.20406pt>
 File: ./images/keycloak-cients.png Graphic file (type png)
 <use ./images/keycloak-cients.png>
-Package pdftex.def Info: ./images/keycloak-cients.png  used on input line 708.
+Package pdftex.def Info: ./images/keycloak-cients.png  used on input line 731.
 (pdftex.def)             Requested size: 274.02307pt x 194.60155pt.
  [26
 
@@ -578,65 +586,65 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 c.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 ) [27 <./images/keycloak-cients.png>]
-<./images/jwt.png, id=109, 821.31844pt x 432.11438pt>
+<./images/jwt.png, id=111, 821.31844pt x 432.11438pt>
 File: ./images/jwt.png Graphic file (type png)
 <use ./images/jwt.png>
-Package pdftex.def Info: ./images/jwt.png  used on input line 777.
+Package pdftex.def Info: ./images/jwt.png  used on input line 800.
 (pdftex.def)             Requested size: 287.46576pt x 151.2423pt.
  [28] [29 <./images/jwt.png>]
-<./images/getTokens.png, id=117, 485.56406pt x 460.72125pt>
+<./images/getTokens.png, id=119, 485.56406pt x 460.72125pt>
 File: ./images/getTokens.png Graphic file (type png)
 <use ./images/getTokens.png>
-Package pdftex.def Info: ./images/getTokens.png  used on input line 813.
+Package pdftex.def Info: ./images/getTokens.png  used on input line 836.
 (pdftex.def)             Requested size: 242.78143pt x 230.36006pt.
 
 [30] [31 <./images/getTokens.png>] [32] [33] [34]
-<./images/board.png, id=135, 558.58687pt x 213.79875pt>
+<./images/board.png, id=137, 558.58687pt x 213.79875pt>
 File: ./images/board.png Graphic file (type png)
 <use ./images/board.png>
-Package pdftex.def Info: ./images/board.png  used on input line 928.
+Package pdftex.def Info: ./images/board.png  used on input line 951.
 (pdftex.def)             Requested size: 351.91159pt x 134.69391pt.
 
-Overfull \hbox (6.91159pt too wide) in paragraph at lines 928--929
+Overfull \hbox (6.91159pt too wide) in paragraph at lines 951--952
  [][] 
  []
 
-<./images/playingboard.png, id=136, 964.35281pt x 688.07062pt>
+<./images/playingboard.png, id=138, 964.35281pt x 688.07062pt>
 File: ./images/playingboard.png Graphic file (type png)
 <use ./images/playingboard.png>
-Package pdftex.def Info: ./images/playingboard.png  used on input line 939.
+Package pdftex.def Info: ./images/playingboard.png  used on input line 962.
 (pdftex.def)             Requested size: 337.52853pt x 240.82832pt.
 [35 <./images/board.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [36 <./images/playingboard.png>]
-<./images/game-end.png, id=145, 1047.16219pt x 258.21469pt>
+<./images/game-end.png, id=147, 1047.16219pt x 258.21469pt>
 File: ./images/game-end.png Graphic file (type png)
 <use ./images/game-end.png>
-Package pdftex.def Info: ./images/game-end.png  used on input line 949.
+Package pdftex.def Info: ./images/game-end.png  used on input line 972.
 (pdftex.def)             Requested size: 335.09874pt x 82.63039pt.
  [37 <./images/game-end.png>] [38]
-Overfull \hbox (2.91504pt too wide) in paragraph at lines 1001--1002
+Overfull \hbox (2.91504pt too wide) in paragraph at lines 1024--1025
 \T1/cmr/m/n/10 Ezek-nek a me-z®k-nek a ko-or-di-ná-tá-it el-men-tet-tem egy \T1
 /cmtt/m/n/10 startingPointCoordinat-
  []
 
 [39]
-<./images/7espalya.png, id=163, 903.375pt x 852.18375pt>
+<./images/7espalya.png, id=165, 903.375pt x 852.18375pt>
 File: ./images/7espalya.png Graphic file (type png)
 <use ./images/7espalya.png>
-Package pdftex.def Info: ./images/7espalya.png  used on input line 1031.
+Package pdftex.def Info: ./images/7espalya.png  used on input line 1054.
 (pdftex.def)             Requested size: 451.6864pt x 426.09082pt.
 
-Overfull \hbox (106.6864pt too wide) in paragraph at lines 1031--1032
+Overfull \hbox (106.6864pt too wide) in paragraph at lines 1054--1055
  [][] 
  []
 
 [40] [41 <./images/7espalya.png>]
-<./images/babu.png, id=171, 109.1578pt x 115.18031pt>
+<./images/babu.png, id=173, 109.1578pt x 115.18031pt>
 File: ./images/babu.png Graphic file (type png)
 <use ./images/babu.png>
-Package pdftex.def Info: ./images/babu.png  used on input line 1045.
+Package pdftex.def Info: ./images/babu.png  used on input line 1068.
 (pdftex.def)             Requested size: 54.57877pt x 57.59pt.
  [42 <./images/babu.png>] [43] [44] [45]
 [46]
@@ -644,16 +652,21 @@ Underfull \vbox (badness 2012) has occurred while \output is active []
 
  [47]
 [48]
-<./images/robot-abra.png, id=195, 380.17032pt x 244.66406pt>
-File: ./images/robot-abra.png Graphic file (type png)
-<use ./images/robot-abra.png>
-Package pdftex.def Info: ./images/robot-abra.png  used on input line 1240.
-(pdftex.def)             Requested size: 228.10394pt x 146.79956pt.
+<./images/rob-abra1.png, id=197, 269.50688pt x 161.10187pt>
+File: ./images/rob-abra1.png Graphic file (type png)
+<use ./images/rob-abra1.png>
+Package pdftex.def Info: ./images/rob-abra1.png  used on input line 1263.
+(pdftex.def)             Requested size: 161.70537pt x 96.66187pt.
+<./images/rob-abra2.png, id=198, 262.73157pt x 166.37157pt>
+File: ./images/rob-abra2.png Graphic file (type png)
+<use ./images/rob-abra2.png>
+Package pdftex.def Info: ./images/rob-abra2.png  used on input line 1264.
+(pdftex.def)             Requested size: 157.64014pt x 99.82368pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [49]
-[50 <./images/robot-abra.png>] (document.bbl
+[50 <./images/rob-abra1.png> <./images/rob-abra2.png>] (document.bbl
 Underfull \hbox (badness 3439) in paragraph at lines 9--12
 []\T1/cmr/m/n/10 Dependency In-jec-ti-on prog-ra-mo-zá-si tech-ni-ka le-írás.  
 $\T1/cmtt/m/n/10 https : / / en .
@@ -677,24 +690,18 @@ Underfull \hbox (badness 3977) in paragraph at lines 95--98
 / / en . wikipedia . org / wiki /
  []
 
-[51])
-
-Package glossaries Warning: No \printglossary or \printglossaries found. 
-(Remove \makeglossaries if you don't want any glossaries.) 
-This document will not have a glossary.
-
-[52] (document.aux)
+[51]) [52] (document.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14099 strings out of 475247
- 248893 string characters out of 5753980
- 2067801 words of memory out of 5000000
- 35432 multiletter control sequences out of 15000+600000
- 571721 words of font info for 64 fonts, out of 8000000 for 9000
+ 14035 strings out of 475247
+ 248126 string characters out of 5753980
+ 2068801 words of memory out of 5000000
+ 35369 multiletter control sequences out of 15000+600000
+ 572715 words of font info for 63 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  94i,8n,97p,2983b,1550s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
@@ -706,23 +713,24 @@ sef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Us
 ers\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0
 600.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
 c/dpi600\ecrm0700.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljf
-our/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTe
-X\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Bozsik Jozsef\AppDa
-ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Bozsi
-k Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <
+our/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTe
+X\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Bozsik Jozsef\AppDa
+ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Bozsi
+k Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1440.pk> <
 C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
-ecrm1200.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecrm1728.pk><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Bozsik Jozsef/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Bozsik Joz
-sef/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/
-Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmr7.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on document.pdf (52 pages, 691528 bytes).
+ecbx2074.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecrm1000.pk> <C:\Users\Bozsik Jozsef\AppData\Local\MiKTeX\fonts/p
+k/ljfour/jknappen/ec/dpi600\ecbx1000.pk><C:/Users/Bozsik Jozsef/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Bozsik Jozse
+f/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Us
+ers/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmr10.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr7.pfb><C:/Users/Bozsik Jozsef/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Bozsik Jozsef/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on document.pdf (52 pages, 707722 bytes).
 PDF statistics:
- 701 PDF objects out of 1000 (max. 8388607)
+ 720 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 
